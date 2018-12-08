@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EducationProject
+namespace EducationProject.View.Student
 {
-    public partial class Form1 : Form
+    public partial class Sent : Form
     {
-        public Form1()
+        public Sent()
         {
             InitializeComponent();
         }
