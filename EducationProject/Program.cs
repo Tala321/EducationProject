@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EducationProject.View.Teacher
+namespace EducationProject.View.Mentor
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace EducationProject.View.Teacher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Teacher());
+            Application.Run(new Mentor());
         }
     }
 }

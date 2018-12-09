@@ -1,6 +1,6 @@
 ﻿namespace EducationProject.View.Teacher
 {
-    partial class TeacherMessageToCollegue
+    partial class TeacherMessageToColleague
     {
         /// <summary>
         /// Required designer variable.

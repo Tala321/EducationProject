@@ -46,6 +46,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\Mentor\MentorInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mentor\MentorInbox.Designer.cs">
+      <DependentUpon>MentorInbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mentor\Mentor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mentor\Mentor.Designer.cs">
+      <DependentUpon>Mentor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mentor\MentorEditInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mentor\MentorEditInfo.Designer.cs">
+      <DependentUpon>MentorEditInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mentor\MentorMessageToMentor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mentor\MentorMessageToMentor.Designer.cs">
+      <DependentUpon>MentorMessageToMentor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mentor\MentorMessageToGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mentor\MentorMessageToGroup.Designer.cs">
+      <DependentUpon>MentorMessageToGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mentor\MentorMessageToTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mentor\MentorMessageToTeacher.Designer.cs">
+      <DependentUpon>MentorMessageToTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mentor\MentorSent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mentor\MentorSent.Designer.cs">
+      <DependentUpon>MentorSent.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Student\StudentInbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,17 +144,11 @@
     <Compile Include="View\Teacher\TeacherInbox.Designer.cs">
       <DependentUpon>TeacherInbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherMentorInfo.cs">
+    <Compile Include="View\Teacher\TeacherMessageToColleague.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherMentorInfo.Designer.cs">
-      <DependentUpon>TeacherMentorInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Teacher\TeacherMessageToCollegue.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Teacher\TeacherMessageToCollegue.Designer.cs">
-      <DependentUpon>TeacherMessageToCollegue.cs</DependentUpon>
+    <Compile Include="View\Teacher\TeacherMessageToColleague.Designer.cs">
+      <DependentUpon>TeacherMessageToColleague.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Teacher\TeacherMessageToMentor.cs">
       <SubType>Form</SubType>
@@ -156,6 +192,27 @@
     <Compile Include="View\Teacher\TeacherEditInfo.Designer.cs">
       <DependentUpon>TeacherEditInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Mentor\MentorInbox.resx">
+      <DependentUpon>MentorInbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mentor\Mentor.resx">
+      <DependentUpon>Mentor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mentor\MentorEditInfo.resx">
+      <DependentUpon>MentorEditInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mentor\MentorMessageToMentor.resx">
+      <DependentUpon>MentorMessageToMentor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mentor\MentorMessageToGroup.resx">
+      <DependentUpon>MentorMessageToGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mentor\MentorMessageToTeacher.resx">
+      <DependentUpon>MentorMessageToTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mentor\MentorSent.resx">
+      <DependentUpon>MentorSent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Student\StudentInbox.resx">
       <DependentUpon>StudentInbox.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,11 +249,8 @@
     <EmbeddedResource Include="View\Teacher\TeacherInbox.resx">
       <DependentUpon>TeacherInbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherMentorInfo.resx">
-      <DependentUpon>TeacherMentorInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherMessageToCollegue.resx">
-      <DependentUpon>TeacherMessageToCollegue.cs</DependentUpon>
+    <EmbeddedResource Include="View\Teacher\TeacherMessageToColleague.resx">
+      <DependentUpon>TeacherMessageToColleague.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Teacher\TeacherMessageToGroup.resx">
       <DependentUpon>TeacherMessageToGroup.cs</DependentUpon>
@@ -232,8 +286,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

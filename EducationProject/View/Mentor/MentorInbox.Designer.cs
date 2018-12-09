@@ -1,6 +1,6 @@
-﻿namespace EducationProject.View.Teacher
+﻿namespace EducationProject.View.Mentor
 {
-    partial class TeacherMentorInfo
+    partial class MentorInbox
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // TeacherMentorInfo
+            // MentorInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 303);
-            this.Name = "TeacherMentorInfo";
-            this.Text = "Mentor Info";
+            this.Name = "MentorInbox";
+            this.Text = "Inbox";
             this.ResumeLayout(false);
 
         }

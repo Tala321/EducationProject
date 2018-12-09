@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EducationProject.View.Teacher
+namespace EducationProject.View.Mentor
 {
-    public partial class TeacherMessageToCollegue : Form
+    public partial class MentorMessageToGroup : Form
     {
-        public TeacherMessageToCollegue()
+        public MentorMessageToGroup()
         {
             InitializeComponent();
         }

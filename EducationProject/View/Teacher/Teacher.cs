@@ -27,6 +27,7 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Font = new Font(PanelTeacher.Font.FontFamily, 10);
 
         }
+
         //"Personal Info" option
         private void personalInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -320,13 +321,6 @@ namespace EducationProject.View.Teacher
             MessageToGroup.Show();
         }
 
-        //shows new Form to write to a Collegue
-        private void toCollegueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TeacherMessageToCollegue MessageToCollegue = new TeacherMessageToCollegue();
-            MessageToCollegue.Show();
-        }
-
         //shows sent messages
         private void sentToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -341,20 +335,21 @@ namespace EducationProject.View.Teacher
             TeacherInbox.Show();
         }
 
-        //Collegues option
-        private void colleguesToolStripMenuItem_Click(object sender, EventArgs e)
+        //Colleagues option
+        private void ColleaguesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
+
             //set static items
-            DataGridView dgwTeacherCollegues = new DataGridView();
-            dgwTeacherCollegues.Top = 3;
-            dgwTeacherCollegues.Left = 3;
-            dgwTeacherCollegues.Width = 545;
-            dgwTeacherCollegues.Height = 257;
+            DataGridView dgwTeacherColleagues = new DataGridView();
+            dgwTeacherColleagues.Top = 3;
+            dgwTeacherColleagues.Left = 3;
+            dgwTeacherColleagues.Width = 545;
+            dgwTeacherColleagues.Height = 257;
 
             //add static items
-            PanelTeacher.Controls.Add(dgwTeacherCollegues);
+            PanelTeacher.Controls.Add(dgwTeacherColleagues);
 
         }
 
@@ -401,6 +396,7 @@ namespace EducationProject.View.Teacher
 
         }
 
+        //"Mentor Info" option
         private void mentorInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelTeacher.Controls.Clear();
@@ -485,10 +481,18 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(lblTeacherCurrentMentorEmail);
         }
 
+        //shows new Form to write to a Mentor
         private void TeacherWriteMessageToMentor(object sender, EventArgs e)
         {
             TeacherMessageToMentor MessageToMentor = new TeacherMessageToMentor();
             MessageToMentor.Show();
+        }
+
+        //shows new Form to write to a Colleague
+        private void toColleagueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TeacherMessageToColleague MessageToColleague = new TeacherMessageToColleague();
+            MessageToColleague.Show();
         }
     }
 }

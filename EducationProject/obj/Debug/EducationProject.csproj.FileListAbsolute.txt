@@ -19,9 +19,15 @@ C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\Educ
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherAddTask.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherUpdateTask.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherAssignTask.resources
-C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherMessageToCollegue.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherMessageToGroup.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherMessageToMentor.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherInbox.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherSent.resources
-C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherMentorInfo.resources
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.Mentor.resources
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.MentorEditInfo.resources
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.MentorInbox.resources
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.MentorMessageToGroup.resources
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.MentorMessageToTeacher.resources
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.MentorSent.resources
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherMessageToColleague.resources
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.MentorMessageToMentor.resources

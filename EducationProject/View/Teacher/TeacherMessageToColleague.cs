@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EducationProject.View.Teacher
 {
-    public partial class TeacherMentorInfo : Form
+    public partial class TeacherMessageToColleague : Form
     {
-        public TeacherMentorInfo()
+        public TeacherMessageToColleague()
         {
             InitializeComponent();
         }
