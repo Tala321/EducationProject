@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58F8D677-E2D1-4DC0-92CC-655DDD7D05F1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EducationProject</RootNamespace>
+    <AssemblyName>EducationProject</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="View\Student\StudentInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Student\StudentInbox.Designer.cs">
+      <DependentUpon>StudentInbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\StudentMessageToMentor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Student\StudentMessageToMentor.Designer.cs">
+      <DependentUpon>StudentMessageToMentor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\StudentMessageToTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Student\StudentMessageToTeacher.Designer.cs">
+      <DependentUpon>StudentMessageToTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\StudentEditInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Student\StudentEditInfo.Designer.cs">
+      <DependentUpon>StudentEditInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\StudentSent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Student\StudentSent.Designer.cs">
+      <DependentUpon>StudentSent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Student\Student.Designer.cs">
+      <DependentUpon>Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Student\StudentMessageToGroupmate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Student\StudentMessageToGroupmate.Designer.cs">
+      <DependentUpon>StudentMessageToGroupmate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherAssignTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherAssignTask.Designer.cs">
+      <DependentUpon>TeacherAssignTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherInbox.Designer.cs">
+      <DependentUpon>TeacherInbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherMentorInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherMentorInfo.Designer.cs">
+      <DependentUpon>TeacherMentorInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherMessageToCollegue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherMessageToCollegue.Designer.cs">
+      <DependentUpon>TeacherMessageToCollegue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherMessageToMentor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherMessageToMentor.Designer.cs">
+      <DependentUpon>TeacherMessageToMentor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherMessageToGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherMessageToGroup.Designer.cs">
+      <DependentUpon>TeacherMessageToGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherSent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherSent.Designer.cs">
+      <DependentUpon>TeacherSent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherUpdateTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherUpdateTask.Designer.cs">
+      <DependentUpon>TeacherUpdateTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\Teacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\Teacher.Designer.cs">
+      <DependentUpon>Teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherAddTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherAddTask.Designer.cs">
+      <DependentUpon>TeacherAddTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherEditInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherEditInfo.Designer.cs">
+      <DependentUpon>TeacherEditInfo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Student\StudentInbox.resx">
+      <DependentUpon>StudentInbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Student\StudentMessageToMentor.resx">
+      <DependentUpon>StudentMessageToMentor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Student\StudentEditInfo.resx">
+      <DependentUpon>StudentEditInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Student\StudentMessageToTeacher.resx">
+      <DependentUpon>StudentMessageToTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Student\StudentSent.resx">
+      <DependentUpon>StudentSent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Student\Student.resx">
+      <DependentUpon>Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Student\StudentMessageToGroupmate.resx">
+      <DependentUpon>StudentMessageToGroupmate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherAssignTask.resx">
+      <DependentUpon>TeacherAssignTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherInbox.resx">
+      <DependentUpon>TeacherInbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherMentorInfo.resx">
+      <DependentUpon>TeacherMentorInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherMessageToCollegue.resx">
+      <DependentUpon>TeacherMessageToCollegue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherMessageToGroup.resx">
+      <DependentUpon>TeacherMessageToGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherMessageToMentor.resx">
+      <DependentUpon>TeacherMessageToMentor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherSent.resx">
+      <DependentUpon>TeacherSent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherUpdateTask.resx">
+      <DependentUpon>TeacherUpdateTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\Teacher.resx">
+      <DependentUpon>Teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherAddTask.resx">
+      <DependentUpon>TeacherAddTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherEditInfo.resx">
+      <DependentUpon>TeacherEditInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\Common\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
