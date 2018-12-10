@@ -200,7 +200,7 @@ namespace EducationProject.View.Mentor
             PanelMentor.Controls.Add(btnMentorInfoEdit);
         }
 
-        //"Personal Info"- option
+        //Edit Personal info 
         private void EditMentorPersonalInfo(object sender, EventArgs e)
         {
             MentorEditInfo MentorEditInfo = new MentorEditInfo();
@@ -261,11 +261,11 @@ namespace EducationProject.View.Mentor
             Height = StandartHeight;
 
             //set static items
-            DataGridView dgwMentorMentorsList = new DataGridView();
-            dgwMentorMentorsList.Top = 30;
-            dgwMentorMentorsList.Left = 3;
-            dgwMentorMentorsList.Width = 240;
-            dgwMentorMentorsList.Height = 230;
+            DataGridView dgwMentorTeachersList = new DataGridView();
+            dgwMentorTeachersList.Top = 30;
+            dgwMentorTeachersList.Left = 3;
+            dgwMentorTeachersList.Width = 240;
+            dgwMentorTeachersList.Height = 230;
 
             DataGridView dgwMentorsList = new DataGridView();
             dgwMentorsList.Top = 30;
@@ -274,11 +274,11 @@ namespace EducationProject.View.Mentor
             dgwMentorsList.Height = 230;
 
 
-            Label lblMentorMentorsList = new Label();
-            lblMentorMentorsList.Left = 3;
-            lblMentorMentorsList.Top = 10;
-            lblMentorMentorsList.ForeColor = ForeColor;
-            lblMentorMentorsList.Text = "Mentors List:";
+            Label lblMentorTeachersList = new Label();
+            lblMentorTeachersList.Left = 3;
+            lblMentorTeachersList.Top = 10;
+            lblMentorTeachersList.ForeColor = ForeColor;
+            lblMentorTeachersList.Text = "Teachers List:";
 
 
             Label lblMentorsList = new Label();
@@ -288,10 +288,10 @@ namespace EducationProject.View.Mentor
             lblMentorsList.Text = "Mentors List:";
 
             //add static items
-            PanelMentor.Controls.Add(dgwMentorMentorsList);
+            PanelMentor.Controls.Add(dgwMentorTeachersList);
             PanelMentor.Controls.Add(dgwMentorsList);
             PanelMentor.Controls.Add(lblMentorsList);
-            PanelMentor.Controls.Add(lblMentorMentorsList);
+            PanelMentor.Controls.Add(lblMentorTeachersList);
 
         }
 
@@ -308,7 +308,7 @@ namespace EducationProject.View.Mentor
             MentorMessageToMentor MessageToMentor = new MentorMessageToMentor();
             MessageToMentor.Show();
         }
-
+             
         //Message to Teacher
         private void toTeacherToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -358,5 +358,6 @@ namespace EducationProject.View.Mentor
             PanelMentor.Controls.Add(btnMentorLibraryDownload);
 
         }
+
     }
 }

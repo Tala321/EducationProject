@@ -42,14 +42,14 @@
             this.dwwdaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelMentor = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.PanelMentor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -101,14 +101,14 @@
             // sentToolStripMenuItem
             // 
             this.sentToolStripMenuItem.Name = "sentToolStripMenuItem";
-            this.sentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sentToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.sentToolStripMenuItem.Text = "Sent";
             this.sentToolStripMenuItem.Click += new System.EventHandler(this.sentToolStripMenuItem_Click);
             // 
             // inboxToolStripMenuItem
             // 
             this.inboxToolStripMenuItem.Name = "inboxToolStripMenuItem";
-            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.inboxToolStripMenuItem.Text = "Inbox";
             this.inboxToolStripMenuItem.Click += new System.EventHandler(this.inboxToolStripMenuItem_Click);
             // 
@@ -119,27 +119,27 @@
             this.toTeacherToolStripMenuItem,
             this.toCollegueToolStripMenuItem});
             this.newMessageToolStripMenuItem.Name = "newMessageToolStripMenuItem";
-            this.newMessageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newMessageToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.newMessageToolStripMenuItem.Text = "New Message";
             // 
             // toGroupToolStripMenuItem
             // 
             this.toGroupToolStripMenuItem.Name = "toGroupToolStripMenuItem";
-            this.toGroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toGroupToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.toGroupToolStripMenuItem.Text = "To Group";
             this.toGroupToolStripMenuItem.Click += new System.EventHandler(this.toGroupToolStripMenuItem_Click);
             // 
             // toTeacherToolStripMenuItem
             // 
             this.toTeacherToolStripMenuItem.Name = "toTeacherToolStripMenuItem";
-            this.toTeacherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toTeacherToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.toTeacherToolStripMenuItem.Text = "To Teacher";
             this.toTeacherToolStripMenuItem.Click += new System.EventHandler(this.toTeacherToolStripMenuItem_Click);
             // 
             // toCollegueToolStripMenuItem
             // 
             this.toCollegueToolStripMenuItem.Name = "toCollegueToolStripMenuItem";
-            this.toCollegueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toCollegueToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.toCollegueToolStripMenuItem.Text = "To Mentor";
             this.toCollegueToolStripMenuItem.Click += new System.EventHandler(this.toMentorToolStripMenuItem_Click);
             // 
@@ -159,8 +159,7 @@
             // 
             // PanelMentor
             // 
-            this.PanelMentor.Controls.Add(this.label2);
-            this.PanelMentor.Controls.Add(this.label1);
+            this.PanelMentor.Controls.Add(this.dataGridView3);
             this.PanelMentor.Controls.Add(this.dataGridView2);
             this.PanelMentor.Controls.Add(this.dataGridView1);
             this.PanelMentor.Location = new System.Drawing.Point(13, 28);
@@ -168,41 +167,29 @@
             this.PanelMentor.Size = new System.Drawing.Size(548, 263);
             this.PanelMentor.TabIndex = 1;
             // 
-            // label2
+            // dataGridView1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(302, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(45, 15);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(305, 30);
+            this.dataGridView2.Location = new System.Drawing.Point(201, 208);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(240, 233);
+            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
             this.dataGridView2.TabIndex = 1;
             // 
-            // dataGridView1
+            // dataGridView3
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 230);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(211, 131);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView3.TabIndex = 2;
             // 
             // Mentor
             // 
@@ -217,9 +204,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.PanelMentor.ResumeLayout(false);
-            this.PanelMentor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,8 +228,7 @@
         private System.Windows.Forms.ToolStripMenuItem toGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toTeacherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toCollegueToolStripMenuItem;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
     }

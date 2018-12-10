@@ -28,19 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblStudentSentMessages = new System.Windows.Forms.Label();
+            this.rchbxStudentSentMessages = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // Sent
+            // lblStudentSentMessages
+            // 
+            this.lblStudentSentMessages.AutoSize = true;
+            this.lblStudentSentMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentSentMessages.Location = new System.Drawing.Point(9, 46);
+            this.lblStudentSentMessages.Name = "lblStudentSentMessages";
+            this.lblStudentSentMessages.Size = new System.Drawing.Size(109, 17);
+            this.lblStudentSentMessages.TabIndex = 5;
+            this.lblStudentSentMessages.Text = "Sent Messages:";
+            // 
+            // rchbxStudentSentMessages
+            // 
+            this.rchbxStudentSentMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rchbxStudentSentMessages.Location = new System.Drawing.Point(12, 66);
+            this.rchbxStudentSentMessages.Name = "rchbxStudentSentMessages";
+            this.rchbxStudentSentMessages.Size = new System.Drawing.Size(489, 270);
+            this.rchbxStudentSentMessages.TabIndex = 4;
+            this.rchbxStudentSentMessages.Text = "";
+            // 
+            // StudentSent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 348);
-            this.Name = "Sent";
+            this.Controls.Add(this.lblStudentSentMessages);
+            this.Controls.Add(this.rchbxStudentSentMessages);
+            this.Name = "StudentSent";
             this.Text = "Sent";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblStudentSentMessages;
+        private System.Windows.Forms.RichTextBox rchbxStudentSentMessages;
     }
 }

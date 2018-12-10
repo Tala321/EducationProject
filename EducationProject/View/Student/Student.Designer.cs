@@ -109,12 +109,14 @@
             this.sentToolStripMenuItem.Name = "sentToolStripMenuItem";
             this.sentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sentToolStripMenuItem.Text = "Sent";
+            this.sentToolStripMenuItem.Click += new System.EventHandler(this.sentToolStripMenuItem_Click);
             // 
             // inboxToolStripMenuItem
             // 
             this.inboxToolStripMenuItem.Name = "inboxToolStripMenuItem";
             this.inboxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inboxToolStripMenuItem.Text = "Inbox";
+            this.inboxToolStripMenuItem.Click += new System.EventHandler(this.inboxToolStripMenuItem_Click);
             // 
             // newMessageToolStripMenuItem
             // 

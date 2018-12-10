@@ -285,17 +285,17 @@ namespace EducationProject.View.Teacher
         {
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
-            //set static items
 
+            //set static items
             DataGridView dgwTeacherGroups = new DataGridView();
             dgwTeacherGroups.Top = 3;
             dgwTeacherGroups.Left = 3;
             dgwTeacherGroups.Width = 543;
             dgwTeacherGroups.Height = 137;
 
-
             Label lblTeacherSelectGroups = new Label();
             lblTeacherSelectGroups.Left = 0;
+            lblTeacherSelectGroups.AutoSize = true;
             lblTeacherSelectGroups.Top = 183;
             lblTeacherSelectGroups.ForeColor = ForeColorStatic;
             lblTeacherSelectGroups.Text = "Choose group:";
@@ -353,7 +353,7 @@ namespace EducationProject.View.Teacher
 
         }
 
-        //  "Library" option
+        //"Library" option
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelTeacher.Controls.Clear();

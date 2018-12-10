@@ -297,6 +297,7 @@ namespace EducationProject.View.Student
             messageToTeacher.Show();
         }
 
+        //shows Mentor info
         private void mentorInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelStudent.Controls.Clear();
@@ -363,7 +364,7 @@ namespace EducationProject.View.Student
             PanelStudent.Controls.Add(lblStudentCurrentMentorEmail);
         }
 
-        // shows new Form to write to the Mentor
+        //shows new Form to write to the Mentor
         private void WritePrivateMessageToMentor(object sender, EventArgs e)
         {
             MessageToMentor messageToMentor = new MessageToMentor();
@@ -418,6 +419,20 @@ namespace EducationProject.View.Student
             //add items
             PanelStudent.Controls.Add(dgwStudentLibrary);
             PanelStudent.Controls.Add(btnStudentLibraryDownLoad);
+        }
+
+        //Shows sent messages
+        private void sentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StudentSent StudentSent = new StudentSent();
+            StudentSent.Show();
+        }
+
+        //Shows Inbox messages
+        private void inboxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StudentInbox StudentInbox = new StudentInbox();
+            StudentInbox.Show();
         }
     }
 }
