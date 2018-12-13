@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4f3f566c566b40ad8540175b66d72b65" Name="Diagram1">
+        <EntityTypeShape EntityType="EducationProjectModel.AssignTask" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="EducationProjectModel.GroupCategory" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="EducationProjectModel.GroupCategoryType" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="EducationProjectModel.Group" Width="1.5" PointX="5.25" PointY="8.125" />
+        <EntityTypeShape EntityType="EducationProjectModel.Library" Width="1.5" PointX="5.75" PointY="0.875" />
+        <EntityTypeShape EntityType="EducationProjectModel.Mentor" Width="1.5" PointX="3" PointY="12.125" />
+        <EntityTypeShape EntityType="EducationProjectModel.Package" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="EducationProjectModel.PdfSource" Width="1.5" PointX="7.75" PointY="0.875" />
+        <EntityTypeShape EntityType="EducationProjectModel.Student" Width="1.5" PointX="7.5" PointY="8.125" />
+        <EntityTypeShape EntityType="EducationProjectModel.TaskCategory" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="EducationProjectModel.Task" Width="1.5" PointX="7.5" PointY="4.25" />
+        <EntityTypeShape EntityType="EducationProjectModel.Teacher" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="EducationProjectModel.Transcript" Width="1.5" PointX="9.75" PointY="5.625" />
+        <AssociationConnector Association="EducationProjectModel.AssignTasks_StudentId_to_Task_StudentId" />
+        <AssociationConnector Association="EducationProjectModel.AssignTasks_TaskId_to_Task_TaskId" />
+        <AssociationConnector Association="EducationProjectModel.GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId" />
+        <AssociationConnector Association="EducationProjectModel.Groups_GroupCategoryId_to_GroupCategoryId" />
+        <AssociationConnector Association="EducationProjectModel.Groups_MentorId_to_GroupCategoryId" />
+        <AssociationConnector Association="EducationProjectModel.Groups_programId_to_programId" />
+        <AssociationConnector Association="EducationProjectModel.Groups_TeacherId_to_TeacherId" />
+        <AssociationConnector Association="EducationProjectModel.Students_GroupId_to_GroupId" />
+        <AssociationConnector Association="EducationProjectModel.Mentors_programId_to_programId" />
+        <AssociationConnector Association="EducationProjectModel.Teachers_programId_to_programId" />
+        <AssociationConnector Association="EducationProjectModel.Transcripts_StudentId_to_Students_TaskId" />
+        <AssociationConnector Association="EducationProjectModel.Tasks_TaskCategoryId_to_TaskCategoryId" />
+        <AssociationConnector Association="EducationProjectModel.Transcripts_TaskId_to_Task_TaskId" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

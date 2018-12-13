@@ -1,0 +1,910 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EducationProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssignTasks">
+          <Key>
+            <PropertyRef Name="AssignTaskId" />
+          </Key>
+          <Property Name="AssignTaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskId" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupCategories">
+          <Key>
+            <PropertyRef Name="GroupCategoryId" />
+          </Key>
+          <Property Name="GroupCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupCategoryTypeId" Type="int" Nullable="false" />
+          <Property Name="GroupCategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupCategoryTypes">
+          <Key>
+            <PropertyRef Name="GroupCategoryTypeId" />
+          </Key>
+          <Property Name="GroupCategoryTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupCategoryTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GroupCategoryTypeStartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GroupCategoryTypeEndTime" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackageId" Type="int" Nullable="false" />
+          <Property Name="TeacherId" Type="int" Nullable="false" />
+          <Property Name="MentorId" Type="int" Nullable="false" />
+          <Property Name="GroupCategoryId" Type="int" Nullable="false" />
+          <Property Name="GroupStartDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Library">
+          <Key>
+            <PropertyRef Name="LibraryId" />
+          </Key>
+          <Property Name="LibraryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LibraryItemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LibraryItemUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LibraryItemType" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mentors">
+          <Key>
+            <PropertyRef Name="MentorId" />
+          </Key>
+          <Property Name="MentorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackageId" Type="int" Nullable="false" />
+          <Property Name="MentorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MentorSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MentorEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MentorPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MentorBio" Type="nvarchar(max)" />
+          <Property Name="MentorPhoto" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Packages">
+          <Key>
+            <PropertyRef Name="PackageId" />
+          </Key>
+          <Property Name="PackageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PackageDuration" Type="int" />
+        </EntityType>
+        <EntityType Name="PdfSources">
+          <Key>
+            <PropertyRef Name="PdfSourceId" />
+          </Key>
+          <Property Name="PdfSourceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PdfSourceName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentBirthDate" Type="date" Nullable="false" />
+          <Property Name="StudentEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentRegistrationDate" Type="datetime" />
+          <Property Name="StudentPhoto" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TaskCategories">
+          <Key>
+            <PropertyRef Name="TaskCategoryId" />
+          </Key>
+          <Property Name="TaskCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskCategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaskUrl" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaskStartDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaskDuration" Type="int" Nullable="false" />
+          <Property Name="TaskDetails" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TaskCategoryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+          </Key>
+          <Property Name="TeacherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackageId" Type="int" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeacherSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeacherEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeacherPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeacherBio" Type="nvarchar(max)" />
+          <Property Name="TeacherPhoto" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Transcripts">
+          <Key>
+            <PropertyRef Name="TranscriptsId" />
+          </Key>
+          <Property Name="TranscriptsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskId" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="TaskPoint" Type="int" />
+        </EntityType>
+        <Association Name="AssignTasks_StudentId_to_Task_StudentId">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="AssignTasks" Type="Self.AssignTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="AssignTasks">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssignTasks_TaskId_to_Task_TaskId">
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
+          <End Role="AssignTasks" Type="Self.AssignTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="AssignTasks">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId">
+          <End Role="GroupCategoryTypes" Type="Self.GroupCategoryTypes" Multiplicity="1" />
+          <End Role="GroupCategories" Type="Self.GroupCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupCategoryTypes">
+              <PropertyRef Name="GroupCategoryTypeId" />
+            </Principal>
+            <Dependent Role="GroupCategories">
+              <PropertyRef Name="GroupCategoryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Groups_GroupCategoryId_to_GroupCategoryId">
+          <End Role="GroupCategories" Type="Self.GroupCategories" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupCategories">
+              <PropertyRef Name="GroupCategoryId" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="GroupCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Groups_MentorId_to_GroupCategoryId">
+          <End Role="Mentors" Type="Self.Mentors" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mentors">
+              <PropertyRef Name="MentorId" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="MentorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Groups_programId_to_programId">
+          <End Role="Packages" Type="Self.Packages" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packages">
+              <PropertyRef Name="PackageId" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="PackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Groups_TeacherId_to_TeacherId">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="TeacherId" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mentors_programId_to_programId">
+          <End Role="Packages" Type="Self.Packages" Multiplicity="1" />
+          <End Role="Mentors" Type="Self.Mentors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packages">
+              <PropertyRef Name="PackageId" />
+            </Principal>
+            <Dependent Role="Mentors">
+              <PropertyRef Name="PackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Students_GroupId_to_GroupId">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tasks_TaskCategoryId_to_TaskCategoryId">
+          <End Role="TaskCategories" Type="Self.TaskCategories" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaskCategories">
+              <PropertyRef Name="TaskCategoryId" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="TaskCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Teachers_programId_to_programId">
+          <End Role="Packages" Type="Self.Packages" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packages">
+              <PropertyRef Name="PackageId" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="PackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Transcripts_StudentId_to_Students_TaskId">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="Transcripts" Type="Self.Transcripts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Transcripts">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Transcripts_TaskId_to_Task_TaskId">
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
+          <End Role="Transcripts" Type="Self.Transcripts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="Transcripts">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EducationProjectModelStoreContainer">
+          <EntitySet Name="AssignTasks" EntityType="Self.AssignTasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupCategories" EntityType="Self.GroupCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupCategoryTypes" EntityType="Self.GroupCategoryTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mentors" EntityType="Self.Mentors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PdfSources" EntityType="Self.PdfSources" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskCategories" EntityType="Self.TaskCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transcripts" EntityType="Self.Transcripts" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="AssignTasks_StudentId_to_Task_StudentId" Association="Self.AssignTasks_StudentId_to_Task_StudentId">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="AssignTasks" EntitySet="AssignTasks" />
+          </AssociationSet>
+          <AssociationSet Name="AssignTasks_TaskId_to_Task_TaskId" Association="Self.AssignTasks_TaskId_to_Task_TaskId">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="AssignTasks" EntitySet="AssignTasks" />
+          </AssociationSet>
+          <AssociationSet Name="GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId" Association="Self.GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId">
+            <End Role="GroupCategoryTypes" EntitySet="GroupCategoryTypes" />
+            <End Role="GroupCategories" EntitySet="GroupCategories" />
+          </AssociationSet>
+          <AssociationSet Name="Groups_GroupCategoryId_to_GroupCategoryId" Association="Self.Groups_GroupCategoryId_to_GroupCategoryId">
+            <End Role="GroupCategories" EntitySet="GroupCategories" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="Groups_MentorId_to_GroupCategoryId" Association="Self.Groups_MentorId_to_GroupCategoryId">
+            <End Role="Mentors" EntitySet="Mentors" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="Groups_programId_to_programId" Association="Self.Groups_programId_to_programId">
+            <End Role="Packages" EntitySet="Packages" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="Groups_TeacherId_to_TeacherId" Association="Self.Groups_TeacherId_to_TeacherId">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="Mentors_programId_to_programId" Association="Self.Mentors_programId_to_programId">
+            <End Role="Packages" EntitySet="Packages" />
+            <End Role="Mentors" EntitySet="Mentors" />
+          </AssociationSet>
+          <AssociationSet Name="Students_GroupId_to_GroupId" Association="Self.Students_GroupId_to_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="Tasks_TaskCategoryId_to_TaskCategoryId" Association="Self.Tasks_TaskCategoryId_to_TaskCategoryId">
+            <End Role="TaskCategories" EntitySet="TaskCategories" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="Teachers_programId_to_programId" Association="Self.Teachers_programId_to_programId">
+            <End Role="Packages" EntitySet="Packages" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="Transcripts_StudentId_to_Students_TaskId" Association="Self.Transcripts_StudentId_to_Students_TaskId">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Transcripts" EntitySet="Transcripts" />
+          </AssociationSet>
+          <AssociationSet Name="Transcripts_TaskId_to_Task_TaskId" Association="Self.Transcripts_TaskId_to_Task_TaskId">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="Transcripts" EntitySet="Transcripts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EducationProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EducationProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AssignTasks" EntityType="EducationProjectModel.AssignTask" />
+          <EntitySet Name="GroupCategories" EntityType="EducationProjectModel.GroupCategory" />
+          <EntitySet Name="GroupCategoryTypes" EntityType="EducationProjectModel.GroupCategoryType" />
+          <EntitySet Name="Groups" EntityType="EducationProjectModel.Group" />
+          <EntitySet Name="Libraries" EntityType="EducationProjectModel.Library" />
+          <EntitySet Name="Mentors" EntityType="EducationProjectModel.Mentor" />
+          <EntitySet Name="Packages" EntityType="EducationProjectModel.Package" />
+          <EntitySet Name="PdfSources" EntityType="EducationProjectModel.PdfSource" />
+          <EntitySet Name="Students" EntityType="EducationProjectModel.Student" />
+          <EntitySet Name="TaskCategories" EntityType="EducationProjectModel.TaskCategory" />
+          <EntitySet Name="Tasks" EntityType="EducationProjectModel.Task" />
+          <EntitySet Name="Teachers" EntityType="EducationProjectModel.Teacher" />
+          <EntitySet Name="Transcripts" EntityType="EducationProjectModel.Transcript" />
+          <AssociationSet Name="AssignTasks_StudentId_to_Task_StudentId" Association="EducationProjectModel.AssignTasks_StudentId_to_Task_StudentId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="AssignTask" EntitySet="AssignTasks" />
+          </AssociationSet>
+          <AssociationSet Name="AssignTasks_TaskId_to_Task_TaskId" Association="EducationProjectModel.AssignTasks_TaskId_to_Task_TaskId">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="AssignTask" EntitySet="AssignTasks" />
+          </AssociationSet>
+          <AssociationSet Name="GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId" Association="EducationProjectModel.GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId">
+            <End Role="GroupCategoryType" EntitySet="GroupCategoryTypes" />
+            <End Role="GroupCategory" EntitySet="GroupCategories" />
+          </AssociationSet>
+          <AssociationSet Name="Groups_GroupCategoryId_to_GroupCategoryId" Association="EducationProjectModel.Groups_GroupCategoryId_to_GroupCategoryId">
+            <End Role="GroupCategory" EntitySet="GroupCategories" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="Groups_MentorId_to_GroupCategoryId" Association="EducationProjectModel.Groups_MentorId_to_GroupCategoryId">
+            <End Role="Mentor" EntitySet="Mentors" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="Groups_programId_to_programId" Association="EducationProjectModel.Groups_programId_to_programId">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="Groups_TeacherId_to_TeacherId" Association="EducationProjectModel.Groups_TeacherId_to_TeacherId">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="Students_GroupId_to_GroupId" Association="EducationProjectModel.Students_GroupId_to_GroupId">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="Mentors_programId_to_programId" Association="EducationProjectModel.Mentors_programId_to_programId">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="Mentor" EntitySet="Mentors" />
+          </AssociationSet>
+          <AssociationSet Name="Teachers_programId_to_programId" Association="EducationProjectModel.Teachers_programId_to_programId">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="Transcripts_StudentId_to_Students_TaskId" Association="EducationProjectModel.Transcripts_StudentId_to_Students_TaskId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Transcript" EntitySet="Transcripts" />
+          </AssociationSet>
+          <AssociationSet Name="Tasks_TaskCategoryId_to_TaskCategoryId" Association="EducationProjectModel.Tasks_TaskCategoryId_to_TaskCategoryId">
+            <End Role="TaskCategory" EntitySet="TaskCategories" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="Transcripts_TaskId_to_Task_TaskId" Association="EducationProjectModel.Transcripts_TaskId_to_Task_TaskId">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="Transcript" EntitySet="Transcripts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AssignTask">
+          <Key>
+            <PropertyRef Name="AssignTaskId" />
+          </Key>
+          <Property Name="AssignTaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="EducationProjectModel.AssignTasks_StudentId_to_Task_StudentId" FromRole="AssignTask" ToRole="Student" />
+          <NavigationProperty Name="Task" Relationship="EducationProjectModel.AssignTasks_TaskId_to_Task_TaskId" FromRole="AssignTask" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="GroupCategory">
+          <Key>
+            <PropertyRef Name="GroupCategoryId" />
+          </Key>
+          <Property Name="GroupCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupCategoryTypeId" Type="Int32" Nullable="false" />
+          <Property Name="GroupCategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GroupCategoryType" Relationship="EducationProjectModel.GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId" FromRole="GroupCategory" ToRole="GroupCategoryType" />
+          <NavigationProperty Name="Groups" Relationship="EducationProjectModel.Groups_GroupCategoryId_to_GroupCategoryId" FromRole="GroupCategory" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="GroupCategoryType">
+          <Key>
+            <PropertyRef Name="GroupCategoryTypeId" />
+          </Key>
+          <Property Name="GroupCategoryTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupCategoryTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupCategoryTypeStartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GroupCategoryTypeEndTime" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="GroupCategories" Relationship="EducationProjectModel.GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId" FromRole="GroupCategoryType" ToRole="GroupCategory" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackageId" Type="Int32" Nullable="false" />
+          <Property Name="TeacherId" Type="Int32" Nullable="false" />
+          <Property Name="MentorId" Type="Int32" Nullable="false" />
+          <Property Name="GroupCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="GroupStartDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="GroupCategory" Relationship="EducationProjectModel.Groups_GroupCategoryId_to_GroupCategoryId" FromRole="Group" ToRole="GroupCategory" />
+          <NavigationProperty Name="Mentor" Relationship="EducationProjectModel.Groups_MentorId_to_GroupCategoryId" FromRole="Group" ToRole="Mentor" />
+          <NavigationProperty Name="Package" Relationship="EducationProjectModel.Groups_programId_to_programId" FromRole="Group" ToRole="Package" />
+          <NavigationProperty Name="Teacher" Relationship="EducationProjectModel.Groups_TeacherId_to_TeacherId" FromRole="Group" ToRole="Teacher" />
+          <NavigationProperty Name="Students" Relationship="EducationProjectModel.Students_GroupId_to_GroupId" FromRole="Group" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Library">
+          <Key>
+            <PropertyRef Name="LibraryId" />
+          </Key>
+          <Property Name="LibraryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LibraryItemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LibraryItemUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LibraryItemType" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mentor">
+          <Key>
+            <PropertyRef Name="MentorId" />
+          </Key>
+          <Property Name="MentorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackageId" Type="Int32" Nullable="false" />
+          <Property Name="MentorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MentorSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MentorEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MentorPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MentorBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MentorPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Groups" Relationship="EducationProjectModel.Groups_MentorId_to_GroupCategoryId" FromRole="Mentor" ToRole="Group" />
+          <NavigationProperty Name="Package" Relationship="EducationProjectModel.Mentors_programId_to_programId" FromRole="Mentor" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="PackageId" />
+          </Key>
+          <Property Name="PackageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PackageDuration" Type="Int32" />
+          <NavigationProperty Name="Groups" Relationship="EducationProjectModel.Groups_programId_to_programId" FromRole="Package" ToRole="Group" />
+          <NavigationProperty Name="Mentors" Relationship="EducationProjectModel.Mentors_programId_to_programId" FromRole="Package" ToRole="Mentor" />
+          <NavigationProperty Name="Teachers" Relationship="EducationProjectModel.Teachers_programId_to_programId" FromRole="Package" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="PdfSource">
+          <Key>
+            <PropertyRef Name="PdfSourceId" />
+          </Key>
+          <Property Name="PdfSourceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PdfSourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="StudentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentBirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StudentEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentRegistrationDate" Type="DateTime" Precision="3" />
+          <Property Name="StudentPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AssignTasks" Relationship="EducationProjectModel.AssignTasks_StudentId_to_Task_StudentId" FromRole="Student" ToRole="AssignTask" />
+          <NavigationProperty Name="Group" Relationship="EducationProjectModel.Students_GroupId_to_GroupId" FromRole="Student" ToRole="Group" />
+          <NavigationProperty Name="Transcripts" Relationship="EducationProjectModel.Transcripts_StudentId_to_Students_TaskId" FromRole="Student" ToRole="Transcript" />
+        </EntityType>
+        <EntityType Name="TaskCategory">
+          <Key>
+            <PropertyRef Name="TaskCategoryId" />
+          </Key>
+          <Property Name="TaskCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskCategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tasks" Relationship="EducationProjectModel.Tasks_TaskCategoryId_to_TaskCategoryId" FromRole="TaskCategory" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaskUrl" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaskStartDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaskDuration" Type="Int32" Nullable="false" />
+          <Property Name="TaskDetails" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaskCategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AssignTasks" Relationship="EducationProjectModel.AssignTasks_TaskId_to_Task_TaskId" FromRole="Task" ToRole="AssignTask" />
+          <NavigationProperty Name="TaskCategory" Relationship="EducationProjectModel.Tasks_TaskCategoryId_to_TaskCategoryId" FromRole="Task" ToRole="TaskCategory" />
+          <NavigationProperty Name="Transcripts" Relationship="EducationProjectModel.Transcripts_TaskId_to_Task_TaskId" FromRole="Task" ToRole="Transcript" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+          </Key>
+          <Property Name="TeacherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackageId" Type="Int32" Nullable="false" />
+          <Property Name="TeacherName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Groups" Relationship="EducationProjectModel.Groups_TeacherId_to_TeacherId" FromRole="Teacher" ToRole="Group" />
+          <NavigationProperty Name="Package" Relationship="EducationProjectModel.Teachers_programId_to_programId" FromRole="Teacher" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="Transcript">
+          <Key>
+            <PropertyRef Name="TranscriptsId" />
+          </Key>
+          <Property Name="TranscriptsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="TaskPoint" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="EducationProjectModel.Transcripts_StudentId_to_Students_TaskId" FromRole="Transcript" ToRole="Student" />
+          <NavigationProperty Name="Task" Relationship="EducationProjectModel.Transcripts_TaskId_to_Task_TaskId" FromRole="Transcript" ToRole="Task" />
+        </EntityType>
+        <Association Name="AssignTasks_StudentId_to_Task_StudentId">
+          <End Type="EducationProjectModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="EducationProjectModel.AssignTask" Role="AssignTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="AssignTask">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AssignTasks_TaskId_to_Task_TaskId">
+          <End Type="EducationProjectModel.Task" Role="Task" Multiplicity="1" />
+          <End Type="EducationProjectModel.AssignTask" Role="AssignTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="AssignTask">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId">
+          <End Type="EducationProjectModel.GroupCategoryType" Role="GroupCategoryType" Multiplicity="1" />
+          <End Type="EducationProjectModel.GroupCategory" Role="GroupCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupCategoryType">
+              <PropertyRef Name="GroupCategoryTypeId" />
+            </Principal>
+            <Dependent Role="GroupCategory">
+              <PropertyRef Name="GroupCategoryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Groups_GroupCategoryId_to_GroupCategoryId">
+          <End Type="EducationProjectModel.GroupCategory" Role="GroupCategory" Multiplicity="1" />
+          <End Type="EducationProjectModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupCategory">
+              <PropertyRef Name="GroupCategoryId" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="GroupCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Groups_MentorId_to_GroupCategoryId">
+          <End Type="EducationProjectModel.Mentor" Role="Mentor" Multiplicity="1" />
+          <End Type="EducationProjectModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mentor">
+              <PropertyRef Name="MentorId" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="MentorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Groups_programId_to_programId">
+          <End Type="EducationProjectModel.Package" Role="Package" Multiplicity="1" />
+          <End Type="EducationProjectModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="PackageId" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="PackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Groups_TeacherId_to_TeacherId">
+          <End Type="EducationProjectModel.Teacher" Role="Teacher" Multiplicity="1" />
+          <End Type="EducationProjectModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherId" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Students_GroupId_to_GroupId">
+          <End Type="EducationProjectModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="EducationProjectModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mentors_programId_to_programId">
+          <End Type="EducationProjectModel.Package" Role="Package" Multiplicity="1" />
+          <End Type="EducationProjectModel.Mentor" Role="Mentor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="PackageId" />
+            </Principal>
+            <Dependent Role="Mentor">
+              <PropertyRef Name="PackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Teachers_programId_to_programId">
+          <End Type="EducationProjectModel.Package" Role="Package" Multiplicity="1" />
+          <End Type="EducationProjectModel.Teacher" Role="Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="PackageId" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="PackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Transcripts_StudentId_to_Students_TaskId">
+          <End Type="EducationProjectModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="EducationProjectModel.Transcript" Role="Transcript" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Transcript">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tasks_TaskCategoryId_to_TaskCategoryId">
+          <End Type="EducationProjectModel.TaskCategory" Role="TaskCategory" Multiplicity="1" />
+          <End Type="EducationProjectModel.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaskCategory">
+              <PropertyRef Name="TaskCategoryId" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="TaskCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Transcripts_TaskId_to_Task_TaskId">
+          <End Type="EducationProjectModel.Task" Role="Task" Multiplicity="1" />
+          <End Type="EducationProjectModel.Transcript" Role="Transcript" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="Transcript">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EducationProjectModelStoreContainer" CdmEntityContainer="EducationProjectEntities">
+          <EntitySetMapping Name="AssignTasks">
+            <EntityTypeMapping TypeName="EducationProjectModel.AssignTask">
+              <MappingFragment StoreEntitySet="AssignTasks">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="AssignTaskId" ColumnName="AssignTaskId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupCategories">
+            <EntityTypeMapping TypeName="EducationProjectModel.GroupCategory">
+              <MappingFragment StoreEntitySet="GroupCategories">
+                <ScalarProperty Name="GroupCategoryName" ColumnName="GroupCategoryName" />
+                <ScalarProperty Name="GroupCategoryTypeId" ColumnName="GroupCategoryTypeId" />
+                <ScalarProperty Name="GroupCategoryId" ColumnName="GroupCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupCategoryTypes">
+            <EntityTypeMapping TypeName="EducationProjectModel.GroupCategoryType">
+              <MappingFragment StoreEntitySet="GroupCategoryTypes">
+                <ScalarProperty Name="GroupCategoryTypeEndTime" ColumnName="GroupCategoryTypeEndTime" />
+                <ScalarProperty Name="GroupCategoryTypeStartTime" ColumnName="GroupCategoryTypeStartTime" />
+                <ScalarProperty Name="GroupCategoryTypeName" ColumnName="GroupCategoryTypeName" />
+                <ScalarProperty Name="GroupCategoryTypeId" ColumnName="GroupCategoryTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="EducationProjectModel.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="GroupStartDate" ColumnName="GroupStartDate" />
+                <ScalarProperty Name="GroupCategoryId" ColumnName="GroupCategoryId" />
+                <ScalarProperty Name="MentorId" ColumnName="MentorId" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Libraries">
+            <EntityTypeMapping TypeName="EducationProjectModel.Library">
+              <MappingFragment StoreEntitySet="Library">
+                <ScalarProperty Name="LibraryItemType" ColumnName="LibraryItemType" />
+                <ScalarProperty Name="LibraryItemUrl" ColumnName="LibraryItemUrl" />
+                <ScalarProperty Name="LibraryItemName" ColumnName="LibraryItemName" />
+                <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mentors">
+            <EntityTypeMapping TypeName="EducationProjectModel.Mentor">
+              <MappingFragment StoreEntitySet="Mentors">
+                <ScalarProperty Name="MentorPhoto" ColumnName="MentorPhoto" />
+                <ScalarProperty Name="MentorBio" ColumnName="MentorBio" />
+                <ScalarProperty Name="MentorPhone" ColumnName="MentorPhone" />
+                <ScalarProperty Name="MentorEmail" ColumnName="MentorEmail" />
+                <ScalarProperty Name="MentorSurname" ColumnName="MentorSurname" />
+                <ScalarProperty Name="MentorName" ColumnName="MentorName" />
+                <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+                <ScalarProperty Name="MentorId" ColumnName="MentorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Packages">
+            <EntityTypeMapping TypeName="EducationProjectModel.Package">
+              <MappingFragment StoreEntitySet="Packages">
+                <ScalarProperty Name="PackageDuration" ColumnName="PackageDuration" />
+                <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+                <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PdfSources">
+            <EntityTypeMapping TypeName="EducationProjectModel.PdfSource">
+              <MappingFragment StoreEntitySet="PdfSources">
+                <ScalarProperty Name="PdfSourceName" ColumnName="PdfSourceName" />
+                <ScalarProperty Name="PdfSourceId" ColumnName="PdfSourceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="EducationProjectModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="StudentPhoto" ColumnName="StudentPhoto" />
+                <ScalarProperty Name="StudentRegistrationDate" ColumnName="StudentRegistrationDate" />
+                <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />
+                <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+                <ScalarProperty Name="StudentBirthDate" ColumnName="StudentBirthDate" />
+                <ScalarProperty Name="StudentSurname" ColumnName="StudentSurname" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskCategories">
+            <EntityTypeMapping TypeName="EducationProjectModel.TaskCategory">
+              <MappingFragment StoreEntitySet="TaskCategories">
+                <ScalarProperty Name="TaskCategoryName" ColumnName="TaskCategoryName" />
+                <ScalarProperty Name="TaskCategoryId" ColumnName="TaskCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="EducationProjectModel.Task">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="TaskCategoryId" ColumnName="TaskCategoryId" />
+                <ScalarProperty Name="TaskDetails" ColumnName="TaskDetails" />
+                <ScalarProperty Name="TaskDuration" ColumnName="TaskDuration" />
+                <ScalarProperty Name="TaskStartDate" ColumnName="TaskStartDate" />
+                <ScalarProperty Name="TaskUrl" ColumnName="TaskUrl" />
+                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="EducationProjectModel.Teacher">
+              <MappingFragment StoreEntitySet="Teachers">
+                <ScalarProperty Name="TeacherPhoto" ColumnName="TeacherPhoto" />
+                <ScalarProperty Name="TeacherBio" ColumnName="TeacherBio" />
+                <ScalarProperty Name="TeacherPhone" ColumnName="TeacherPhone" />
+                <ScalarProperty Name="TeacherEmail" ColumnName="TeacherEmail" />
+                <ScalarProperty Name="TeacherSurname" ColumnName="TeacherSurname" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transcripts">
+            <EntityTypeMapping TypeName="EducationProjectModel.Transcript">
+              <MappingFragment StoreEntitySet="Transcripts">
+                <ScalarProperty Name="TaskPoint" ColumnName="TaskPoint" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="TranscriptsId" ColumnName="TranscriptsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

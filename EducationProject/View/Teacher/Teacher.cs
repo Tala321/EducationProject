@@ -13,6 +13,15 @@ namespace EducationProject.View.Teacher
 {
     public partial class Teacher : Form
     {
+        //DataBase
+        EducationProjectEntities db = new EducationProjectEntities();
+
+        //declaree dataGridView
+        DataGridView dgwTeacherLibraryList = new DataGridView();
+
+        // holds source id
+        int SourceId;
+
         private new Color ForeColor = Color.FromName("ControlText");
         private Color ForeColorStatic = Color.FromName("ControlDarkDark");
 
@@ -224,6 +233,7 @@ namespace EducationProject.View.Teacher
             dgwTeacherAllTasks.Width = 543;
             dgwTeacherAllTasks.Height = 137;
 
+
             Button btnTeacherAddTask = new Button();
             btnTeacherAddTask.Left = 132;
             btnTeacherAddTask.Top = 174;
@@ -361,11 +371,18 @@ namespace EducationProject.View.Teacher
 
             //set static items
 
-            DataGridView dgwTeacherLibrary = new DataGridView();
-            dgwTeacherLibrary.Top = 3;
-            dgwTeacherLibrary.Left = 3;
-            dgwTeacherLibrary.Width = 543;
-            dgwTeacherLibrary.Height = 137;
+
+            dgwTeacherLibraryList.Top = 3;
+            dgwTeacherLibraryList.Left = 3;
+            dgwTeacherLibraryList.Width = 543;
+            dgwTeacherLibraryList.Height = 137;
+            dgwTeacherLibraryList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgwTeacherLibraryList.Font = new Font("Microsoft Sans Serif", Convert.ToInt32(8.25));
+            dgwTeacherLibraryList.DataSource = db.Libraries.ToList();
+            dgwTeacherLibraryList.AllowUserToAddRows = false;
+            dgwTeacherLibraryList.AllowUserToDeleteRows = false;
+            dgwTeacherLibraryList.ReadOnly = true;
+
 
             Button btnTeacherLibraryAdd = new Button();
             btnTeacherLibraryAdd.Left = 4;
@@ -388,12 +405,45 @@ namespace EducationProject.View.Teacher
             btnTeacherLibraryDownload.Height = 25;
             btnTeacherLibraryDownload.Width = 80;
 
+            //Events
+            btnTeacherLibraryAdd.Click += AddResource;
+            btnTeacherLibraryDelete.Click += DeleteSource;
+            dgwTeacherLibraryList.Click += GetSourceId;
+            // btnTeacherLibraryDownload.Click += DownloadPdf;
+
             //add static items
-            PanelTeacher.Controls.Add(dgwTeacherLibrary);
+            PanelTeacher.Controls.Add(dgwTeacherLibraryList);
             PanelTeacher.Controls.Add(btnTeacherLibraryAdd);
             PanelTeacher.Controls.Add(btnTeacherLibraryDelete);
             PanelTeacher.Controls.Add(btnTeacherLibraryDownload);
 
+        }
+
+        private void GetSourceId(object sender, EventArgs e)
+        {
+            SourceId = Convert.ToInt32(dgwTeacherLibraryList.CurrentRow.Cells[0].Value);
+        }
+
+        //Delete source from dataBase
+        private void DeleteSource(object sender, EventArgs e)
+        {
+            foreach (var item in db.Libraries.ToList())
+            {
+                if (item.LibraryId == SourceId)
+                {
+                    db.Libraries.Remove(item);
+                    db.SaveChanges();
+                }
+            }
+            
+            dgwTeacherLibraryList.DataSource = db.Libraries.ToList();
+        }
+
+        //Add source to the Library
+        private void AddResource(object sender, EventArgs e)
+        {
+            TeacherAddToLibrary AddSource = new TeacherAddToLibrary();
+            AddSource.Show();
         }
 
         //"Mentor Info" option

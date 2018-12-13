@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EducationProjectModelStoreContainer" CdmEntityContainer="EducationProjectEntities">
+    <EntitySetMapping Name="AssignTasks">
+      <EntityTypeMapping TypeName="EducationProjectModel.AssignTask">
+        <MappingFragment StoreEntitySet="AssignTasks">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="AssignTaskId" ColumnName="AssignTaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupCategories">
+      <EntityTypeMapping TypeName="EducationProjectModel.GroupCategory">
+        <MappingFragment StoreEntitySet="GroupCategories">
+          <ScalarProperty Name="GroupCategoryName" ColumnName="GroupCategoryName" />
+          <ScalarProperty Name="GroupCategoryTypeId" ColumnName="GroupCategoryTypeId" />
+          <ScalarProperty Name="GroupCategoryId" ColumnName="GroupCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupCategoryTypes">
+      <EntityTypeMapping TypeName="EducationProjectModel.GroupCategoryType">
+        <MappingFragment StoreEntitySet="GroupCategoryTypes">
+          <ScalarProperty Name="GroupCategoryTypeEndTime" ColumnName="GroupCategoryTypeEndTime" />
+          <ScalarProperty Name="GroupCategoryTypeStartTime" ColumnName="GroupCategoryTypeStartTime" />
+          <ScalarProperty Name="GroupCategoryTypeName" ColumnName="GroupCategoryTypeName" />
+          <ScalarProperty Name="GroupCategoryTypeId" ColumnName="GroupCategoryTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="EducationProjectModel.Group">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="GroupStartDate" ColumnName="GroupStartDate" />
+          <ScalarProperty Name="GroupCategoryId" ColumnName="GroupCategoryId" />
+          <ScalarProperty Name="MentorId" ColumnName="MentorId" />
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libraries">
+      <EntityTypeMapping TypeName="EducationProjectModel.Library">
+        <MappingFragment StoreEntitySet="Library">
+          <ScalarProperty Name="LibraryItemType" ColumnName="LibraryItemType" />
+          <ScalarProperty Name="LibraryItemUrl" ColumnName="LibraryItemUrl" />
+          <ScalarProperty Name="LibraryItemName" ColumnName="LibraryItemName" />
+          <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mentors">
+      <EntityTypeMapping TypeName="EducationProjectModel.Mentor">
+        <MappingFragment StoreEntitySet="Mentors">
+          <ScalarProperty Name="MentorPhoto" ColumnName="MentorPhoto" />
+          <ScalarProperty Name="MentorBio" ColumnName="MentorBio" />
+          <ScalarProperty Name="MentorPhone" ColumnName="MentorPhone" />
+          <ScalarProperty Name="MentorEmail" ColumnName="MentorEmail" />
+          <ScalarProperty Name="MentorSurname" ColumnName="MentorSurname" />
+          <ScalarProperty Name="MentorName" ColumnName="MentorName" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="MentorId" ColumnName="MentorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="EducationProjectModel.Package">
+        <MappingFragment StoreEntitySet="Packages">
+          <ScalarProperty Name="PackageDuration" ColumnName="PackageDuration" />
+          <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PdfSources">
+      <EntityTypeMapping TypeName="EducationProjectModel.PdfSource">
+        <MappingFragment StoreEntitySet="PdfSources">
+          <ScalarProperty Name="PdfSourceName" ColumnName="PdfSourceName" />
+          <ScalarProperty Name="PdfSourceId" ColumnName="PdfSourceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="EducationProjectModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentPhoto" ColumnName="StudentPhoto" />
+          <ScalarProperty Name="StudentRegistrationDate" ColumnName="StudentRegistrationDate" />
+          <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />
+          <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+          <ScalarProperty Name="StudentBirthDate" ColumnName="StudentBirthDate" />
+          <ScalarProperty Name="StudentSurname" ColumnName="StudentSurname" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskCategories">
+      <EntityTypeMapping TypeName="EducationProjectModel.TaskCategory">
+        <MappingFragment StoreEntitySet="TaskCategories">
+          <ScalarProperty Name="TaskCategoryName" ColumnName="TaskCategoryName" />
+          <ScalarProperty Name="TaskCategoryId" ColumnName="TaskCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="EducationProjectModel.Task">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="TaskCategoryId" ColumnName="TaskCategoryId" />
+          <ScalarProperty Name="TaskDetails" ColumnName="TaskDetails" />
+          <ScalarProperty Name="TaskDuration" ColumnName="TaskDuration" />
+          <ScalarProperty Name="TaskStartDate" ColumnName="TaskStartDate" />
+          <ScalarProperty Name="TaskUrl" ColumnName="TaskUrl" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="EducationProjectModel.Teacher">
+        <MappingFragment StoreEntitySet="Teachers">
+          <ScalarProperty Name="TeacherPhoto" ColumnName="TeacherPhoto" />
+          <ScalarProperty Name="TeacherBio" ColumnName="TeacherBio" />
+          <ScalarProperty Name="TeacherPhone" ColumnName="TeacherPhone" />
+          <ScalarProperty Name="TeacherEmail" ColumnName="TeacherEmail" />
+          <ScalarProperty Name="TeacherSurname" ColumnName="TeacherSurname" />
+          <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transcripts">
+      <EntityTypeMapping TypeName="EducationProjectModel.Transcript">
+        <MappingFragment StoreEntitySet="Transcripts">
+          <ScalarProperty Name="TaskPoint" ColumnName="TaskPoint" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="TranscriptsId" ColumnName="TranscriptsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

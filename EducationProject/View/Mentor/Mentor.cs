@@ -26,6 +26,7 @@ namespace EducationProject.View.Mentor
             PanelMentor.Font = new Font(PanelMentor.Font.FontFamily, 10);
         }
 
+        // "Personal info"- option
         private void personalInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelMentor.Controls.Clear();
@@ -223,7 +224,6 @@ namespace EducationProject.View.Mentor
             PanelMentor.Controls.Add(dgwMentorTasks);
         }
 
-
         //"Group"- option
         private void groupToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -358,6 +358,5 @@ namespace EducationProject.View.Mentor
             PanelMentor.Controls.Add(btnMentorLibraryDownload);
 
         }
-
     }
 }

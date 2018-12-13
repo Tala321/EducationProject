@@ -1,7 +1,6 @@
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\bin\Debug\EducationProject.exe.config
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\bin\Debug\EducationProject.exe
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\bin\Debug\EducationProject.pdb
-C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.csprojAssemblyReference.cache
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.MessageToMentor.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.MessageToTeacher.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Student.Student.resources
@@ -31,3 +30,9 @@ C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\Educ
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.MentorSent.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherMessageToColleague.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.MentorMessageToMentor.resources
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\bin\Debug\EntityFramework.dll
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\bin\Debug\EntityFramework.xml
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.csproj.CopyComplete
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherAddToLibrary.resources

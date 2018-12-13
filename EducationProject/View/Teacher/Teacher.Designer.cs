@@ -112,14 +112,14 @@
             // sentToolStripMenuItem
             // 
             this.sentToolStripMenuItem.Name = "sentToolStripMenuItem";
-            this.sentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sentToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.sentToolStripMenuItem.Text = "Sent";
             this.sentToolStripMenuItem.Click += new System.EventHandler(this.sentToolStripMenuItem_Click);
             // 
             // inboxToolStripMenuItem
             // 
             this.inboxToolStripMenuItem.Name = "inboxToolStripMenuItem";
-            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.inboxToolStripMenuItem.Text = "Inbox";
             this.inboxToolStripMenuItem.Click += new System.EventHandler(this.inboxToolStripMenuItem_Click);
             // 
@@ -130,27 +130,27 @@
             this.toMentorToolStripMenuItem,
             this.toCollegueToolStripMenuItem});
             this.newMessageToolStripMenuItem.Name = "newMessageToolStripMenuItem";
-            this.newMessageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newMessageToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.newMessageToolStripMenuItem.Text = "New Message";
             // 
             // toStudentToolStripMenuItem
             // 
             this.toStudentToolStripMenuItem.Name = "toStudentToolStripMenuItem";
-            this.toStudentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toStudentToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.toStudentToolStripMenuItem.Text = "To Group";
             this.toStudentToolStripMenuItem.Click += new System.EventHandler(this.toStudentToolStripMenuItem_Click);
             // 
             // toMentorToolStripMenuItem
             // 
             this.toMentorToolStripMenuItem.Name = "toMentorToolStripMenuItem";
-            this.toMentorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toMentorToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.toMentorToolStripMenuItem.Text = "To Mentor";
             this.toMentorToolStripMenuItem.Click += new System.EventHandler(this.TeacherWriteMessageToMentor);
             // 
             // toCollegueToolStripMenuItem
             // 
             this.toCollegueToolStripMenuItem.Name = "toCollegueToolStripMenuItem";
-            this.toCollegueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toCollegueToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.toCollegueToolStripMenuItem.Text = "To Collegaue";
             this.toCollegueToolStripMenuItem.Click += new System.EventHandler(this.toColleagueToolStripMenuItem_Click);
             // 
@@ -184,6 +184,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Teacher";
+            this.ShowInTaskbar = false;
             this.Text = "Teacher";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
