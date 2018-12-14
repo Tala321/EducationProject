@@ -409,7 +409,7 @@ namespace EducationProject.View.Teacher
             btnTeacherLibraryAdd.Click += AddResource;
             btnTeacherLibraryDelete.Click += DeleteSource;
             dgwTeacherLibraryList.Click += GetSourceId;
-            // btnTeacherLibraryDownload.Click += DownloadPdf;
+            btnTeacherLibraryDownload.Click += DownloadPdf;
 
             //add static items
             PanelTeacher.Controls.Add(dgwTeacherLibraryList);
@@ -419,6 +419,23 @@ namespace EducationProject.View.Teacher
 
         }
 
+        //download Pdf file
+        private void DownloadPdf(object sender, EventArgs e)
+        {
+            foreach (var item in db.Libraries.Where(t => t.LibraryId == SourceId).ToList())
+            {
+                if (item.LibraryItemType == true)
+                {
+                    Extensions.DownloadPdf(item.LibraryItemUrl);
+                }
+                else
+                {
+                    MessageBox.Show("You could download only pdf files");
+                }
+            }
+        }
+
+        //get id of clicked item
         private void GetSourceId(object sender, EventArgs e)
         {
             SourceId = Convert.ToInt32(dgwTeacherLibraryList.CurrentRow.Cells[0].Value);
@@ -435,7 +452,6 @@ namespace EducationProject.View.Teacher
                     db.SaveChanges();
                 }
             }
-            
             dgwTeacherLibraryList.DataSource = db.Libraries.ToList();
         }
 

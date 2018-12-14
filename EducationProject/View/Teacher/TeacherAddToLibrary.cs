@@ -17,6 +17,9 @@ namespace EducationProject.View.Teacher
         //DateBase
         EducationProjectEntities db = new EducationProjectEntities();
 
+        //holds info when adding to Library table
+        string sourceName;
+        bool BitType;
 
         public TeacherAddToLibrary()
         {
@@ -40,14 +43,11 @@ namespace EducationProject.View.Teacher
             // TODO: This line of code loads data into the 'educationProjectDataSet.Library' table. You can move, or remove it, as needed.
             this.libraryTableAdapter.Fill(this.educationProjectDataSet.Library);
         }
-
-        string sourceName;
-        bool BitType;
-
+   
         //add info to dataBase
         private void btnTeacherAddSource_Click(object sender, EventArgs e)
         {
-            //check which kind of resource we chosed
+            //check which kind of the resource we chosed
             if (chbxTeacherLibraryAddPdf.Checked)
             {
                 sourceName = cbxTeacherAddSourcePdf.Text;
@@ -93,7 +93,7 @@ namespace EducationProject.View.Teacher
         //download a new pdf file to database for future using
         private void btnTeacherAddPdf_Click(object sender, EventArgs e)
         {
-            Extensions.DownloadPdf();
+            Extensions.AddPdfFile();
 
             //refresh info on the form
             cbxTeacherAddSourcePdf.Items.Clear();

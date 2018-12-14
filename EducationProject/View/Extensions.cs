@@ -11,57 +11,68 @@ namespace EducationProject
 {
     static class Extensions
     {
-        //file dialog
+        static string rootPath;
+        static string PdfSource;
+        static string ChosedFile;
+        static string FileName;
+        static string FolderName;
+
         static OpenFileDialog fileDialog = new OpenFileDialog();
 
         //Choose and copy pdf file  to our PdfSource folder
-        static public void DownloadPdf()
+        static public void AddPdfFile()
         {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                //declare and set variables 
-                string rootPath = Directory.GetCurrentDirectory().ToString();
-                string PdfSource = Path.Combine(rootPath, "PdfSource");
-                string ChosedFile = fileDialog.FileName;
-                string FileName = Path.GetFileName(ChosedFile);
+                //set paths
+                rootPath = Directory.GetCurrentDirectory().ToString();
+                PdfSource = Path.Combine(rootPath, "PdfSource");
+                ChosedFile = fileDialog.FileName;
+                FileName = Path.GetFileName(ChosedFile);
 
-                //DataBase
-                EducationProjectEntities db = new EducationProjectEntities();
-
-                if (Path.GetExtension(FileName).ToString() == ".pdf")
+                if (Path.GetExtension(FileName) == ".pdf")
                 {
-                    //copy to our pdfSource folder
-
-                    foreach (var item in db.PdfSources.ToList())
+                    //Check if  this name is already exist in the database
+                    if (db.PdfSources.All(e => e.PdfSourceName != FileName))
                     {
-                        if (FileName.ToString() == item.PdfSourceName)
+                        PdfSource pdf = new PdfSource()
                         {
-                            MessageBox.Show(@"This file  is already exist in database, Please choose another one or cgange the name.");
-                            break;
-                        }
-                        else
-                        {
-                            
-                            PdfSource pdf = new PdfSource()
-                            {
-                                PdfSourceName = FileName.ToString()
-                            };
+                            PdfSourceName = FileName.ToString()
+                        };
 
-                            File.Copy(ChosedFile, Path.Combine(PdfSource, FileName));
-                            db.PdfSources.Add(pdf);
-                            db.SaveChanges();
-                        }
+                        //Copy the file to the PdfSource folder
+                        File.Copy(ChosedFile, Path.Combine(PdfSource, FileName));
 
+                        db.PdfSources.Add(pdf);
+                        db.SaveChanges();
                     }
-
-                   
+                    else
+                    {
+                        MessageBox.Show("This name exist in the database, please change the name or choose another one");
+                    }
                 }
                 else
                 {
-                    //if fileExtension isn't pdf
-
-                    MessageBox.Show("Please select a pdf file");
+                    MessageBox.Show("Selected file must be in a pdf format");
                 }
+            }
+        }
+
+        //Choose folder  where to download pdf
+        static public void DownloadPdf(string _SourceFileName)
+        {
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+
+            if (folder.ShowDialog() == DialogResult.OK)
+            {
+                rootPath = Directory.GetCurrentDirectory().ToString();
+                FolderName = folder.SelectedPath.ToString();
+                PdfSource = Path.Combine(rootPath, "PdfSource");
+                File.Copy(Path.Combine(PdfSource, _SourceFileName), Path.Combine(FolderName, _SourceFileName));
+                MessageBox.Show("file downloaded successfully");
             }
         }
     }
