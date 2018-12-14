@@ -16,7 +16,7 @@ namespace EducationProject
     {
         public int LibraryId { get; set; }
         public string LibraryItemName { get; set; }
-        public string LibraryItemUrl { get; set; }
+        public string LibraryItemSource { get; set; }
         public bool LibraryItemType { get; set; }
     }
 }

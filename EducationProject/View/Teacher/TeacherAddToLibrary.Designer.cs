@@ -41,21 +41,26 @@
             this.lblTeacherAddSourceName = new System.Windows.Forms.Label();
             this.pdfSourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.educationProjectDataSet1 = new EducationProject.EducationProjectDataSet1();
-            this.dgwAddLibrarySourceList = new System.Windows.Forms.DataGridView();
-            this.libraryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libraryItemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libraryItemUrlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libraryItemTypeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pdfSourcesTableAdapter = new EducationProject.EducationProjectDataSet1TableAdapters.PdfSourcesTableAdapter();
             this.libraryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.educationProjectDataSet = new EducationProject.EducationProjectDataSet();
             this.libraryTableAdapter = new EducationProject.EducationProjectDataSetTableAdapters.LibraryTableAdapter();
-            this.pdfSourcesTableAdapter = new EducationProject.EducationProjectDataSet1TableAdapters.PdfSourcesTableAdapter();
+            this.dgwAddLibrarySourceList = new System.Windows.Forms.DataGridView();
+            this.libraryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libraryItemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libraryItemSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libraryItemTypeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.educationProjectDataSet2 = new EducationProject.EducationProjectDataSet2();
+            this.libraryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryTableAdapter1 = new EducationProject.EducationProjectDataSet2TableAdapters.LibraryTableAdapter();
             this.gbTeacherAddSource.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pdfSourcesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwAddLibrarySourceList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwAddLibrarySourceList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbTeacherAddSource
@@ -172,52 +177,9 @@
             this.educationProjectDataSet1.DataSetName = "EducationProjectDataSet1";
             this.educationProjectDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dgwAddLibrarySourceList
+            // pdfSourcesTableAdapter
             // 
-            this.dgwAddLibrarySourceList.AllowUserToAddRows = false;
-            this.dgwAddLibrarySourceList.AllowUserToDeleteRows = false;
-            this.dgwAddLibrarySourceList.AutoGenerateColumns = false;
-            this.dgwAddLibrarySourceList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgwAddLibrarySourceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwAddLibrarySourceList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.libraryIdDataGridViewTextBoxColumn,
-            this.libraryItemNameDataGridViewTextBoxColumn,
-            this.libraryItemUrlDataGridViewTextBoxColumn,
-            this.libraryItemTypeDataGridViewCheckBoxColumn});
-            this.dgwAddLibrarySourceList.DataSource = this.libraryBindingSource;
-            this.dgwAddLibrarySourceList.Location = new System.Drawing.Point(12, 12);
-            this.dgwAddLibrarySourceList.Name = "dgwAddLibrarySourceList";
-            this.dgwAddLibrarySourceList.ReadOnly = true;
-            this.dgwAddLibrarySourceList.Size = new System.Drawing.Size(549, 137);
-            this.dgwAddLibrarySourceList.TabIndex = 2;
-            // 
-            // libraryIdDataGridViewTextBoxColumn
-            // 
-            this.libraryIdDataGridViewTextBoxColumn.DataPropertyName = "LibraryId";
-            this.libraryIdDataGridViewTextBoxColumn.HeaderText = "LibraryId";
-            this.libraryIdDataGridViewTextBoxColumn.Name = "libraryIdDataGridViewTextBoxColumn";
-            this.libraryIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // libraryItemNameDataGridViewTextBoxColumn
-            // 
-            this.libraryItemNameDataGridViewTextBoxColumn.DataPropertyName = "LibraryItemName";
-            this.libraryItemNameDataGridViewTextBoxColumn.HeaderText = "LibraryItemName";
-            this.libraryItemNameDataGridViewTextBoxColumn.Name = "libraryItemNameDataGridViewTextBoxColumn";
-            this.libraryItemNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // libraryItemUrlDataGridViewTextBoxColumn
-            // 
-            this.libraryItemUrlDataGridViewTextBoxColumn.DataPropertyName = "LibraryItemUrl";
-            this.libraryItemUrlDataGridViewTextBoxColumn.HeaderText = "LibraryItemUrl";
-            this.libraryItemUrlDataGridViewTextBoxColumn.Name = "libraryItemUrlDataGridViewTextBoxColumn";
-            this.libraryItemUrlDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // libraryItemTypeDataGridViewCheckBoxColumn
-            // 
-            this.libraryItemTypeDataGridViewCheckBoxColumn.DataPropertyName = "LibraryItemType";
-            this.libraryItemTypeDataGridViewCheckBoxColumn.HeaderText = "LibraryItemType";
-            this.libraryItemTypeDataGridViewCheckBoxColumn.Name = "libraryItemTypeDataGridViewCheckBoxColumn";
-            this.libraryItemTypeDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.pdfSourcesTableAdapter.ClearBeforeFill = true;
             // 
             // libraryBindingSource
             // 
@@ -233,17 +195,74 @@
             // 
             this.libraryTableAdapter.ClearBeforeFill = true;
             // 
-            // pdfSourcesTableAdapter
+            // dgwAddLibrarySourceList
             // 
-            this.pdfSourcesTableAdapter.ClearBeforeFill = true;
+            this.dgwAddLibrarySourceList.AllowUserToAddRows = false;
+            this.dgwAddLibrarySourceList.AllowUserToDeleteRows = false;
+            this.dgwAddLibrarySourceList.AutoGenerateColumns = false;
+            this.dgwAddLibrarySourceList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwAddLibrarySourceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwAddLibrarySourceList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.libraryIdDataGridViewTextBoxColumn,
+            this.libraryItemNameDataGridViewTextBoxColumn,
+            this.libraryItemSourceDataGridViewTextBoxColumn,
+            this.libraryItemTypeDataGridViewCheckBoxColumn});
+            this.dgwAddLibrarySourceList.DataSource = this.libraryBindingSource1;
+            this.dgwAddLibrarySourceList.Location = new System.Drawing.Point(12, 12);
+            this.dgwAddLibrarySourceList.Name = "dgwAddLibrarySourceList";
+            this.dgwAddLibrarySourceList.ReadOnly = true;
+            this.dgwAddLibrarySourceList.Size = new System.Drawing.Size(549, 137);
+            this.dgwAddLibrarySourceList.TabIndex = 4;
+            // 
+            // libraryIdDataGridViewTextBoxColumn
+            // 
+            this.libraryIdDataGridViewTextBoxColumn.DataPropertyName = "LibraryId";
+            this.libraryIdDataGridViewTextBoxColumn.HeaderText = "LibraryId";
+            this.libraryIdDataGridViewTextBoxColumn.Name = "libraryIdDataGridViewTextBoxColumn";
+            this.libraryIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // libraryItemNameDataGridViewTextBoxColumn
+            // 
+            this.libraryItemNameDataGridViewTextBoxColumn.DataPropertyName = "LibraryItemName";
+            this.libraryItemNameDataGridViewTextBoxColumn.HeaderText = "LibraryItemName";
+            this.libraryItemNameDataGridViewTextBoxColumn.Name = "libraryItemNameDataGridViewTextBoxColumn";
+            this.libraryItemNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // libraryItemSourceDataGridViewTextBoxColumn
+            // 
+            this.libraryItemSourceDataGridViewTextBoxColumn.DataPropertyName = "LibraryItemSource";
+            this.libraryItemSourceDataGridViewTextBoxColumn.HeaderText = "LibraryItemSource";
+            this.libraryItemSourceDataGridViewTextBoxColumn.Name = "libraryItemSourceDataGridViewTextBoxColumn";
+            this.libraryItemSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // libraryItemTypeDataGridViewCheckBoxColumn
+            // 
+            this.libraryItemTypeDataGridViewCheckBoxColumn.DataPropertyName = "LibraryItemType";
+            this.libraryItemTypeDataGridViewCheckBoxColumn.HeaderText = "LibraryItemType";
+            this.libraryItemTypeDataGridViewCheckBoxColumn.Name = "libraryItemTypeDataGridViewCheckBoxColumn";
+            this.libraryItemTypeDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // educationProjectDataSet2
+            // 
+            this.educationProjectDataSet2.DataSetName = "EducationProjectDataSet2";
+            this.educationProjectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // libraryBindingSource1
+            // 
+            this.libraryBindingSource1.DataMember = "Library";
+            this.libraryBindingSource1.DataSource = this.educationProjectDataSet2;
+            // 
+            // libraryTableAdapter1
+            // 
+            this.libraryTableAdapter1.ClearBeforeFill = true;
             // 
             // TeacherAddToLibrary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 367);
-            this.Controls.Add(this.gbTeacherAddSource);
             this.Controls.Add(this.dgwAddLibrarySourceList);
+            this.Controls.Add(this.gbTeacherAddSource);
             this.Name = "TeacherAddToLibrary";
             this.Text = "Add Source";
             this.Load += new System.EventHandler(this.TeacherAddToLibrary_Load);
@@ -251,9 +270,11 @@
             this.gbTeacherAddSource.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pdfSourcesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwAddLibrarySourceList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwAddLibrarySourceList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,14 +287,10 @@
         private System.Windows.Forms.Label lblTeacherAddSourceUrl;
         private System.Windows.Forms.TextBox tbxTeacherAddSourceName;
         private System.Windows.Forms.Label lblTeacherAddSourceName;
-        private System.Windows.Forms.DataGridView dgwAddLibrarySourceList;
         private EducationProjectDataSet educationProjectDataSet;
         private System.Windows.Forms.BindingSource libraryBindingSource;
         private EducationProjectDataSetTableAdapters.LibraryTableAdapter libraryTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn libraryIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn libraryItemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn libraryItemUrlDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn libraryItemTypeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Label lblTeacherAddSourcePdf;
         private System.Windows.Forms.ComboBox cbxTeacherAddSourcePdf;
         private System.Windows.Forms.CheckBox chbxTeacherLibraryAddPdf;
@@ -281,5 +298,13 @@
         private EducationProjectDataSet1 educationProjectDataSet1;
         private System.Windows.Forms.BindingSource pdfSourcesBindingSource;
         private EducationProjectDataSet1TableAdapters.PdfSourcesTableAdapter pdfSourcesTableAdapter;
+        private System.Windows.Forms.DataGridView dgwAddLibrarySourceList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn libraryIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn libraryItemNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn libraryItemSourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn libraryItemTypeDataGridViewCheckBoxColumn;
+        private EducationProjectDataSet2 educationProjectDataSet2;
+        private System.Windows.Forms.BindingSource libraryBindingSource1;
+        private EducationProjectDataSet2TableAdapters.LibraryTableAdapter libraryTableAdapter1;
     }
 }

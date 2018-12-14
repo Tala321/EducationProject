@@ -426,7 +426,7 @@ namespace EducationProject.View.Teacher
             {
                 if (item.LibraryItemType == true)
                 {
-                    Extensions.DownloadPdf(item.LibraryItemUrl);
+                    Extensions.DownloadPdf(item.LibraryItemSource);
                 }
                 else
                 {
@@ -446,10 +446,18 @@ namespace EducationProject.View.Teacher
         {
             foreach (var item in db.Libraries.ToList())
             {
-                if (item.LibraryId == SourceId)
+                foreach (var item1 in db.PdfSources.ToList())
                 {
-                    db.Libraries.Remove(item);
-                    db.SaveChanges();
+                    if (item.LibraryId == SourceId)
+                    {
+                        if (item1.PdfSourceName == item.LibraryItemSource)
+                        {
+                            db.PdfSources.Remove(item1);
+                            db.Libraries.Remove(item);
+                            Extensions.DeletePdf(item1.PdfSourceName);
+                            db.SaveChanges();
+                        }
+                    }
                 }
             }
             dgwTeacherLibraryList.DataSource = db.Libraries.ToList();

@@ -45,7 +45,7 @@
       <EntityTypeMapping TypeName="EducationProjectModel.Library">
         <MappingFragment StoreEntitySet="Library">
           <ScalarProperty Name="LibraryItemType" ColumnName="LibraryItemType" />
-          <ScalarProperty Name="LibraryItemUrl" ColumnName="LibraryItemUrl" />
+          <ScalarProperty Name="LibraryItemSource" ColumnName="LibraryItemSource" />
           <ScalarProperty Name="LibraryItemName" ColumnName="LibraryItemName" />
           <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
         </MappingFragment>

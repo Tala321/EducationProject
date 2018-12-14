@@ -47,7 +47,7 @@
           </Key>
           <Property Name="LibraryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LibraryItemName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LibraryItemUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LibraryItemSource" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LibraryItemType" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Mentors">
@@ -479,7 +479,7 @@
           </Key>
           <Property Name="LibraryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LibraryItemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LibraryItemUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LibraryItemSource" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LibraryItemType" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Mentor">
@@ -787,7 +787,7 @@
             <EntityTypeMapping TypeName="EducationProjectModel.Library">
               <MappingFragment StoreEntitySet="Library">
                 <ScalarProperty Name="LibraryItemType" ColumnName="LibraryItemType" />
-                <ScalarProperty Name="LibraryItemUrl" ColumnName="LibraryItemUrl" />
+                <ScalarProperty Name="LibraryItemSource" ColumnName="LibraryItemSource" />
                 <ScalarProperty Name="LibraryItemName" ColumnName="LibraryItemName" />
                 <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
               </MappingFragment>

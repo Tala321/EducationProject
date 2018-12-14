@@ -72,8 +72,17 @@ namespace EducationProject
                 FolderName = folder.SelectedPath.ToString();
                 PdfSource = Path.Combine(rootPath, "PdfSource");
                 File.Copy(Path.Combine(PdfSource, _SourceFileName), Path.Combine(FolderName, _SourceFileName));
-                MessageBox.Show("file downloaded successfully");
+                MessageBox.Show("The file downloaded successfully");
             }
+        }
+
+        //delete pdf from source folder
+        static public void DeletePdf(string _SourceFileName)
+        {
+            rootPath = Directory.GetCurrentDirectory().ToString();
+            PdfSource = Path.Combine(rootPath, "PdfSource");
+            File.Delete(Path.Combine(PdfSource, _SourceFileName));
+            MessageBox.Show("The file Deleted");
         }
     }
 }

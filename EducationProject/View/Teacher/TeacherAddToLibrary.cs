@@ -38,10 +38,11 @@ namespace EducationProject.View.Teacher
 
         private void TeacherAddToLibrary_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'educationProjectDataSet2.Library' table. You can move, or remove it, as needed.
+            this.libraryTableAdapter1.Fill(this.educationProjectDataSet2.Library);
             // TODO: This line of code loads data into the 'educationProjectDataSet1.PdfSources' table. You can move, or remove it, as needed.
             this.pdfSourcesTableAdapter.Fill(this.educationProjectDataSet1.PdfSources);
-            // TODO: This line of code loads data into the 'educationProjectDataSet.Library' table. You can move, or remove it, as needed.
-            this.libraryTableAdapter.Fill(this.educationProjectDataSet.Library);
+
         }
    
         //add info to dataBase
@@ -63,7 +64,7 @@ namespace EducationProject.View.Teacher
             Library source = new Library()
             {
                 LibraryItemName = tbxTeacherAddSourceName.Text,
-                LibraryItemUrl = sourceName,
+                LibraryItemSource = sourceName,
                 LibraryItemType = BitType
             };
 

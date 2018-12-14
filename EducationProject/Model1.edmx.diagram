@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4f3f566c566b40ad8540175b66d72b65" Name="Diagram1">
+      <Diagram DiagramId="4f3f566c566b40ad8540175b66d72b65" Name="Diagram1" ZoomLevel="88">
         <EntityTypeShape EntityType="EducationProjectModel.AssignTask" Width="1.5" PointX="9.75" PointY="8.75" />
         <EntityTypeShape EntityType="EducationProjectModel.GroupCategory" Width="1.5" PointX="3" PointY="0.75" />
         <EntityTypeShape EntityType="EducationProjectModel.GroupCategoryType" Width="1.5" PointX="0.75" PointY="3.5" />
         <EntityTypeShape EntityType="EducationProjectModel.Group" Width="1.5" PointX="5.25" PointY="8.125" />
         <EntityTypeShape EntityType="EducationProjectModel.Library" Width="1.5" PointX="5.75" PointY="0.875" />
-        <EntityTypeShape EntityType="EducationProjectModel.Mentor" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="EducationProjectModel.Mentor" Width="1.5" PointX="3" PointY="12.125" />
         <EntityTypeShape EntityType="EducationProjectModel.Package" Width="1.5" PointX="0.75" PointY="6.625" />
         <EntityTypeShape EntityType="EducationProjectModel.PdfSource" Width="1.5" PointX="7.75" PointY="0.875" />
         <EntityTypeShape EntityType="EducationProjectModel.Student" Width="1.5" PointX="7.5" PointY="8.125" />
         <EntityTypeShape EntityType="EducationProjectModel.TaskCategory" Width="1.5" PointX="5.25" PointY="5" />
         <EntityTypeShape EntityType="EducationProjectModel.Task" Width="1.5" PointX="7.5" PointY="4.25" />
-        <EntityTypeShape EntityType="EducationProjectModel.Teacher" Width="1.5" PointX="3" PointY="12.125" />
+        <EntityTypeShape EntityType="EducationProjectModel.Teacher" Width="1.5" PointX="3" PointY="4.375" />
         <EntityTypeShape EntityType="EducationProjectModel.Transcript" Width="1.5" PointX="9.75" PointY="5.625" />
         <AssociationConnector Association="EducationProjectModel.AssignTasks_StudentId_to_Task_StudentId" />
         <AssociationConnector Association="EducationProjectModel.AssignTasks_TaskId_to_Task_TaskId" />

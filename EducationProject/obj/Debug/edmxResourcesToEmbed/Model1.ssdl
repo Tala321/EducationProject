@@ -42,7 +42,7 @@
     </Key>
     <Property Name="LibraryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LibraryItemName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="LibraryItemUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LibraryItemSource" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LibraryItemType" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Mentors">

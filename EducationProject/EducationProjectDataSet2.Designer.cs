@@ -20,9 +20,9 @@ namespace EducationProject {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("EducationProjectDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("EducationProjectDataSet2")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class EducationProjectDataSet : global::System.Data.DataSet {
+    public partial class EducationProjectDataSet2 : global::System.Data.DataSet {
         
         private LibraryDataTable tableLibrary;
         
@@ -30,7 +30,7 @@ namespace EducationProject {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public EducationProjectDataSet() {
+        public EducationProjectDataSet2() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace EducationProject {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected EducationProjectDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected EducationProjectDataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace EducationProject {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            EducationProjectDataSet cln = ((EducationProjectDataSet)(base.Clone()));
+            EducationProjectDataSet2 cln = ((EducationProjectDataSet2)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace EducationProject {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "EducationProjectDataSet";
+            this.DataSetName = "EducationProjectDataSet2";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/EducationProjectDataSet.xsd";
+            this.Namespace = "http://tempuri.org/EducationProjectDataSet2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableLibrary = new LibraryDataTable();
@@ -225,7 +225,7 @@ namespace EducationProject {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            EducationProjectDataSet ds = new EducationProjectDataSet();
+            EducationProjectDataSet2 ds = new EducationProjectDataSet2();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -522,7 +522,7 @@ namespace EducationProject {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                EducationProjectDataSet ds = new EducationProjectDataSet();
+                EducationProjectDataSet2 ds = new EducationProjectDataSet2();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -675,7 +675,7 @@ namespace EducationProject {
         }
     }
 }
-namespace EducationProject.EducationProjectDataSetTableAdapters {
+namespace EducationProject.EducationProjectDataSet2TableAdapters {
     
     
     /// <summary>
@@ -801,7 +801,7 @@ namespace EducationProject.EducationProjectDataSetTableAdapters {
             tableMapping.DataSetTable = "Library";
             tableMapping.ColumnMappings.Add("LibraryId", "LibraryId");
             tableMapping.ColumnMappings.Add("LibraryItemName", "LibraryItemName");
-            tableMapping.ColumnMappings.Add("LibraryItemUrl", "LibraryItemSource");
+            tableMapping.ColumnMappings.Add("LibraryItemSource", "LibraryItemSource");
             tableMapping.ColumnMappings.Add("LibraryItemType", "LibraryItemType");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -815,19 +815,19 @@ namespace EducationProject.EducationProjectDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LibraryItemType", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Library] ([LibraryItemName], [LibraryItemUrl], [LibraryItemType]) VALUES (@LibraryItemName, @LibraryItemUrl, @LibraryItemType);
-SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library WHERE (LibraryId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Library] ([LibraryItemName], [LibraryItemSource], [LibraryItemType]) VALUES (@LibraryItemName, @LibraryItemSource, @LibraryItemType);
+SELECT LibraryId, LibraryItemName, LibraryItemSource, LibraryItemType FROM Library WHERE (LibraryId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LibraryItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LibraryItemUrl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemUrl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LibraryItemSource", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemSource", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LibraryItemType", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Library] SET [LibraryItemName] = @LibraryItemName, [LibraryItemUrl] = @LibraryItemUrl, [LibraryItemType] = @LibraryItemType WHERE (([LibraryId] = @Original_LibraryId) AND ([LibraryItemName] = @Original_LibraryItemName) AND ([LibraryItemType] = @Original_LibraryItemType));
-SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library WHERE (LibraryId = @LibraryId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Library] SET [LibraryItemName] = @LibraryItemName, [LibraryItemSource] = @LibraryItemSource, [LibraryItemType] = @LibraryItemType WHERE (([LibraryId] = @Original_LibraryId) AND ([LibraryItemName] = @Original_LibraryItemName) AND ([LibraryItemType] = @Original_LibraryItemType));
+SELECT LibraryId, LibraryItemName, LibraryItemSource, LibraryItemType FROM Library WHERE (LibraryId = @LibraryId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LibraryItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LibraryItemUrl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemUrl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LibraryItemSource", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemSource", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LibraryItemType", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LibraryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LibraryItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LibraryItemName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -848,8 +848,8 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM dbo.Libra" +
-                "ry";
+            this._commandCollection[0].CommandText = "SELECT LibraryId, LibraryItemName, LibraryItemSource, LibraryItemType FROM dbo.Li" +
+                "brary";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -857,7 +857,7 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EducationProjectDataSet.LibraryDataTable dataTable) {
+        public virtual int Fill(EducationProjectDataSet2.LibraryDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -870,9 +870,9 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EducationProjectDataSet.LibraryDataTable GetData() {
+        public virtual EducationProjectDataSet2.LibraryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            EducationProjectDataSet.LibraryDataTable dataTable = new EducationProjectDataSet.LibraryDataTable();
+            EducationProjectDataSet2.LibraryDataTable dataTable = new EducationProjectDataSet2.LibraryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -880,14 +880,14 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(EducationProjectDataSet.LibraryDataTable dataTable) {
+        public virtual int Update(EducationProjectDataSet2.LibraryDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(EducationProjectDataSet dataSet) {
+        public virtual int Update(EducationProjectDataSet2 dataSet) {
             return this.Adapter.Update(dataSet, "Library");
         }
         
@@ -939,18 +939,18 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string LibraryItemName, string LibraryItemUrl, bool LibraryItemType) {
+        public virtual int Insert(string LibraryItemName, string LibraryItemSource, bool LibraryItemType) {
             if ((LibraryItemName == null)) {
                 throw new global::System.ArgumentNullException("LibraryItemName");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(LibraryItemName));
             }
-            if ((LibraryItemUrl == null)) {
-                throw new global::System.ArgumentNullException("LibraryItemUrl");
+            if ((LibraryItemSource == null)) {
+                throw new global::System.ArgumentNullException("LibraryItemSource");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(LibraryItemUrl));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(LibraryItemSource));
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(LibraryItemType));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
@@ -973,18 +973,18 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string LibraryItemName, string LibraryItemUrl, bool LibraryItemType, int Original_LibraryId, string Original_LibraryItemName, bool Original_LibraryItemType, int LibraryId) {
+        public virtual int Update(string LibraryItemName, string LibraryItemSource, bool LibraryItemType, int Original_LibraryId, string Original_LibraryItemName, bool Original_LibraryItemType, int LibraryId) {
             if ((LibraryItemName == null)) {
                 throw new global::System.ArgumentNullException("LibraryItemName");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(LibraryItemName));
             }
-            if ((LibraryItemUrl == null)) {
-                throw new global::System.ArgumentNullException("LibraryItemUrl");
+            if ((LibraryItemSource == null)) {
+                throw new global::System.ArgumentNullException("LibraryItemSource");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(LibraryItemUrl));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(LibraryItemSource));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(LibraryItemType));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_LibraryId));
@@ -1016,8 +1016,8 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string LibraryItemName, string LibraryItemUrl, bool LibraryItemType, int Original_LibraryId, string Original_LibraryItemName, bool Original_LibraryItemType) {
-            return this.Update(LibraryItemName, LibraryItemUrl, LibraryItemType, Original_LibraryId, Original_LibraryItemName, Original_LibraryItemType, Original_LibraryId);
+        public virtual int Update(string LibraryItemName, string LibraryItemSource, bool LibraryItemType, int Original_LibraryId, string Original_LibraryItemName, bool Original_LibraryItemType) {
+            return this.Update(LibraryItemName, LibraryItemSource, LibraryItemType, Original_LibraryId, Original_LibraryItemName, Original_LibraryItemType, Original_LibraryId);
         }
     }
     
@@ -1112,7 +1112,7 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(EducationProjectDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(EducationProjectDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._libraryTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Library.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1131,7 +1131,7 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(EducationProjectDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(EducationProjectDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._libraryTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Library.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1149,7 +1149,7 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(EducationProjectDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(EducationProjectDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._libraryTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Library.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1191,7 +1191,7 @@ SELECT LibraryId, LibraryItemName, LibraryItemUrl, LibraryItemType FROM Library 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(EducationProjectDataSet dataSet) {
+        public virtual int UpdateAll(EducationProjectDataSet2 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

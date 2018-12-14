@@ -119,7 +119,7 @@
     </Key>
     <Property Name="LibraryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LibraryItemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LibraryItemUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LibraryItemSource" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LibraryItemType" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Mentor">
