@@ -32,6 +32,7 @@
     <EntitySetMapping Name="Groups">
       <EntityTypeMapping TypeName="EducationProjectModel.Group">
         <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
           <ScalarProperty Name="GroupStartDate" ColumnName="GroupStartDate" />
           <ScalarProperty Name="GroupCategoryId" ColumnName="GroupCategoryId" />
           <ScalarProperty Name="MentorId" ColumnName="MentorId" />
@@ -85,6 +86,7 @@
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="EducationProjectModel.Student">
         <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentBio" ColumnName="StudentBio" />
           <ScalarProperty Name="StudentPhoto" ColumnName="StudentPhoto" />
           <ScalarProperty Name="StudentRegistrationDate" ColumnName="StudentRegistrationDate" />
           <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />

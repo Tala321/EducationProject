@@ -40,6 +40,7 @@
           <Property Name="MentorId" Type="int" Nullable="false" />
           <Property Name="GroupCategoryId" Type="int" Nullable="false" />
           <Property Name="GroupStartDate" Type="date" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Library">
           <Key>
@@ -89,8 +90,9 @@
           <Property Name="StudentBirthDate" Type="date" Nullable="false" />
           <Property Name="StudentEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="StudentPhone" Type="nvarchar" MaxLength="50" />
-          <Property Name="StudentRegistrationDate" Type="datetime" />
+          <Property Name="StudentRegistrationDate" Type="date" />
           <Property Name="StudentPhoto" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentBio" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TaskCategories">
           <Key>
@@ -434,8 +436,6 @@
           <Property Name="AssignTaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TaskId" Type="Int32" Nullable="false" />
           <Property Name="StudentId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Student" Relationship="EducationProjectModel.AssignTasks_StudentId_to_Task_StudentId" FromRole="AssignTask" ToRole="Student" />
-          <NavigationProperty Name="Task" Relationship="EducationProjectModel.AssignTasks_TaskId_to_Task_TaskId" FromRole="AssignTask" ToRole="Task" />
         </EntityType>
         <EntityType Name="GroupCategory">
           <Key>
@@ -444,8 +444,6 @@
           <Property Name="GroupCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GroupCategoryTypeId" Type="Int32" Nullable="false" />
           <Property Name="GroupCategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GroupCategoryType" Relationship="EducationProjectModel.GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId" FromRole="GroupCategory" ToRole="GroupCategoryType" />
-          <NavigationProperty Name="Groups" Relationship="EducationProjectModel.Groups_GroupCategoryId_to_GroupCategoryId" FromRole="GroupCategory" ToRole="Group" />
         </EntityType>
         <EntityType Name="GroupCategoryType">
           <Key>
@@ -455,7 +453,6 @@
           <Property Name="GroupCategoryTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GroupCategoryTypeStartTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="GroupCategoryTypeEndTime" Type="Time" Nullable="false" Precision="7" />
-          <NavigationProperty Name="GroupCategories" Relationship="EducationProjectModel.GroupCategories_GroupCategoryTypeId_to_GroupCategoryTypeId" FromRole="GroupCategoryType" ToRole="GroupCategory" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -467,11 +464,7 @@
           <Property Name="MentorId" Type="Int32" Nullable="false" />
           <Property Name="GroupCategoryId" Type="Int32" Nullable="false" />
           <Property Name="GroupStartDate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="GroupCategory" Relationship="EducationProjectModel.Groups_GroupCategoryId_to_GroupCategoryId" FromRole="Group" ToRole="GroupCategory" />
-          <NavigationProperty Name="Mentor" Relationship="EducationProjectModel.Groups_MentorId_to_GroupCategoryId" FromRole="Group" ToRole="Mentor" />
-          <NavigationProperty Name="Package" Relationship="EducationProjectModel.Groups_programId_to_programId" FromRole="Group" ToRole="Package" />
-          <NavigationProperty Name="Teacher" Relationship="EducationProjectModel.Groups_TeacherId_to_TeacherId" FromRole="Group" ToRole="Teacher" />
-          <NavigationProperty Name="Students" Relationship="EducationProjectModel.Students_GroupId_to_GroupId" FromRole="Group" ToRole="Student" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Library">
           <Key>
@@ -494,8 +487,6 @@
           <Property Name="MentorPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MentorBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MentorPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Groups" Relationship="EducationProjectModel.Groups_MentorId_to_GroupCategoryId" FromRole="Mentor" ToRole="Group" />
-          <NavigationProperty Name="Package" Relationship="EducationProjectModel.Mentors_programId_to_programId" FromRole="Mentor" ToRole="Package" />
         </EntityType>
         <EntityType Name="Package">
           <Key>
@@ -504,9 +495,6 @@
           <Property Name="PackageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PackageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PackageDuration" Type="Int32" />
-          <NavigationProperty Name="Groups" Relationship="EducationProjectModel.Groups_programId_to_programId" FromRole="Package" ToRole="Group" />
-          <NavigationProperty Name="Mentors" Relationship="EducationProjectModel.Mentors_programId_to_programId" FromRole="Package" ToRole="Mentor" />
-          <NavigationProperty Name="Teachers" Relationship="EducationProjectModel.Teachers_programId_to_programId" FromRole="Package" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="PdfSource">
           <Key>
@@ -526,11 +514,9 @@
           <Property Name="StudentBirthDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="StudentEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="StudentPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StudentRegistrationDate" Type="DateTime" Precision="3" />
+          <Property Name="StudentRegistrationDate" Type="DateTime" Precision="0" />
           <Property Name="StudentPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AssignTasks" Relationship="EducationProjectModel.AssignTasks_StudentId_to_Task_StudentId" FromRole="Student" ToRole="AssignTask" />
-          <NavigationProperty Name="Group" Relationship="EducationProjectModel.Students_GroupId_to_GroupId" FromRole="Student" ToRole="Group" />
-          <NavigationProperty Name="Transcripts" Relationship="EducationProjectModel.Transcripts_StudentId_to_Students_TaskId" FromRole="Student" ToRole="Transcript" />
+          <Property Name="StudentBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TaskCategory">
           <Key>
@@ -538,7 +524,6 @@
           </Key>
           <Property Name="TaskCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TaskCategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Tasks" Relationship="EducationProjectModel.Tasks_TaskCategoryId_to_TaskCategoryId" FromRole="TaskCategory" ToRole="Task" />
         </EntityType>
         <EntityType Name="Task">
           <Key>
@@ -551,9 +536,6 @@
           <Property Name="TaskDuration" Type="Int32" Nullable="false" />
           <Property Name="TaskDetails" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TaskCategoryId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AssignTasks" Relationship="EducationProjectModel.AssignTasks_TaskId_to_Task_TaskId" FromRole="Task" ToRole="AssignTask" />
-          <NavigationProperty Name="TaskCategory" Relationship="EducationProjectModel.Tasks_TaskCategoryId_to_TaskCategoryId" FromRole="Task" ToRole="TaskCategory" />
-          <NavigationProperty Name="Transcripts" Relationship="EducationProjectModel.Transcripts_TaskId_to_Task_TaskId" FromRole="Task" ToRole="Transcript" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -576,8 +558,6 @@
           <Property Name="TaskId" Type="Int32" Nullable="false" />
           <Property Name="StudentId" Type="Int32" Nullable="false" />
           <Property Name="TaskPoint" Type="Int32" />
-          <NavigationProperty Name="Student" Relationship="EducationProjectModel.Transcripts_StudentId_to_Students_TaskId" FromRole="Transcript" ToRole="Student" />
-          <NavigationProperty Name="Task" Relationship="EducationProjectModel.Transcripts_TaskId_to_Task_TaskId" FromRole="Transcript" ToRole="Task" />
         </EntityType>
         <Association Name="AssignTasks_StudentId_to_Task_StudentId">
           <End Type="EducationProjectModel.Student" Role="Student" Multiplicity="1" />
@@ -772,6 +752,7 @@
           <EntitySetMapping Name="Groups">
             <EntityTypeMapping TypeName="EducationProjectModel.Group">
               <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
                 <ScalarProperty Name="GroupStartDate" ColumnName="GroupStartDate" />
                 <ScalarProperty Name="GroupCategoryId" ColumnName="GroupCategoryId" />
                 <ScalarProperty Name="MentorId" ColumnName="MentorId" />
@@ -825,6 +806,7 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="EducationProjectModel.Student">
               <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="StudentBio" ColumnName="StudentBio" />
                 <ScalarProperty Name="StudentPhoto" ColumnName="StudentPhoto" />
                 <ScalarProperty Name="StudentRegistrationDate" ColumnName="StudentRegistrationDate" />
                 <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />

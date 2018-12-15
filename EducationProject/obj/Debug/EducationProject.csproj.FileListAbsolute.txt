@@ -37,4 +37,4 @@ C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\Educ
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.csproj.CopyComplete
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherAddToLibrary.resources
 C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherInfo.resources
-C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.csprojAssemblyReference.cache
+C:\Users\nurme\Desktop\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherStudentInfo.resources

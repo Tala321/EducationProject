@@ -48,11 +48,8 @@ namespace EducationProject.View.Teacher
         //add info to dataBase
         private void btnTeacherAddSource_Click(object sender, EventArgs e)
         {
-
-
             if (db.Libraries.All(t => t.LibraryItemSource != cbxTeacherAddSourcePdf.Text))
             {
-
                 //check which kind of the resource we chosed
                 if (chbxTeacherLibraryAddPdf.Checked)
                 {

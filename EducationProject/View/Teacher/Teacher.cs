@@ -13,18 +13,24 @@ namespace EducationProject.View.Teacher
 {
     public partial class Teacher : Form
     {
-        //declare here to use info from here in the Colleagues option
-        public DataGridView dgwTeacherColleagues = new DataGridView();
 
         //DataBase
         EducationProjectEntities db = new EducationProjectEntities();
 
         //declaree dataGridView
         DataGridView dgwTeacherLibraryList = new DataGridView();
+        DataGridView dgwTeacherGroups = new DataGridView();
+        public DataGridView dgwTeacherColleagues = new DataGridView();
 
         // holds source id
         int SourceId;
+        int GroupId;
 
+        //Declare comboBox 
+        ComboBox cbxTeacherSelectGroups = new ComboBox();
+
+
+        //Colors
         private new Color ForeColor = Color.FromName("ControlText");
         private Color ForeColorStatic = Color.FromName("ControlDarkDark");
 
@@ -302,20 +308,25 @@ namespace EducationProject.View.Teacher
             assignTask.Show();
         }
 
+
+
         //"Groups" option
         private void groupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
-            PanelTeacher.Width = panelNormalWidth;
-            Width = formNormalWidth;
+            PanelTeacher.Width = 847;
+            Width = 889;
 
             //set static items
-            DataGridView dgwTeacherGroups = new DataGridView();
+            //declared  on the top
             dgwTeacherGroups.Top = 3;
             dgwTeacherGroups.Left = 3;
-            dgwTeacherGroups.Width = 543;
+            dgwTeacherGroups.Width = 842;
             dgwTeacherGroups.Height = 137;
+            dgwTeacherGroups.Font = new Font("Microsoft Sans Serif", Convert.ToInt32(8.25));
+            dgwTeacherGroups.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgwTeacherGroups.ReadOnly = true;
 
             Label lblTeacherSelectGroups = new Label();
             lblTeacherSelectGroups.Left = 0;
@@ -324,19 +335,72 @@ namespace EducationProject.View.Teacher
             lblTeacherSelectGroups.ForeColor = ForeColorStatic;
             lblTeacherSelectGroups.Text = "Choose group:";
 
-            ComboBox cbxTeacherSelectGroups = new ComboBox();
+            //declared  on the top
             cbxTeacherSelectGroups.Left = 107;
             cbxTeacherSelectGroups.Top = 183;
             cbxTeacherSelectGroups.Width = 97;
             cbxTeacherSelectGroups.Height = 21;
             cbxTeacherSelectGroups.ForeColor = ForeColorStatic;
+            cbxTeacherSelectGroups.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            //events
+            cbxTeacherSelectGroups.SelectedIndexChanged += ShowStudetnsFromGroup;
+            dgwTeacherGroups.Click += ShowStudentInfo;
 
             //add static items
 
             PanelTeacher.Controls.Add(dgwTeacherGroups);
             PanelTeacher.Controls.Add(lblTeacherSelectGroups);
             PanelTeacher.Controls.Add(cbxTeacherSelectGroups);
+
+            ChoosePdfFromSource();
+
+        }
+
+        //show student info (first get  data from database)
+        private void ShowStudentInfo(object sender, EventArgs e)
+        {
+            var Birthdate = Convert.ToDateTime(dgwTeacherGroups.CurrentRow.Cells[4].Value);
+            var RegDate = Convert.ToDateTime(dgwTeacherGroups.CurrentRow.Cells[7].Value);
+
+            TeacherStudentInfo StudentInfo = new TeacherStudentInfo();
+            StudentInfo.ShowClickedStudentInfo(
+              Convert.ToInt32(dgwTeacherGroups.CurrentRow.Cells[0].Value),
+              Convert.ToInt32(dgwTeacherGroups.CurrentRow.Cells[1].Value),
+              dgwTeacherGroups.CurrentRow.Cells[2].Value.ToString(),
+              dgwTeacherGroups.CurrentRow.Cells[3].Value.ToString(),
+              Birthdate.ToShortDateString().ToString(),
+              dgwTeacherGroups.CurrentRow.Cells[5].Value.ToString(),
+              dgwTeacherGroups.CurrentRow.Cells[6].Value.ToString(),
+              RegDate.ToShortDateString().ToString(),
+              dgwTeacherGroups.CurrentRow.Cells[8].Value.ToString(),
+              dgwTeacherGroups.CurrentRow.Cells[9].Value.ToString()
+              );
+
+            StudentInfo.Show();
+        }
+
+        //fill combo box with groups names
+        private void ChoosePdfFromSource()
+        {
+            foreach (var item in db.Groups.ToList())
+            {
+                cbxTeacherSelectGroups.Items.Add(item.GroupName);
+            }
+        }
+
+        //show students from the selected group
+        private void ShowStudetnsFromGroup(object sender, EventArgs e)
+        {
+            foreach (var item in db.Groups.ToList())
+            {
+                if (item.GroupName == cbxTeacherSelectGroups.SelectedItem.ToString())
+                {
+                    GroupId = item.GroupId;
+                    dgwTeacherGroups.DataSource = db.Students.Where(d => d.GroupId == GroupId).ToList();
+                    break;
+                }
+            }
         }
 
         //shows new Form to write to a Group
@@ -378,7 +442,7 @@ namespace EducationProject.View.Teacher
             dgwTeacherColleagues.DataSource = db.Teachers.ToList();
             dgwTeacherColleagues.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwTeacherColleagues.ReadOnly = true;
-           
+
 
             //Events
             dgwTeacherColleagues.Click += ShowColleagueInfo;
@@ -399,7 +463,7 @@ namespace EducationProject.View.Teacher
               dgwTeacherColleagues.CurrentRow.Cells[4].Value.ToString(),
               dgwTeacherColleagues.CurrentRow.Cells[5].Value.ToString(),
               dgwTeacherColleagues.CurrentRow.Cells[6].Value.ToString(),
-              dgwTeacherColleagues.CurrentRow.Cells[7].Value.ToString() );
+              dgwTeacherColleagues.CurrentRow.Cells[7].Value.ToString());
 
             ColleagueInfo.Show();
         }

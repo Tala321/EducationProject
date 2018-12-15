@@ -14,18 +14,8 @@ namespace EducationProject
     
     public partial class GroupCategory
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GroupCategory()
-        {
-            this.Groups = new HashSet<Group>();
-        }
-    
         public int GroupCategoryId { get; set; }
         public int GroupCategoryTypeId { get; set; }
         public string GroupCategoryName { get; set; }
-    
-        public virtual GroupCategoryType GroupCategoryType { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Group> Groups { get; set; }
     }
 }

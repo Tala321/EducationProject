@@ -35,7 +35,6 @@ namespace EducationProject
 
                 if (Path.GetExtension(FileName) == ".pdf")
                 {
-                    MessageBox.Show(db.PdfSources.All(e => e.PdfSourceName != FileName).ToString());
 
                     //Check if  this name is already exist in the database
                     if (db.PdfSources.All(e => e.PdfSourceName != FileName))

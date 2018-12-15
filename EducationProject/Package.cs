@@ -14,23 +14,8 @@ namespace EducationProject
     
     public partial class Package
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Package()
-        {
-            this.Groups = new HashSet<Group>();
-            this.Mentors = new HashSet<Mentor>();
-            this.Teachers = new HashSet<Teacher>();
-        }
-    
         public int PackageId { get; set; }
         public string PackageName { get; set; }
         public Nullable<int> PackageDuration { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Group> Groups { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mentor> Mentors { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

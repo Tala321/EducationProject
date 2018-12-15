@@ -14,24 +14,12 @@ namespace EducationProject
     
     public partial class Group
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Group()
-        {
-            this.Students = new HashSet<Student>();
-        }
-    
         public int GroupId { get; set; }
         public int PackageId { get; set; }
         public int TeacherId { get; set; }
         public int MentorId { get; set; }
         public int GroupCategoryId { get; set; }
         public Nullable<System.DateTime> GroupStartDate { get; set; }
-    
-        public virtual GroupCategory GroupCategory { get; set; }
-        public virtual Mentor Mentor { get; set; }
-        public virtual Package Package { get; set; }
-        public virtual Teacher Teacher { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
+        public string GroupName { get; set; }
     }
 }

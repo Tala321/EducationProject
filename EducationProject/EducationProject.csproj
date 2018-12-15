@@ -254,6 +254,12 @@
     <Compile Include="View\Teacher\TeacherSent.Designer.cs">
       <DependentUpon>TeacherSent.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Teacher\TeacherStudentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherStudentInfo.Designer.cs">
+      <DependentUpon>TeacherStudentInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Teacher\TeacherUpdateTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Teacher\TeacherSent.resx">
       <DependentUpon>TeacherSent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherStudentInfo.resx">
+      <DependentUpon>TeacherStudentInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Teacher\TeacherUpdateTask.resx">
       <DependentUpon>TeacherUpdateTask.cs</DependentUpon>

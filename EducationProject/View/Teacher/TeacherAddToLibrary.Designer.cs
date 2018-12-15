@@ -123,7 +123,7 @@
             // 
             this.cbxTeacherAddSourcePdf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTeacherAddSourcePdf.Enabled = false;
-            this.cbxTeacherAddSourcePdf.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbxTeacherAddSourcePdf.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbxTeacherAddSourcePdf.FormattingEnabled = true;
             this.cbxTeacherAddSourcePdf.Location = new System.Drawing.Point(94, 83);
             this.cbxTeacherAddSourcePdf.Name = "cbxTeacherAddSourcePdf";

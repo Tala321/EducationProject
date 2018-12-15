@@ -17,8 +17,5 @@ namespace EducationProject
         public int AssignTaskId { get; set; }
         public int TaskId { get; set; }
         public int StudentId { get; set; }
-    
-        public virtual Student Student { get; set; }
-        public virtual Task Task { get; set; }
     }
 }

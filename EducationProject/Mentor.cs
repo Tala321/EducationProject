@@ -14,12 +14,6 @@ namespace EducationProject
     
     public partial class Mentor
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Mentor()
-        {
-            this.Groups = new HashSet<Group>();
-        }
-    
         public int MentorId { get; set; }
         public int PackageId { get; set; }
         public string MentorName { get; set; }
@@ -28,9 +22,5 @@ namespace EducationProject
         public string MentorPhone { get; set; }
         public string MentorBio { get; set; }
         public string MentorPhoto { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Group> Groups { get; set; }
-        public virtual Package Package { get; set; }
     }
 }
