@@ -24,7 +24,7 @@ namespace EducationProject.View.Teacher
         public TeacherAddToLibrary()
         {
             InitializeComponent();
-           ChoosePdfFromSource();
+            ChoosePdfFromSource();
         }
 
         //Show our pdf sources in a combo box(aim:refresh)
@@ -44,34 +44,44 @@ namespace EducationProject.View.Teacher
             this.pdfSourcesTableAdapter.Fill(this.educationProjectDataSet1.PdfSources);
 
         }
-   
+
         //add info to dataBase
         private void btnTeacherAddSource_Click(object sender, EventArgs e)
         {
-            //check which kind of the resource we chosed
-            if (chbxTeacherLibraryAddPdf.Checked)
+
+
+            if (db.Libraries.All(t => t.LibraryItemSource != cbxTeacherAddSourcePdf.Text))
             {
-                sourceName = cbxTeacherAddSourcePdf.Text;
-                BitType = true;
+
+                //check which kind of the resource we chosed
+                if (chbxTeacherLibraryAddPdf.Checked)
+                {
+                    sourceName = cbxTeacherAddSourcePdf.Text;
+                    BitType = true;
+                }
+                else
+                {
+                    sourceName = tbxTeacherAddSourceUrl.Text;
+                    BitType = false;
+                }
+
+                //set and add to dataBase
+                Library source = new Library()
+                {
+                    LibraryItemName = tbxTeacherAddSourceName.Text,
+                    LibraryItemSource = sourceName,
+                    LibraryItemType = BitType
+                };
+
+                db.Libraries.Add(source);
+                db.SaveChanges();
+                dgwAddLibrarySourceList.DataSource = db.Libraries.ToList();
+                SetDefaultFields();
             }
             else
             {
-                sourceName = tbxTeacherAddSourceUrl.Text;
-                BitType = false;
+                MessageBox.Show("This name exist in the database");
             }
-
-            //set and add to dataBase
-            Library source = new Library()
-            {
-                LibraryItemName = tbxTeacherAddSourceName.Text,
-                LibraryItemSource = sourceName,
-                LibraryItemType = BitType
-            };
-
-            db.Libraries.Add(source);
-            db.SaveChanges();
-            dgwAddLibrarySourceList.DataSource = db.Libraries.ToList();
-            SetDefaultFields();
         }
 
         //select  type of adding resource to the dataBase (pdf or url) with checkBoxes
@@ -98,7 +108,7 @@ namespace EducationProject.View.Teacher
 
             //refresh info on the form
             cbxTeacherAddSourcePdf.Items.Clear();
-             ChoosePdfFromSource();          
+            ChoosePdfFromSource();
         }
 
         //to set default fields values after adding a source

@@ -207,8 +207,6 @@
     <Property Name="TeacherPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="TeacherBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="TeacherPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Groups" Relationship="EducationProjectModel.Groups_TeacherId_to_TeacherId" FromRole="Teacher" ToRole="Group" />
-    <NavigationProperty Name="Package" Relationship="EducationProjectModel.Teachers_programId_to_programId" FromRole="Teacher" ToRole="Package" />
   </EntityType>
   <EntityType Name="Transcript">
     <Key>

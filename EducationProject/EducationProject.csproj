@@ -58,11 +58,6 @@
     <Compile Include="AssignTask.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EducationProjectDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EducationProjectDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="EducationProjectDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -229,6 +224,12 @@
     <Compile Include="View\Teacher\TeacherInbox.Designer.cs">
       <DependentUpon>TeacherInbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Teacher\TeacherInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherInfo.Designer.cs">
+      <DependentUpon>TeacherInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Teacher\TeacherMessageToColleague.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +338,9 @@
     <EmbeddedResource Include="View\Teacher\TeacherInbox.resx">
       <DependentUpon>TeacherInbox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher\TeacherInfo.resx">
+      <DependentUpon>TeacherInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Teacher\TeacherMessageToColleague.resx">
       <DependentUpon>TeacherMessageToColleague.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,17 +369,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EducationProjectDataSet.xsc">
-      <DependentUpon>EducationProjectDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="EducationProjectDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EducationProjectDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="EducationProjectDataSet.xss">
-      <DependentUpon>EducationProjectDataSet.xsd</DependentUpon>
-    </None>
     <None Include="EducationProjectDataSet1.xsc">
       <DependentUpon>EducationProjectDataSet1.xsd</DependentUpon>
     </None>

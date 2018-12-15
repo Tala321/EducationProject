@@ -43,24 +43,21 @@
             this.educationProjectDataSet1 = new EducationProject.EducationProjectDataSet1();
             this.pdfSourcesTableAdapter = new EducationProject.EducationProjectDataSet1TableAdapters.PdfSourcesTableAdapter();
             this.libraryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.educationProjectDataSet = new EducationProject.EducationProjectDataSet();
-            this.libraryTableAdapter = new EducationProject.EducationProjectDataSetTableAdapters.LibraryTableAdapter();
             this.dgwAddLibrarySourceList = new System.Windows.Forms.DataGridView();
             this.libraryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libraryItemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libraryItemSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libraryItemTypeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.educationProjectDataSet2 = new EducationProject.EducationProjectDataSet2();
             this.libraryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.educationProjectDataSet2 = new EducationProject.EducationProjectDataSet2();
             this.libraryTableAdapter1 = new EducationProject.EducationProjectDataSet2TableAdapters.LibraryTableAdapter();
             this.gbTeacherAddSource.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pdfSourcesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAddLibrarySourceList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // gbTeacherAddSource
@@ -184,16 +181,6 @@
             // libraryBindingSource
             // 
             this.libraryBindingSource.DataMember = "Library";
-            this.libraryBindingSource.DataSource = this.educationProjectDataSet;
-            // 
-            // educationProjectDataSet
-            // 
-            this.educationProjectDataSet.DataSetName = "EducationProjectDataSet";
-            this.educationProjectDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // libraryTableAdapter
-            // 
-            this.libraryTableAdapter.ClearBeforeFill = true;
             // 
             // dgwAddLibrarySourceList
             // 
@@ -242,15 +229,15 @@
             this.libraryItemTypeDataGridViewCheckBoxColumn.Name = "libraryItemTypeDataGridViewCheckBoxColumn";
             this.libraryItemTypeDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // educationProjectDataSet2
-            // 
-            this.educationProjectDataSet2.DataSetName = "EducationProjectDataSet2";
-            this.educationProjectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // libraryBindingSource1
             // 
             this.libraryBindingSource1.DataMember = "Library";
             this.libraryBindingSource1.DataSource = this.educationProjectDataSet2;
+            // 
+            // educationProjectDataSet2
+            // 
+            this.educationProjectDataSet2.DataSetName = "EducationProjectDataSet2";
+            this.educationProjectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // libraryTableAdapter1
             // 
@@ -271,10 +258,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pdfSourcesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAddLibrarySourceList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.educationProjectDataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,9 +273,8 @@
         private System.Windows.Forms.Label lblTeacherAddSourceUrl;
         private System.Windows.Forms.TextBox tbxTeacherAddSourceName;
         private System.Windows.Forms.Label lblTeacherAddSourceName;
-        private EducationProjectDataSet educationProjectDataSet;
         private System.Windows.Forms.BindingSource libraryBindingSource;
-        private EducationProjectDataSetTableAdapters.LibraryTableAdapter libraryTableAdapter;
+
         private System.Windows.Forms.DataGridViewTextBoxColumn libraryItemUrlDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblTeacherAddSourcePdf;
         private System.Windows.Forms.ComboBox cbxTeacherAddSourcePdf;

@@ -14,12 +14,6 @@ namespace EducationProject
     
     public partial class Teacher
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Teacher()
-        {
-            this.Groups = new HashSet<Group>();
-        }
-    
         public int TeacherId { get; set; }
         public int PackageId { get; set; }
         public string TeacherName { get; set; }
@@ -28,9 +22,5 @@ namespace EducationProject
         public string TeacherPhone { get; set; }
         public string TeacherBio { get; set; }
         public string TeacherPhoto { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Group> Groups { get; set; }
-        public virtual Package Package { get; set; }
     }
 }

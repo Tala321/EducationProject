@@ -13,6 +13,9 @@ namespace EducationProject.View.Teacher
 {
     public partial class Teacher : Form
     {
+        //declare here to use info from here in the Colleagues option
+        public DataGridView dgwTeacherColleagues = new DataGridView();
+
         //DataBase
         EducationProjectEntities db = new EducationProjectEntities();
 
@@ -29,6 +32,12 @@ namespace EducationProject.View.Teacher
         int StandartHeight = 342;
         int ShortHeight = 215;
 
+        int panelNormalWidth = 552;
+        int formNormalWidth = 593;
+
+
+
+
         public Teacher()
         {
             InitializeComponent();
@@ -43,7 +52,8 @@ namespace EducationProject.View.Teacher
 
             PanelTeacher.Controls.Clear();
             Height = 380;
-
+            PanelTeacher.Width = panelNormalWidth;
+            Width = formNormalWidth;
             //set Static items
 
             Label lblTeacherId = new Label();
@@ -225,6 +235,8 @@ namespace EducationProject.View.Teacher
         {
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
+            PanelTeacher.Width = panelNormalWidth;
+            Width = formNormalWidth;
 
             //set static items
             DataGridView dgwTeacherAllTasks = new DataGridView();
@@ -295,6 +307,8 @@ namespace EducationProject.View.Teacher
         {
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
+            PanelTeacher.Width = panelNormalWidth;
+            Width = formNormalWidth;
 
             //set static items
             DataGridView dgwTeacherGroups = new DataGridView();
@@ -316,6 +330,7 @@ namespace EducationProject.View.Teacher
             cbxTeacherSelectGroups.Width = 97;
             cbxTeacherSelectGroups.Height = 21;
             cbxTeacherSelectGroups.ForeColor = ForeColorStatic;
+
 
             //add static items
 
@@ -350,17 +365,43 @@ namespace EducationProject.View.Teacher
         {
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
+            PanelTeacher.Width = 847;
+            Width = 889;
 
             //set static items
-            DataGridView dgwTeacherColleagues = new DataGridView();
+
             dgwTeacherColleagues.Top = 3;
             dgwTeacherColleagues.Left = 3;
-            dgwTeacherColleagues.Width = 545;
+            dgwTeacherColleagues.Width = 842;
+            dgwTeacherColleagues.Font = new Font("Microsoft Sans Serif", Convert.ToInt32(8.25));
             dgwTeacherColleagues.Height = 257;
+            dgwTeacherColleagues.DataSource = db.Teachers.ToList();
+            dgwTeacherColleagues.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgwTeacherColleagues.ReadOnly = true;
+           
 
+            //Events
+            dgwTeacherColleagues.Click += ShowColleagueInfo;
             //add static items
             PanelTeacher.Controls.Add(dgwTeacherColleagues);
 
+        }
+
+        // Show colleague's info
+        private void ShowColleagueInfo(object sender, EventArgs e)
+        {
+            TeacherInfo ColleagueInfo = new TeacherInfo();
+            ColleagueInfo.ShowClickedColleagueInfo(
+              Convert.ToInt32(dgwTeacherColleagues.CurrentRow.Cells[0].Value),
+              Convert.ToInt32(dgwTeacherColleagues.CurrentRow.Cells[1].Value),
+              dgwTeacherColleagues.CurrentRow.Cells[2].Value.ToString(),
+              dgwTeacherColleagues.CurrentRow.Cells[3].Value.ToString(),
+              dgwTeacherColleagues.CurrentRow.Cells[4].Value.ToString(),
+              dgwTeacherColleagues.CurrentRow.Cells[5].Value.ToString(),
+              dgwTeacherColleagues.CurrentRow.Cells[6].Value.ToString(),
+              dgwTeacherColleagues.CurrentRow.Cells[7].Value.ToString() );
+
+            ColleagueInfo.Show();
         }
 
         //"Library" option
@@ -368,6 +409,8 @@ namespace EducationProject.View.Teacher
         {
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
+            PanelTeacher.Width = panelNormalWidth;
+            Width = formNormalWidth;
 
             //set static items
 
@@ -476,6 +519,8 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Clear();
             Height = ShortHeight;
 
+            PanelTeacher.Width = panelNormalWidth;
+            Width = formNormalWidth;
             //set static Items
 
             Label lblTeacherGroupMentor = new Label();

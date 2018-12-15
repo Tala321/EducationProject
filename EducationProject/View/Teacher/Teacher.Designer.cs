@@ -44,7 +44,7 @@
             this.colleguesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelTeacher = new System.Windows.Forms.Panel();
-            this.menuStrip1.SuspendLayout();
+           
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -174,6 +174,10 @@
             this.PanelTeacher.Name = "PanelTeacher";
             this.PanelTeacher.Size = new System.Drawing.Size(552, 264);
             this.PanelTeacher.TabIndex = 1;
+            // 
+            // educationProjectDataSet
+            // 
+           
             // 
             // Teacher
             // 
