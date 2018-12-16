@@ -117,7 +117,7 @@ namespace EducationProject
             }
         }
 
-        //delete Tas from Database
+        //delete Task from Database
         static public void DeleteTask(int _TaskId)
         {
             EducationProjectEntities db = new EducationProjectEntities();
@@ -133,6 +133,7 @@ namespace EducationProject
             }
         }
 
+        //Fill a combo box with the categories
         static public void FillWithCategories(ComboBox _cbx)
         {
             EducationProjectEntities db = new EducationProjectEntities();
@@ -140,6 +141,28 @@ namespace EducationProject
             foreach (var item in db.TaskCategories.ToList())
             {
                 _cbx.Items.Add(item.TaskCategoryId);
+            }
+        }
+
+        //fill a combo box with groups names
+        static public void FillCbxGroups(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Groups.ToList())
+            {
+                _cbx.Items.Add(item.GroupName);
+            }
+        }
+
+        //fill a combo box With the task names
+        static public void FillCbxTask(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Tasks.ToList())
+            {
+                _cbx.Items.Add(item.TaskName);
             }
         }
     }

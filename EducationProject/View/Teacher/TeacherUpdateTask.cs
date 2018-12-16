@@ -15,7 +15,7 @@ namespace EducationProject.View.Teacher
         EducationProjectEntities db = new EducationProjectEntities();
         int Taskid;
         public TeacherUpdateTask()
-        {
+        {    
             InitializeComponent();
             dgwUpdateTasksList.DataSource = db.Tasks.ToList();
             Extensions.FillWithCategories(cbxTeacherUpdateTaskCategory);
@@ -32,7 +32,7 @@ namespace EducationProject.View.Teacher
             tbxTeacherUpdateTaskDuration.Text = dgwUpdateTasksList.CurrentRow.Cells[4].Value.ToString();
             tbxTeacherUpdateTaskDetails.Text = dgwUpdateTasksList.CurrentRow.Cells[5].Value.ToString();
             cbxTeacherUpdateTaskCategory.Text = dgwUpdateTasksList.CurrentRow.Cells[6].Value.ToString();
-
+           
         }
 
 

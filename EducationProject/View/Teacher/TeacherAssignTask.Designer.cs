@@ -58,6 +58,7 @@
             this.btnAssignTaskStudent.TabIndex = 1;
             this.btnAssignTaskStudent.Text = "Assign Task";
             this.btnAssignTaskStudent.UseVisualStyleBackColor = true;
+            this.btnAssignTaskStudent.Click += new System.EventHandler(this.btnAssignTaskStudent_Click);
             // 
             // cbxTeacherAssignGroup
             // 
@@ -67,6 +68,7 @@
             this.cbxTeacherAssignGroup.Name = "cbxTeacherAssignGroup";
             this.cbxTeacherAssignGroup.Size = new System.Drawing.Size(97, 24);
             this.cbxTeacherAssignGroup.TabIndex = 2;
+            this.cbxTeacherAssignGroup.SelectedIndexChanged += new System.EventHandler(this.cbxTeacherAssignGroup_SelectedIndexChanged);
             // 
             // cbxTeacherAssignTask
             // 
@@ -122,6 +124,7 @@
             this.chbxTeacherAssignToAll.TabIndex = 5;
             this.chbxTeacherAssignToAll.Text = "Select All";
             this.chbxTeacherAssignToAll.UseVisualStyleBackColor = true;
+            this.chbxTeacherAssignToAll.Click += new System.EventHandler(this.chbxTeacherAssignToAll_Click);
             // 
             // TeacherAssignTask
             // 
