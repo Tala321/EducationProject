@@ -34,8 +34,6 @@
             this.lblTeacherUpdateTaskCategory = new System.Windows.Forms.Label();
             this.tbxTeacherUpdateTaskDetails = new System.Windows.Forms.TextBox();
             this.lblTeacherUpdateTaskDetails = new System.Windows.Forms.Label();
-            this.tbxTeacherUpdateTaskPoint = new System.Windows.Forms.TextBox();
-            this.lblTeacherUpdateTaskPoint = new System.Windows.Forms.Label();
             this.tbxTeacherUpdateTaskDuration = new System.Windows.Forms.TextBox();
             this.lblTeacherUpdateTaskDuration = new System.Windows.Forms.Label();
             this.tbxTeacherUpdateTaskStartDate = new System.Windows.Forms.TextBox();
@@ -56,8 +54,6 @@
             this.gbTeacherUpdateTask.Controls.Add(this.lblTeacherUpdateTaskCategory);
             this.gbTeacherUpdateTask.Controls.Add(this.tbxTeacherUpdateTaskDetails);
             this.gbTeacherUpdateTask.Controls.Add(this.lblTeacherUpdateTaskDetails);
-            this.gbTeacherUpdateTask.Controls.Add(this.tbxTeacherUpdateTaskPoint);
-            this.gbTeacherUpdateTask.Controls.Add(this.lblTeacherUpdateTaskPoint);
             this.gbTeacherUpdateTask.Controls.Add(this.tbxTeacherUpdateTaskDuration);
             this.gbTeacherUpdateTask.Controls.Add(this.lblTeacherUpdateTaskDuration);
             this.gbTeacherUpdateTask.Controls.Add(this.tbxTeacherUpdateTaskStartDate);
@@ -82,6 +78,7 @@
             this.btnTeacherUpdateTaskAdd.TabIndex = 14;
             this.btnTeacherUpdateTaskAdd.Text = "Update";
             this.btnTeacherUpdateTaskAdd.UseVisualStyleBackColor = true;
+            this.btnTeacherUpdateTaskAdd.Click += new System.EventHandler(this.btnTeacherUpdateTaskAdd_Click);
             // 
             // cbxTeacherUpdateTaskCategory
             // 
@@ -118,23 +115,6 @@
             this.lblTeacherUpdateTaskDetails.Size = new System.Drawing.Size(55, 17);
             this.lblTeacherUpdateTaskDetails.TabIndex = 10;
             this.lblTeacherUpdateTaskDetails.Text = "Details:";
-            // 
-            // tbxTeacherUpdateTaskPoint
-            // 
-            this.tbxTeacherUpdateTaskPoint.Location = new System.Drawing.Point(110, 132);
-            this.tbxTeacherUpdateTaskPoint.Name = "tbxTeacherUpdateTaskPoint";
-            this.tbxTeacherUpdateTaskPoint.Size = new System.Drawing.Size(100, 23);
-            this.tbxTeacherUpdateTaskPoint.TabIndex = 9;
-            // 
-            // lblTeacherUpdateTaskPoint
-            // 
-            this.lblTeacherUpdateTaskPoint.AutoSize = true;
-            this.lblTeacherUpdateTaskPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeacherUpdateTaskPoint.Location = new System.Drawing.Point(27, 135);
-            this.lblTeacherUpdateTaskPoint.Name = "lblTeacherUpdateTaskPoint";
-            this.lblTeacherUpdateTaskPoint.Size = new System.Drawing.Size(44, 17);
-            this.lblTeacherUpdateTaskPoint.TabIndex = 8;
-            this.lblTeacherUpdateTaskPoint.Text = "Point:";
             // 
             // tbxTeacherUpdateTaskDuration
             // 
@@ -236,8 +216,6 @@
         private System.Windows.Forms.Label lblTeacherUpdateTaskCategory;
         private System.Windows.Forms.TextBox tbxTeacherUpdateTaskDetails;
         private System.Windows.Forms.Label lblTeacherUpdateTaskDetails;
-        private System.Windows.Forms.TextBox tbxTeacherUpdateTaskPoint;
-        private System.Windows.Forms.Label lblTeacherUpdateTaskPoint;
         private System.Windows.Forms.TextBox tbxTeacherUpdateTaskDuration;
         private System.Windows.Forms.Label lblTeacherUpdateTaskDuration;
         private System.Windows.Forms.TextBox tbxTeacherUpdateTaskStartDate;

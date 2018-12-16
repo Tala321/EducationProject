@@ -17,14 +17,15 @@ namespace EducationProject
         static string FileName;
         static string FolderName;
 
+       
         static OpenFileDialog fileDialog = new OpenFileDialog();
+       
 
         //Choose and copy pdf file  to our PdfSource folder
         static public void AddPdfFile()
         {
+
             EducationProjectEntities db = new EducationProjectEntities();
-
-
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 //set paths
@@ -84,6 +85,62 @@ namespace EducationProject
             PdfSource = Path.Combine(rootPath, "PdfSource");
             File.Delete(Path.Combine(PdfSource, _SourceFileName));
             MessageBox.Show("The file Deleted");
+        }
+
+        //show task info
+        static public void ShowTaskInfo(int _TaskId )
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Tasks.ToList())
+            {
+                if(item.TaskId== _TaskId)
+                {
+                    MessageBox.Show(
+                  "TASK INFO" + Environment.NewLine +
+                  Environment.NewLine +
+                  "Id:" + "" + item.TaskId + Environment.NewLine +
+                   Environment.NewLine +
+                  "Name:" + "" + item.TaskName + Environment.NewLine +
+                   Environment.NewLine +
+                  "Url:" + "" + item.TaskUrl + Environment.NewLine +
+                   Environment.NewLine +
+                  "Start Date:" + "" + item.TaskStartDate + Environment.NewLine +
+                   Environment.NewLine +
+                  "Task Duration:" + "" + item.TaskDuration + Environment.NewLine +
+                   Environment.NewLine +
+                  "Details:" + "" + item.TaskDetails + Environment.NewLine +
+                   Environment.NewLine +
+                  "Category Id:" + "" + item.TaskCategoryId + Environment.NewLine
+                  );
+                }
+            }
+        }
+
+        //delete Tas from Database
+        static public void DeleteTask(int _TaskId)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Tasks.ToList())
+            {
+                if(item.TaskId== _TaskId)
+                {
+                    db.Tasks.Remove(item);
+                    db.SaveChanges();
+                }
+
+            }
+        }
+
+        static public void FillWithCategories(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.TaskCategories.ToList())
+            {
+                _cbx.Items.Add(item.TaskCategoryId);
+            }
         }
     }
 }

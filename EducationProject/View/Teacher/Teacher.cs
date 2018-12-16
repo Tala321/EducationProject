@@ -21,11 +21,14 @@ namespace EducationProject.View.Teacher
         DataGridView dgwTeacherLibraryList = new DataGridView();
         DataGridView dgwTeacherGroups = new DataGridView();
         public DataGridView dgwTeacherColleagues = new DataGridView();
+        public DataGridView dgwTeacherAllTasks = new DataGridView();
+
 
         // holds source id
         int SourceId;
         int GroupId;
         int mentorId;
+        int TaskId;
 
         //Declare comboBox 
         ComboBox cbxTeacherSelectGroups = new ComboBox();
@@ -247,45 +250,52 @@ namespace EducationProject.View.Teacher
         //"Tasks" option
         private void taskToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+           
             PanelTeacher.Controls.Clear();
-            Height = StandartHeight;
-            PanelTeacher.Width = panelNormalWidth;
-            Width = formNormalWidth;
-
+            Height = 321;
+            PanelTeacher.Width = 847;
+            Width = 889;
+           
             //set static items
-            DataGridView dgwTeacherAllTasks = new DataGridView();
+
             dgwTeacherAllTasks.Top = 3;
             dgwTeacherAllTasks.Left = 3;
-            dgwTeacherAllTasks.Width = 543;
+            dgwTeacherAllTasks.Width = 842;
             dgwTeacherAllTasks.Height = 137;
-
+          
+            dgwTeacherAllTasks.DataSource = db.Tasks.ToList();
+            dgwTeacherAllTasks.Font = new Font("Microsoft Sans Serif", Convert.ToInt32(8.25));
+            dgwTeacherAllTasks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgwTeacherAllTasks.ReadOnly = true;
+            
 
             Button btnTeacherAddTask = new Button();
-            btnTeacherAddTask.Left = 132;
-            btnTeacherAddTask.Top = 174;
+            btnTeacherAddTask.Left = 270;
+            btnTeacherAddTask.Top = 190;
             btnTeacherAddTask.Height = 25;
             btnTeacherAddTask.Width = 80;
             btnTeacherAddTask.Text = "Add Task";
 
             Button btnTeacherDeleteTask = new Button();
-            btnTeacherDeleteTask.Left = 218;
-            btnTeacherDeleteTask.Top = 174;
+            btnTeacherDeleteTask.Left = 360;
+            btnTeacherDeleteTask.Top = 190;
             btnTeacherDeleteTask.Height = 25;
             btnTeacherDeleteTask.Width = 98;
             btnTeacherDeleteTask.Text = "Delete Task";
 
             Button btnTeacherUpdateTask = new Button();
-            btnTeacherUpdateTask.Left = 322;
-            btnTeacherUpdateTask.Top = 174;
+            btnTeacherUpdateTask.Left = 468;
+            btnTeacherUpdateTask.Top = 190;
             btnTeacherUpdateTask.Height = 25;
             btnTeacherUpdateTask.Width = 98;
             btnTeacherUpdateTask.Text = "Update Task";
 
-            //add click eventHandler to the btn-"Add Task"
+            //Events
             btnTeacherAddTask.Click += new EventHandler(this.AddTask);
-
-            //add click eventHandler to the btn-"Add Update"
             btnTeacherUpdateTask.Click += new EventHandler(this.UpdateTask);
+            dgwTeacherAllTasks.DoubleClick += ShowTaskInfo;
+            btnTeacherDeleteTask.Click += DeleteTask;
 
 
             //add static items
@@ -293,6 +303,21 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(btnTeacherAddTask);
             PanelTeacher.Controls.Add(btnTeacherDeleteTask);
             PanelTeacher.Controls.Add(btnTeacherUpdateTask);
+        }
+
+        //Delete Task from the dataBase
+        private void DeleteTask(object sender, EventArgs e)
+        {
+            TaskId = Convert.ToInt32(dgwTeacherAllTasks.CurrentRow.Cells[0].Value);
+            Extensions.DeleteTask(TaskId);
+            dgwTeacherAllTasks.DataSource = db.Tasks.ToList();
+        }
+
+        //show task info
+        private void ShowTaskInfo(object sender, EventArgs e)
+        {
+            Extensions.ShowTaskInfo(Convert.ToInt32(dgwTeacherAllTasks.CurrentRow.Cells[0].Value));
+
         }
 
         //add task to the tasklist
@@ -317,13 +342,14 @@ namespace EducationProject.View.Teacher
         }
 
 
-
         //"Groups" option
         private void groupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //cleade dataGridView
             dgwTeacherGroups.DataSource = "";
 
+            //prevent opening 2 or more forms
+            dgwTeacherGroups.Click -= ShowStudentInfo;
             //clear comboBox
             cbxTeacherSelectGroups.Items.Clear();
 
@@ -486,6 +512,7 @@ namespace EducationProject.View.Teacher
         //"Library" option
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
             PanelTeacher.Width = panelNormalWidth;
@@ -690,8 +717,6 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(lblTeacherCurrentMentorEmail);
         }
 
-
-
         //shows selected mentor info
         private void ShowMentorInfo(object sender, EventArgs e)
         {
@@ -712,7 +737,6 @@ namespace EducationProject.View.Teacher
                 }
             }
         }
-
 
         //shows new Form to write to a Mentor
         private void TeacherWriteMessageToMentor(object sender, EventArgs e)
