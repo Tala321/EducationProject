@@ -25,9 +25,17 @@ namespace EducationProject.View.Teacher
         // holds source id
         int SourceId;
         int GroupId;
+        int mentorId;
 
         //Declare comboBox 
         ComboBox cbxTeacherSelectGroups = new ComboBox();
+        ComboBox cbxTeacherGroupMentor = new ComboBox();
+
+
+        //declare labels
+        Label lblTeacherCurrentMentorName = new Label();
+        Label lblTeacherCurrentMentorSurName = new Label();
+        Label lblTeacherCurrentMentorEmail = new Label();
 
 
         //Colors
@@ -313,6 +321,13 @@ namespace EducationProject.View.Teacher
         //"Groups" option
         private void groupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //cleade dataGridView
+            dgwTeacherGroups.DataSource = "";
+
+            //clear comboBox
+            cbxTeacherSelectGroups.Items.Clear();
+
+            /////
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
             PanelTeacher.Width = 847;
@@ -353,7 +368,7 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(lblTeacherSelectGroups);
             PanelTeacher.Controls.Add(cbxTeacherSelectGroups);
 
-            ChoosePdfFromSource();
+            FillCbxGroups(cbxTeacherSelectGroups);
 
         }
 
@@ -380,12 +395,12 @@ namespace EducationProject.View.Teacher
             StudentInfo.Show();
         }
 
-        //fill combo box with groups names
-        private void ChoosePdfFromSource()
+        //fill a combo box with groups names
+        private void FillCbxGroups(ComboBox _cbx)
         {
             foreach (var item in db.Groups.ToList())
             {
-                cbxTeacherSelectGroups.Items.Add(item.GroupName);
+                _cbx.Items.Add(item.GroupName);
             }
         }
 
@@ -580,6 +595,10 @@ namespace EducationProject.View.Teacher
         //"Mentor Info" option
         private void mentorInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //clear comboBox 
+            cbxTeacherGroupMentor.Items.Clear();
+
+            ////////////
             PanelTeacher.Controls.Clear();
             Height = ShortHeight;
 
@@ -611,42 +630,49 @@ namespace EducationProject.View.Teacher
             lblTeacherMentorEmail.ForeColor = ForeColorStatic;
             lblTeacherMentorEmail.Text = "Email:";
 
+
             Button btnTeacherWriteMessageMentor = new Button();
-            btnTeacherWriteMessageMentor.Left = 260;
+            btnTeacherWriteMessageMentor.Left = 300;
             btnTeacherWriteMessageMentor.Top = 84;
             btnTeacherWriteMessageMentor.Height = 25;
             btnTeacherWriteMessageMentor.Text = "Message";
+            btnTeacherWriteMessageMentor.AutoSize = true;
 
-            //add click eventHandler to the btn-"Message" to write to the Mentor
-            btnTeacherWriteMessageMentor.Click += new EventHandler(this.TeacherWriteMessageToMentor);
 
             //set dynamic Items
 
-            ComboBox cbxTeacherGroupMentor = new ComboBox();
+
             cbxTeacherGroupMentor.Left = 114;
             cbxTeacherGroupMentor.Top = 14;
             cbxTeacherGroupMentor.Width = 97;
             cbxTeacherGroupMentor.Height = 21;
             cbxTeacherGroupMentor.ForeColor = ForeColorStatic;
+            cbxTeacherGroupMentor.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            Label lblTeacherCurrentMentorName = new Label();
+
+            //declared on the top
             lblTeacherCurrentMentorName.Left = 110;
             lblTeacherCurrentMentorName.Top = 44;
             lblTeacherCurrentMentorName.ForeColor = ForeColor;
             lblTeacherCurrentMentorName.Text = "Name";
 
-            Label lblTeacherCurrentMentorSurName = new Label();
             lblTeacherCurrentMentorSurName.Left = 110;
             lblTeacherCurrentMentorSurName.Top = 67;
             lblTeacherCurrentMentorSurName.ForeColor = ForeColor;
             lblTeacherCurrentMentorSurName.Text = "Surname";
 
-            Label lblTeacherCurrentMentorEmail = new Label();
+
             lblTeacherCurrentMentorEmail.Left = 110;
             lblTeacherCurrentMentorEmail.Top = 90;
-
             lblTeacherCurrentMentorEmail.ForeColor = ForeColor;
             lblTeacherCurrentMentorEmail.Text = "Email";
+            lblTeacherCurrentMentorEmail.AutoSize = true;
+
+
+            //add click eventHandler to the btn-"Message" to write to the Mentor
+            btnTeacherWriteMessageMentor.Click += new EventHandler(this.TeacherWriteMessageToMentor);
+            FillCbxGroups(cbxTeacherGroupMentor);
+            cbxTeacherGroupMentor.SelectedIndexChanged += ShowMentorInfo;
 
             //adding static data
 
@@ -663,6 +689,30 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(lblTeacherCurrentMentorSurName);
             PanelTeacher.Controls.Add(lblTeacherCurrentMentorEmail);
         }
+
+
+
+        //shows selected mentor info
+        private void ShowMentorInfo(object sender, EventArgs e)
+        {
+            foreach (var item in db.Groups.ToList())
+            {
+                if (item.GroupName == cbxTeacherGroupMentor.SelectedItem.ToString())
+                {
+                    mentorId = item.MentorId;
+                    foreach (var item1 in db.Mentors.ToList())
+                    {
+                        if (item1.MentorId == mentorId)
+                        {
+                            lblTeacherCurrentMentorName.Text = item1.MentorName;
+                            lblTeacherCurrentMentorSurName.Text = item1.MentorSurname;
+                            lblTeacherCurrentMentorEmail.Text = item1.MentorEmail;
+                        }
+                    }
+                }
+            }
+        }
+
 
         //shows new Form to write to a Mentor
         private void TeacherWriteMessageToMentor(object sender, EventArgs e)
