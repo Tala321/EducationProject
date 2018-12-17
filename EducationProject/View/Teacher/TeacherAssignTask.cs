@@ -69,36 +69,45 @@ namespace EducationProject.View.Teacher
         //assign task to selected student
         private void btnAssignTaskStudent_Click(object sender, EventArgs e)
         {
-            if (cbxTeacherAssignGroup.Text == null || cbxTeacherAssignTask.Text == null || chbxTeacherAssignStudetnList.Text == null)
+            if (string.IsNullOrEmpty(cbxTeacherAssignGroup.Text) || string.IsNullOrEmpty(cbxTeacherAssignTask.Text) || string.IsNullOrEmpty(chbxTeacherAssignStudetnList.Text))
+            {
+                MessageBox.Show("Please Select all fields");
+            }
+            else
             {
                 foreach (var item1 in chbxTeacherAssignStudetnList.CheckedItems)
                 {
-                    foreach (var item in db.Students.ToList())
+                    foreach (var item2 in db.Students.ToList())
                     {
-                        if (item.StudentName == item1.ToString())
+                        if (item2.StudentName == item1.ToString())
                         {
-                            StudentId = item.StudentId;
-                            foreach (var item2 in db.Tasks.ToList())
+                            StudentId = item2.StudentId;
+
+                            foreach (var item3 in db.Tasks.ToList())
                             {
-                                if (item2.TaskName == cbxTeacherAssignTask.Text)
+                                if (item3.TaskName == cbxTeacherAssignTask.Text)
                                 {
-                                    AssignTask assign = new AssignTask()
+                                    if (db.AssignTasks.Any(w => w.StudentId == StudentId && w.TaskId == item3.TaskId))
                                     {
-                                        StudentId = StudentId,
-                                        TaskId = item2.TaskId
-                                    };
-                                    db.AssignTasks.Add(assign);
-                                    db.SaveChanges();
+                                        MessageBox.Show("This task has already been assigned to the student");
+                                    }
+                                    else
+                                    {
+                                        AssignTask assign = new AssignTask()
+                                        {
+                                            StudentId = StudentId,
+                                            TaskId = item3.TaskId
+                                        };
+                                        db.AssignTasks.Add(assign);
+                                        db.SaveChanges();
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Please Select all fields");
-            }
         }
     }
 }
+

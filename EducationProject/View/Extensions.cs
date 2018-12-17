@@ -21,6 +21,8 @@ namespace EducationProject
         static OpenFileDialog fileDialog = new OpenFileDialog();
        
 
+        //Teacher extensions//
+
         //Choose and copy pdf file  to our PdfSource folder
         static public void AddPdfFile()
         {
@@ -53,7 +55,7 @@ namespace EducationProject
                     }
                     else
                     {
-                        MessageBox.Show("This name exist in the database, please change the name or choose another one");
+                        MessageBox.Show("This name is exist in the database, please change the name or choose another one");
                     }
                 }
                 else
@@ -133,7 +135,7 @@ namespace EducationProject
             }
         }
 
-        //Fill a combo box with the categories
+        //Fill a combo box with the Task categories
         static public void FillWithCategories(ComboBox _cbx)
         {
             EducationProjectEntities db = new EducationProjectEntities();
@@ -141,17 +143,6 @@ namespace EducationProject
             foreach (var item in db.TaskCategories.ToList())
             {
                 _cbx.Items.Add(item.TaskCategoryId);
-            }
-        }
-
-        //fill a combo box with groups names
-        static public void FillCbxGroups(ComboBox _cbx)
-        {
-            EducationProjectEntities db = new EducationProjectEntities();
-
-            foreach (var item in db.Groups.ToList())
-            {
-                _cbx.Items.Add(item.GroupName);
             }
         }
 
@@ -165,5 +156,18 @@ namespace EducationProject
                 _cbx.Items.Add(item.TaskName);
             }
         }
+
+        //fill a combo box with groups names
+        static public void FillCbxGroups(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Groups.ToList())
+            {
+                _cbx.Items.Add(item.GroupName);
+            }
+        }
+        
+        //End//
     }
 }
