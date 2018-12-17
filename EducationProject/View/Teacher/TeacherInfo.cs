@@ -14,8 +14,8 @@ namespace EducationProject.View.Teacher
     public partial class TeacherInfo : Form
     {
         EducationProjectEntities db = new EducationProjectEntities();
-        //declare to use datagridview  from this class
-        Teacher teacher = new Teacher();
+
+        //Declares to hold Package name
         string PackageName;
 
         public TeacherInfo()
@@ -24,23 +24,24 @@ namespace EducationProject.View.Teacher
 
         }
 
-        public void ShowClickedColleagueInfo(int _Id, int _PackageId , string _name, string _Surname, string _Email, string _Phone, string _Bio, string _Photo)
+        //Shows clicked Colleague info
+        public void ShowClickedColleagueInfo(int _Id, int _PackageId, string _name, string _Surname, string _Email, string _Phone, string _Bio, string _Photo)
         {
-            //get all
+            //Gets all paths
             string rootPath = Directory.GetCurrentDirectory();
             string PhotoLocation = Path.Combine("TeacherPhotos", _Photo);
             string FullPath = Path.Combine(rootPath, PhotoLocation);
 
-            // get the Package 
+            //Gets the package 
             foreach (var item in db.Packages.ToList())
             {
-                if(item.PackageId== _PackageId)
+                if (item.PackageId == _PackageId)
                 {
                     PackageName = item.PackageName;
                 }
             }
 
-            //set the rest info about teacher
+            //Sets the rest info about teacher
             lblCurrentColleagueId.Text = _Id.ToString();
             lblCurrentColleaguePackage.Text = PackageName;
             lblCurrentColleagueName.Text = _name;

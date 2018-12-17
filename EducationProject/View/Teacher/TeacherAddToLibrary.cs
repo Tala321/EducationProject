@@ -17,9 +17,10 @@ namespace EducationProject.View.Teacher
         //DateBase
         EducationProjectEntities db = new EducationProjectEntities();
 
-        //holds info when adding to Library table
+        //Holds info when adding to the Library table
         string sourceName;
         bool BitType;
+        //
 
         public TeacherAddToLibrary()
         {
@@ -27,7 +28,7 @@ namespace EducationProject.View.Teacher
             ChoosePdfFromSource();
         }
 
-        //Show our pdf sources in a combo box(aim:refresh)
+        //Shows our pdf sources in a combo box( aim: refresh)
         private void ChoosePdfFromSource()
         {
             foreach (var item in db.PdfSources.ToList())
@@ -35,6 +36,7 @@ namespace EducationProject.View.Teacher
                 cbxTeacherAddSourcePdf.Items.Add(item.PdfSourceName);
             }
         }
+
 
         private void TeacherAddToLibrary_Load(object sender, EventArgs e)
         {
@@ -45,12 +47,12 @@ namespace EducationProject.View.Teacher
 
         }
 
-        //add info to dataBase
+        //Adds info to the database
         private void btnTeacherAddSource_Click(object sender, EventArgs e)
         {
             if (db.Libraries.All(t => t.LibraryItemSource != cbxTeacherAddSourcePdf.Text))
             {
-                //check which kind of the resource we chosed
+                //Checks which kind of the resource we chosed
                 if (chbxTeacherLibraryAddPdf.Checked)
                 {
                     sourceName = cbxTeacherAddSourcePdf.Text;
@@ -62,7 +64,7 @@ namespace EducationProject.View.Teacher
                     BitType = false;
                 }
 
-                //set and add to dataBase
+                //Sets and adds to the dataBase
                 Library source = new Library()
                 {
                     LibraryItemName = tbxTeacherAddSourceName.Text,
@@ -81,7 +83,7 @@ namespace EducationProject.View.Teacher
             }
         }
 
-        //select  type of adding resource to the dataBase (pdf or url) with checkBoxes
+        //Selects a type of added resource to the dataBase (pdf or url) with checkBoxes
         private void ChooseSourceType(object sender, EventArgs e)
         {
             if (chbxTeacherLibraryAddPdf.Checked)
@@ -98,17 +100,17 @@ namespace EducationProject.View.Teacher
             }
         }
 
-        //download a new pdf file to database for future using
+        //Downloads a new pdf file to the database for the future using
         private void btnTeacherAddPdf_Click(object sender, EventArgs e)
         {
             Extensions.AddPdfFile();
 
-            //refresh info on the form
+            //Refreshes info on the form
             cbxTeacherAddSourcePdf.Items.Clear();
             ChoosePdfFromSource();
         }
 
-        //to set default fields values after adding a source
+        //Sets default fields' values after adding a source
         private void SetDefaultFields()
         {
             tbxTeacherAddSourceName.Text = "";

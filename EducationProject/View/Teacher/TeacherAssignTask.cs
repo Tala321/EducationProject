@@ -14,9 +14,10 @@ namespace EducationProject.View.Teacher
     {
         EducationProjectEntities db = new EducationProjectEntities();
 
-        //declare variables to hold id
+        //Declares variables to hold id
         int GroupId;
         int StudentId;
+        //
 
         public TeacherAssignTask()
         {
@@ -25,7 +26,7 @@ namespace EducationProject.View.Teacher
             Extensions.FillCbxTask(cbxTeacherAssignTask);
         }
 
-        //show students from the selected group
+        //Shows students from a selected group
         private void cbxTeacherAssignGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             chbxTeacherAssignStudetnList.Items.Clear();
@@ -40,13 +41,12 @@ namespace EducationProject.View.Teacher
                         {
                             chbxTeacherAssignStudetnList.Items.Add(item1.StudentName);
                         }
-
                     }
                 }
             }
         }
 
-        //set all items checked
+        //Sets all items checked
         private void chbxTeacherAssignToAll_Click(object sender, EventArgs e)
         {
             if (chbxTeacherAssignToAll.Checked)
@@ -63,10 +63,9 @@ namespace EducationProject.View.Teacher
                     chbxTeacherAssignStudetnList.SetItemChecked(i, false);
                 }
             }
-
         }
 
-        //assign task to selected student
+        //Assigns task to a selected student
         private void btnAssignTaskStudent_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbxTeacherAssignGroup.Text) || string.IsNullOrEmpty(cbxTeacherAssignTask.Text) || string.IsNullOrEmpty(chbxTeacherAssignStudetnList.Text))

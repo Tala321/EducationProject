@@ -13,16 +13,19 @@ namespace EducationProject.View.Teacher
     public partial class TeacherUpdateTask : Form
     {
         EducationProjectEntities db = new EducationProjectEntities();
+
+        //Declares variables to hold TaskId
         int Taskid;
+
         public TeacherUpdateTask()
-        {    
+        {
             InitializeComponent();
             dgwUpdateTasksList.DataSource = db.Tasks.ToList();
             Extensions.FillWithCategories(cbxTeacherUpdateTaskCategory);
             dgwUpdateTasksList.Click += GetTaskInfo;
         }
 
-        //get selected task info
+        //Gets selected task info
         private void GetTaskInfo(object sender, EventArgs e)
         {
             Taskid = Convert.ToInt32(dgwUpdateTasksList.CurrentRow.Cells[0].Value);
@@ -32,11 +35,11 @@ namespace EducationProject.View.Teacher
             tbxTeacherUpdateTaskDuration.Text = dgwUpdateTasksList.CurrentRow.Cells[4].Value.ToString();
             tbxTeacherUpdateTaskDetails.Text = dgwUpdateTasksList.CurrentRow.Cells[5].Value.ToString();
             cbxTeacherUpdateTaskCategory.Text = dgwUpdateTasksList.CurrentRow.Cells[6].Value.ToString();
-           
+
         }
 
 
-        //Update Task
+        //Updates task
         private void btnTeacherUpdateTaskAdd_Click(object sender, EventArgs e)
         {
             Teacher teacher = new Teacher();
@@ -56,7 +59,6 @@ namespace EducationProject.View.Teacher
 
                     break;
                 }
-
             }
         }
     }

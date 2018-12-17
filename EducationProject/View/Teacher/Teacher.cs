@@ -17,7 +17,10 @@ namespace EducationProject.View.Teacher
         //DataBase
         EducationProjectEntities db = new EducationProjectEntities();
 
-        //declaree dataGridView
+
+        ////////  //We will use it in more than one methods//  /////////// 
+
+        //declare dataGridView
         DataGridView dgwTeacherLibraryList = new DataGridView();
         DataGridView dgwTeacherGroups = new DataGridView();
         public DataGridView dgwTeacherColleagues = new DataGridView();
@@ -35,7 +38,7 @@ namespace EducationProject.View.Teacher
         ComboBox cbxTeacherGroupMentor = new ComboBox();
 
 
-        //declare labels
+        //declare labels 
         Label lblTeacherCurrentMentorName = new Label();
         Label lblTeacherCurrentMentorSurName = new Label();
         Label lblTeacherCurrentMentorEmail = new Label();
@@ -52,7 +55,7 @@ namespace EducationProject.View.Teacher
         int panelNormalWidth = 552;
         int formNormalWidth = 593;
 
-
+        ////////  //End - We will use it in more than one methods//  /////////// 
 
 
         public Teacher()
@@ -63,7 +66,9 @@ namespace EducationProject.View.Teacher
 
         }
 
-        //"Personal Info" option
+        ////////  //"Personal Info"-option//  /////////// 
+
+        //Creates all items on the panel
         private void personalInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -240,35 +245,40 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(btnTeacherInfoEdit);
         }
 
-        //Edit Personal Info
+        //Edits Personal Info
         private void EditTeacherPersonalInfo(object sender, EventArgs e)
         {
             TeacherEditInfo EditStudentInfo = new TeacherEditInfo();
             EditStudentInfo.Show();
         }
 
-        //"Tasks" option
+        ////////  // End -"Personal Info"-option//  /////////// 
+
+
+        ////////  //"Task"-option//  ///////////  
+
+        //Creates all items on the panel
         private void taskToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-           
+
+
             PanelTeacher.Controls.Clear();
             Height = 321;
             PanelTeacher.Width = 847;
             Width = 889;
-           
+
             //set static items
 
             dgwTeacherAllTasks.Top = 3;
             dgwTeacherAllTasks.Left = 3;
             dgwTeacherAllTasks.Width = 842;
             dgwTeacherAllTasks.Height = 137;
-          
+
             dgwTeacherAllTasks.DataSource = db.Tasks.ToList();
             dgwTeacherAllTasks.Font = new Font("Microsoft Sans Serif", Convert.ToInt32(8.25));
             dgwTeacherAllTasks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwTeacherAllTasks.ReadOnly = true;
-            
+
 
             Button btnTeacherAddTask = new Button();
             btnTeacherAddTask.Left = 270;
@@ -305,7 +315,7 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(btnTeacherUpdateTask);
         }
 
-        //Delete Task from the dataBase
+        //Deletes Task from the dataBase
         private void DeleteTask(object sender, EventArgs e)
         {
             TaskId = Convert.ToInt32(dgwTeacherAllTasks.CurrentRow.Cells[0].Value);
@@ -313,36 +323,41 @@ namespace EducationProject.View.Teacher
             dgwTeacherAllTasks.DataSource = db.Tasks.ToList();
         }
 
-        //show task info
+        //Shows clicked task info
         private void ShowTaskInfo(object sender, EventArgs e)
         {
             Extensions.ShowTaskInfo(Convert.ToInt32(dgwTeacherAllTasks.CurrentRow.Cells[0].Value));
 
         }
 
-        //add task to the tasklist
+        //Adds a task to the tasklist
         private void AddTask(object sender, EventArgs e)
         {
             TeacherAddTask AddTask = new TeacherAddTask();
             AddTask.Show();
         }
 
-        //Update task from the tasklist
+        //Updates a task from the tasklist
         private void UpdateTask(object sender, EventArgs e)
         {
             TeacherUpdateTask updateTask = new TeacherUpdateTask();
             updateTask.Show();
         }
 
-        //Assign Task to student(s)
+        //Assigns a task to (a) student(s)
         private void assignTaskToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TeacherAssignTask assignTask = new TeacherAssignTask();
             assignTask.Show();
         }
 
+        ////////  // End -"Task"-option//  /////////// 
 
-        //"Groups" option
+
+
+        ////////  //"Groups"-option//  ///////////  
+
+        //Creates all items on the panel
         private void groupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //cleade dataGridView
@@ -394,11 +409,25 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(lblTeacherSelectGroups);
             PanelTeacher.Controls.Add(cbxTeacherSelectGroups);
 
-            FillCbxGroups(cbxTeacherSelectGroups);
+            Extensions.FillCbxGroups(cbxTeacherSelectGroups);
 
         }
 
-        //show student info (first get  data from database)
+        //Shows students from the selected group
+        private void ShowStudetnsFromGroup(object sender, EventArgs e)
+        {
+            foreach (var item in db.Groups.ToList())
+            {
+                if (item.GroupName == cbxTeacherSelectGroups.SelectedItem.ToString())
+                {
+                    GroupId = item.GroupId;
+                    dgwTeacherGroups.DataSource = db.Students.Where(d => d.GroupId == GroupId).ToList();
+                    break;
+                }
+            }
+        }
+
+        //Shows clicked student info (first get  data from database)
         private void ShowStudentInfo(object sender, EventArgs e)
         {
             var Birthdate = Convert.ToDateTime(dgwTeacherGroups.CurrentRow.Cells[4].Value);
@@ -421,51 +450,47 @@ namespace EducationProject.View.Teacher
             StudentInfo.Show();
         }
 
-        //fill a combo box with groups names
-        private void FillCbxGroups(ComboBox _cbx)
-        {
-            foreach (var item in db.Groups.ToList())
-            {
-                _cbx.Items.Add(item.GroupName);
-            }
-        }
+        ////////  //End - "Groups"-option//  ///////////  
 
-        //show students from the selected group
-        private void ShowStudetnsFromGroup(object sender, EventArgs e)
-        {
-            foreach (var item in db.Groups.ToList())
-            {
-                if (item.GroupName == cbxTeacherSelectGroups.SelectedItem.ToString())
-                {
-                    GroupId = item.GroupId;
-                    dgwTeacherGroups.DataSource = db.Students.Where(d => d.GroupId == GroupId).ToList();
-                    break;
-                }
-            }
-        }
 
-        //shows new Form to write to a Group
+
+        ////////  //"My Messages"-option//  ///////////  
+
+        //Shows a new Form to write to a group
         private void toStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TeacherMessageToGroup MessageToGroup = new TeacherMessageToGroup();
             MessageToGroup.Show();
         }
 
-        //shows sent messages
+        //Shows sent messages
         private void sentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TeacherSent TeacherSent = new TeacherSent();
             TeacherSent.Show();
         }
 
-        //shows inbox messages
+        //Shows inbox messages
         private void inboxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TeacherInbox TeacherInbox = new TeacherInbox();
             TeacherInbox.Show();
         }
 
-        //Colleagues option
+        //Shows a new Form to write to a Colleague
+        private void toColleagueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TeacherMessageToColleague MessageToColleague = new TeacherMessageToColleague();
+            MessageToColleague.Show();
+        }
+
+        ////////  //End- "My Messages"-option//  ///////////  
+
+
+
+        ////////  //"Colleagues"-option//  ///////////  
+
+        //Creates all items on the panel
         private void ColleaguesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelTeacher.Controls.Clear();
@@ -492,7 +517,7 @@ namespace EducationProject.View.Teacher
 
         }
 
-        // Show colleague's info
+        // Shows clicked colleague info
         private void ShowColleagueInfo(object sender, EventArgs e)
         {
             TeacherInfo ColleagueInfo = new TeacherInfo();
@@ -509,10 +534,16 @@ namespace EducationProject.View.Teacher
             ColleagueInfo.Show();
         }
 
-        //"Library" option
+        ////////  //End-"Colleagues"-option//  ///////////  
+
+
+
+        ////////  //"Library"-option//  ///////////  
+
+        //Creates all items on the panel
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
             PanelTeacher.Width = panelNormalWidth;
@@ -568,7 +599,7 @@ namespace EducationProject.View.Teacher
 
         }
 
-        //download Pdf file
+        //Downloads  a pdf file
         private void DownloadPdf(object sender, EventArgs e)
         {
             foreach (var item in db.Libraries.Where(t => t.LibraryId == SourceId).ToList())
@@ -584,13 +615,13 @@ namespace EducationProject.View.Teacher
             }
         }
 
-        //get id of clicked item
+        //Gets id of a clicked item
         private void GetSourceId(object sender, EventArgs e)
         {
             SourceId = Convert.ToInt32(dgwTeacherLibraryList.CurrentRow.Cells[0].Value);
         }
 
-        //Delete source from dataBase
+        //Deletes a clicked source from the dataBase
         private void DeleteSource(object sender, EventArgs e)
         {
             foreach (var item in db.Libraries.ToList())
@@ -612,14 +643,20 @@ namespace EducationProject.View.Teacher
             dgwTeacherLibraryList.DataSource = db.Libraries.ToList();
         }
 
-        //Add source to the Library
+        //Adds a source to the library
         private void AddResource(object sender, EventArgs e)
         {
             TeacherAddToLibrary AddSource = new TeacherAddToLibrary();
             AddSource.Show();
         }
 
-        //"Mentor Info" option
+        ////////  //End -"Library"-option//  ///////////  
+
+
+
+        ////////  //"Mentor Info"-option//  ///////////  
+
+        //Creates all items on the panel
         private void mentorInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //clear comboBox 
@@ -631,6 +668,7 @@ namespace EducationProject.View.Teacher
 
             PanelTeacher.Width = panelNormalWidth;
             Width = formNormalWidth;
+
             //set static Items
 
             Label lblTeacherGroupMentor = new Label();
@@ -698,7 +736,7 @@ namespace EducationProject.View.Teacher
 
             //add click eventHandler to the btn-"Message" to write to the Mentor
             btnTeacherWriteMessageMentor.Click += new EventHandler(this.TeacherWriteMessageToMentor);
-            FillCbxGroups(cbxTeacherGroupMentor);
+            Extensions.FillCbxGroups(cbxTeacherGroupMentor);
             cbxTeacherGroupMentor.SelectedIndexChanged += ShowMentorInfo;
 
             //adding static data
@@ -717,7 +755,7 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(lblTeacherCurrentMentorEmail);
         }
 
-        //shows selected mentor info
+        //Shows selected mentor info
         private void ShowMentorInfo(object sender, EventArgs e)
         {
             foreach (var item in db.Groups.ToList())
@@ -738,18 +776,13 @@ namespace EducationProject.View.Teacher
             }
         }
 
-        //shows new Form to write to a Mentor
+        //Shows a new Form to write to a mentor
         private void TeacherWriteMessageToMentor(object sender, EventArgs e)
         {
             TeacherMessageToMentor MessageToMentor = new TeacherMessageToMentor();
             MessageToMentor.Show();
         }
 
-        //shows new Form to write to a Colleague
-        private void toColleagueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TeacherMessageToColleague MessageToColleague = new TeacherMessageToColleague();
-            MessageToColleague.Show();
-        }
+        ////////  //End - "Mentor Info"-option//  ///////////  
     }
 }

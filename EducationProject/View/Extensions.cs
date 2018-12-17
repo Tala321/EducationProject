@@ -19,11 +19,12 @@ namespace EducationProject
 
        
         static OpenFileDialog fileDialog = new OpenFileDialog();
-       
 
-        //Teacher extensions//
 
-        //Choose and copy pdf file  to our PdfSource folder
+        ////////  //Teacher extensions//  ///////////
+
+        //"Library"- option//
+        //Chooses and copy a pdf file  to the our PdfSource folder
         static public void AddPdfFile()
         {
 
@@ -65,7 +66,7 @@ namespace EducationProject
             }
         }
 
-        //Choose folder  where to download pdf
+        //Chooses a folder  where to download a pdf
         static public void DownloadPdf(string _SourceFileName)
         {
             FolderBrowserDialog folder = new FolderBrowserDialog();
@@ -80,7 +81,7 @@ namespace EducationProject
             }
         }
 
-        //delete pdf from source folder
+        //Deletes a pdf from the source folder
         static public void DeletePdf(string _SourceFileName)
         {
             rootPath = Directory.GetCurrentDirectory().ToString();
@@ -89,7 +90,10 @@ namespace EducationProject
             MessageBox.Show("The file Deleted");
         }
 
-        //show task info
+
+         //"Task"- option//
+
+        //Shows task info
         static public void ShowTaskInfo(int _TaskId )
         {
             EducationProjectEntities db = new EducationProjectEntities();
@@ -119,7 +123,7 @@ namespace EducationProject
             }
         }
 
-        //delete Task from Database
+        //Deletes Task from the database
         static public void DeleteTask(int _TaskId)
         {
             EducationProjectEntities db = new EducationProjectEntities();
@@ -135,7 +139,7 @@ namespace EducationProject
             }
         }
 
-        //Fill a combo box with the Task categories
+        //Fills a combo box with the task categories
         static public void FillWithCategories(ComboBox _cbx)
         {
             EducationProjectEntities db = new EducationProjectEntities();
@@ -146,7 +150,7 @@ namespace EducationProject
             }
         }
 
-        //fill a combo box With the task names
+        //Fills a combo box With the tasks names
         static public void FillCbxTask(ComboBox _cbx)
         {
             EducationProjectEntities db = new EducationProjectEntities();
@@ -157,7 +161,10 @@ namespace EducationProject
             }
         }
 
-        //fill a combo box with groups names
+
+        //"Mentor info","Groups","Assign Task" - options//
+        
+        //Fills a combo box with the groups names
         static public void FillCbxGroups(ComboBox _cbx)
         {
             EducationProjectEntities db = new EducationProjectEntities();
@@ -167,7 +174,7 @@ namespace EducationProject
                 _cbx.Items.Add(item.GroupName);
             }
         }
-        
-        //End//
+
+        ////////  //End Teacher//  ///////////
     }
 }

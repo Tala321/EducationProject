@@ -15,6 +15,8 @@ namespace EducationProject.View.Teacher
     {
 
         EducationProjectEntities db = new EducationProjectEntities();
+
+        //Declares to hold group name
         string GroupName;
 
         public TeacherStudentInfo()
@@ -22,15 +24,15 @@ namespace EducationProject.View.Teacher
             InitializeComponent();
         }
 
-        //SHow student info
+        //Shows  student info
         public void ShowClickedStudentInfo(int _Id, int _GroupId, string _name, string _Surname, string _BirthDate, string _Email, string _Phone, string _RegDate, string _Photo, string _Bio)
         {
-            //get all paths
+            //Gets all paths
             string rootPath = Directory.GetCurrentDirectory();
             string PhotoLocation = Path.Combine("StudentsPhotos", _Photo);
             string FullPath = Path.Combine(rootPath, PhotoLocation);
 
-            // get the GroupName 
+            //Gets the Group name 
             foreach (var item in db.Groups.ToList())
             {
                 if (item.GroupId == _GroupId)
@@ -39,7 +41,7 @@ namespace EducationProject.View.Teacher
                 }
             }
 
-            //set the rest info about Student
+            //Sets the rest info about Student
             lblTeacherCurrentStudentId.Text = _Id.ToString();
             lblTeacherCurrentStudentGroupId.Text = GroupName.ToString();
             lblTeacherCurrentStudentName.Text = _name;
