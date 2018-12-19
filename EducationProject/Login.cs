@@ -12,11 +12,11 @@ namespace EducationProject
     using System;
     using System.Collections.Generic;
     
-    public partial class Transcript
+    public partial class Login
     {
-        public int TranscriptsId { get; set; }
-        public int TaskId { get; set; }
-        public int StudentId { get; set; }
-        public Nullable<int> TaskPoint { get; set; }
+        public int LoginId { get; set; }
+        public string LoginEmail { get; set; }
+        public string LoginPassword { get; set; }
+        public Nullable<int> UserTypeId { get; set; }
     }
 }

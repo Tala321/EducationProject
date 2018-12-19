@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace EducationProject.View.Student
 {
-    public partial class Student : Form
+    public partial class StudentForm : Form
     {
         private new Color ForeColor = Color.FromName("ControlText");
         private Color ForeColorStatic = Color.FromName("ControlDarkDark");
@@ -19,7 +19,7 @@ namespace EducationProject.View.Student
         int StandartHeight = 342;
         int ShortHeight = 215;
 
-        public Student()
+        public StudentForm()
         {
             InitializeComponent();
             PanelStudent.Controls.Clear();

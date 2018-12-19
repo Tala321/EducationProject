@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace EducationProject.View.Mentor
 {
-    public partial class Mentor : Form
+    public partial class MentorForm : Form
     {
         private new Color ForeColor = Color.FromName("ControlText");
         private Color ForeColorStatic = Color.FromName("ControlDarkDark");
@@ -19,7 +19,7 @@ namespace EducationProject.View.Mentor
         int StandartHeight = 342;
         int ShortHeight = 215;
 
-        public Mentor()
+        public MentorForm()
         {
             InitializeComponent();
             PanelMentor.Controls.Clear();

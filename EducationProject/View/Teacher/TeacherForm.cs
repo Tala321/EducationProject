@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace EducationProject.View.Teacher
 {
-    public partial class Teacher : Form
+    public partial class TeacherForm : Form
     {
 
         //DataBase
@@ -32,6 +33,18 @@ namespace EducationProject.View.Teacher
         int GroupId;
         int mentorId;
         int TaskId;
+
+        // Declare dynamic label here , to use when Teacher enters
+        public Label lblCurrentTeacherId = new Label();
+        public Label lblCurrentTeacherProgram = new Label();
+        public Label lblCurrentTeacherName = new Label();
+        public Label lblCurrentTeacherSurname = new Label();
+        public Label lblCurrentTeacherEmail = new Label();
+        public Label lblCurrentTeacherPhone = new Label();
+        public Label lblCurrentTeacherBio = new Label();
+        public PictureBox pbxTeacherImage = new PictureBox();
+        public RichTextBox bioBx = new RichTextBox();
+
 
         //Declare comboBox 
         ComboBox cbxTeacherSelectGroups = new ComboBox();
@@ -55,10 +68,7 @@ namespace EducationProject.View.Teacher
         int panelNormalWidth = 552;
         int formNormalWidth = 593;
 
-        ////////  //End - We will use it in more than one methods//  /////////// 
-
-
-        public Teacher()
+        public TeacherForm()
         {
             InitializeComponent();
             PanelTeacher.Controls.Clear();
@@ -75,13 +85,14 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Clear();
             Height = 380;
             PanelTeacher.Width = panelNormalWidth;
+            PanelTeacher.Height = 290;
             Width = formNormalWidth;
+
             //set Static items
 
             Label lblTeacherId = new Label();
             lblTeacherId.Left = 14;
-            lblTeacherId.Top = 44;
-            lblTeacherId.ForeColor = ForeColorStatic;
+            lblTeacherId.Top = 44; lblTeacherId.ForeColor = ForeColorStatic;
             lblTeacherId.Text = "Id:";
 
             Label lblTeacherProgramName = new Label();
@@ -102,111 +113,88 @@ namespace EducationProject.View.Teacher
             lblTeacherSurname.ForeColor = ForeColorStatic;
             lblTeacherSurname.Text = "Surname:";
 
-            Label lblTeacherBirthdate = new Label();
-            lblTeacherBirthdate.Left = 14;
-            lblTeacherBirthdate.Top = 136;
-            lblTeacherBirthdate.ForeColor = ForeColorStatic;
-            lblTeacherBirthdate.Text = "Birthdate:";
-
             Label lblTeacherEmail = new Label();
             lblTeacherEmail.Left = 14;
-            lblTeacherEmail.Top = 159;
+            lblTeacherEmail.Top = 136;
             lblTeacherEmail.ForeColor = ForeColorStatic;
             lblTeacherEmail.Text = "Email:";
 
             Label lblTeacherPhone = new Label();
             lblTeacherPhone.Left = 14;
-            lblTeacherPhone.Top = 182;
+            lblTeacherPhone.Top = 159;
             lblTeacherPhone.ForeColor = ForeColorStatic;
             lblTeacherPhone.Text = "Phone:";
 
-            Label lblTeacherRegistrationDate = new Label();
-            lblTeacherRegistrationDate.Left = 14;
-            lblTeacherRegistrationDate.Top = 205;
-            lblTeacherRegistrationDate.ForeColor = ForeColorStatic;
-            lblTeacherRegistrationDate.Text = "Registration Date:";
 
             Label lblTeacherBio = new Label();
             lblTeacherBio.Left = 14;
-            lblTeacherBio.Top = 228;
+            lblTeacherBio.Top = 182;
             lblTeacherBio.ForeColor = ForeColorStatic;
             lblTeacherBio.Text = "Bio:";
 
             Label lblTeacherPhoto = new Label();
-            lblTeacherPhoto.Left = 280;
+            lblTeacherPhoto.Left = 270;
             lblTeacherPhoto.Top = 47;
             lblTeacherPhoto.ForeColor = ForeColorStatic;
+            lblTeacherPhoto.AutoSize = true;
             lblTeacherPhoto.Text = "Photo:";
+            //
+            pbxTeacherImage.Width = 175;
+            pbxTeacherImage.Height = 96;
+
+            //
+            bioBx.Top = 192;
+            bioBx.Left = 140;
+            bioBx.Width = 175;
+            bioBx.Height = 96;
+            bioBx.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
+            bioBx.BorderStyle = BorderStyle.None;
+            bioBx.BackColor = Color.FromName("Control");
+            bioBx.ReadOnly = true;
+
 
 
             //set dynamic items          
-            Label lblCurrentTeacherId = new Label();
+
             lblCurrentTeacherId.Left = 140;
             lblCurrentTeacherId.Top = 44;
             lblCurrentTeacherId.ForeColor = ForeColor;
-            lblCurrentTeacherId.Text = "Id";
-
-            Label lblCurrentTeacherProgram = new Label();
+            //
             lblCurrentTeacherProgram.Left = 140;
             lblCurrentTeacherProgram.Top = 67;
             lblCurrentTeacherProgram.ForeColor = ForeColor;
-            lblCurrentTeacherProgram.Text = "Program name";
-
-            Label lblCurrentTeacherName = new Label();
+            //
             lblCurrentTeacherName.Left = 140;
             lblCurrentTeacherName.Top = 90;
             lblCurrentTeacherName.ForeColor = ForeColor;
-            lblCurrentTeacherName.Text = "Name";
-
-            Label lblCurrentTeacherSurname = new Label();
+            //
             lblCurrentTeacherSurname.Left = 140;
             lblCurrentTeacherSurname.Top = 113;
             lblCurrentTeacherSurname.ForeColor = ForeColor;
-            lblCurrentTeacherSurname.Text = "Surname";
-
-
-            Label lblCurrentTeacherBirthdate = new Label();
-            lblCurrentTeacherBirthdate.Left = 140;
-            lblCurrentTeacherBirthdate.Top = 136;
-            lblCurrentTeacherBirthdate.ForeColor = ForeColor;
-            lblCurrentTeacherBirthdate.Text = "Birthdate";
-
-
-            Label lblCurrentTeacherEmail = new Label();
+            //
             lblCurrentTeacherEmail.Left = 140;
-            lblCurrentTeacherEmail.Top = 159;
+            lblCurrentTeacherEmail.Top = 136;
             lblCurrentTeacherEmail.ForeColor = ForeColor;
-            lblCurrentTeacherEmail.Text = "Email";
-
-            Label lblCurrentTeacherPhone = new Label();
+            lblCurrentTeacherEmail.AutoSize = true;
+            //
             lblCurrentTeacherPhone.Left = 140;
-            lblCurrentTeacherPhone.Top = 182;
+            lblCurrentTeacherPhone.Top = 159;
             lblCurrentTeacherPhone.ForeColor = ForeColor;
-            lblCurrentTeacherPhone.Text = "N/A";
-
-            Label lblCurrentTeacherRegistrationDate = new Label();
-            lblCurrentTeacherRegistrationDate.Left = 140;
-            lblCurrentTeacherRegistrationDate.Top = 205;
-            lblCurrentTeacherRegistrationDate.ForeColor = ForeColor;
-            lblCurrentTeacherRegistrationDate.Text = "N/A";
-
-            Label lblCurrentTeacherBio = new Label();
+            //
             lblCurrentTeacherBio.Left = 140;
-            lblCurrentTeacherBio.Top = 228;
+            lblCurrentTeacherBio.Top = 182;
             lblCurrentTeacherBio.ForeColor = ForeColor;
-            lblCurrentTeacherBio.Text = "Bio";
-
-
-            Label lblCurrrentTeacherPhoto = new Label();
-            lblCurrrentTeacherPhoto.Left = 378;
-            lblCurrrentTeacherPhoto.Top = 47;
-            lblCurrrentTeacherPhoto.ForeColor = ForeColor;
-            lblCurrrentTeacherPhoto.Text = "N/A";
+            //
+            pbxTeacherImage.Left = 358;
+            pbxTeacherImage.Top = 47;
+            pbxTeacherImage.Width = 149;
+            pbxTeacherImage.Height = 172;
+            pbxTeacherImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
 
             Button btnTeacherInfoEdit = new Button();
-            btnTeacherInfoEdit.Left = 449;
-            btnTeacherInfoEdit.Top = 220;
+            btnTeacherInfoEdit.Left = 429;
+            btnTeacherInfoEdit.Top = 230;
             btnTeacherInfoEdit.Text = "Edit";
             btnTeacherInfoEdit.Height = 25;
             btnTeacherInfoEdit.Width = 80;
@@ -221,13 +209,12 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(lblTeacherProgramName);
             PanelTeacher.Controls.Add(lblTeacherName);
             PanelTeacher.Controls.Add(lblTeacherSurname);
-            PanelTeacher.Controls.Add(lblTeacherBirthdate);
             PanelTeacher.Controls.Add(lblTeacherEmail);
             PanelTeacher.Controls.Add(lblTeacherPhone);
-            PanelTeacher.Controls.Add(lblTeacherRegistrationDate);
             PanelTeacher.Controls.Add(lblTeacherBio);
             PanelTeacher.Controls.Add(btnTeacherInfoEdit);
             PanelTeacher.Controls.Add(lblTeacherPhoto);
+            PanelTeacher.Controls.Add(bioBx);
 
 
             //adding dynamic items
@@ -236,13 +223,33 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(lblCurrentTeacherProgram);
             PanelTeacher.Controls.Add(lblCurrentTeacherName);
             PanelTeacher.Controls.Add(lblCurrentTeacherSurname);
-            PanelTeacher.Controls.Add(lblCurrentTeacherBirthdate);
             PanelTeacher.Controls.Add(lblCurrentTeacherEmail);
             PanelTeacher.Controls.Add(lblCurrentTeacherPhone);
-            PanelTeacher.Controls.Add(lblCurrentTeacherRegistrationDate);
             PanelTeacher.Controls.Add(lblCurrentTeacherBio);
-            PanelTeacher.Controls.Add(lblCurrrentTeacherPhoto);
+            PanelTeacher.Controls.Add(pbxTeacherImage);
             PanelTeacher.Controls.Add(btnTeacherInfoEdit);
+
+        }
+
+        //Fills all info  of Current entered teacher
+        public void FillTeacherInfo(string _email)
+        {
+            foreach (var item in db.Teachers.ToList().Where(t => t.TeacherEmail == _email))
+            {
+                string rootPath = Directory.GetCurrentDirectory();
+                string PhotoLocation = Path.Combine("TeacherPhotos", item.TeacherPhoto);
+                string FullPath = Path.Combine(rootPath, PhotoLocation);
+
+                lblCurrentTeacherId.Text = item.TeacherId.ToString();
+                lblCurrentTeacherProgram.Text = item.PackageId.ToString();
+                lblCurrentTeacherName.Text = item.TeacherName.ToString();
+                lblCurrentTeacherSurname.Text = item.TeacherSurname.ToString();
+                lblCurrentTeacherEmail.Text = item.TeacherEmail.ToString();
+                lblCurrentTeacherPhone.Text = item.TeacherPhone.ToString();
+                bioBx.Text = item.TeacherBio.ToString();
+
+                pbxTeacherImage.Image = Image.FromFile(FullPath);
+            }
         }
 
         //Edits Personal Info
@@ -251,8 +258,6 @@ namespace EducationProject.View.Teacher
             TeacherEditInfo EditStudentInfo = new TeacherEditInfo();
             EditStudentInfo.Show();
         }
-
-        ////////  // End -"Personal Info"-option//  /////////// 
 
 
         ////////  //"Task"-option//  ///////////  
@@ -327,7 +332,6 @@ namespace EducationProject.View.Teacher
         private void ShowTaskInfo(object sender, EventArgs e)
         {
             Extensions.ShowTaskInfo(Convert.ToInt32(dgwTeacherAllTasks.CurrentRow.Cells[0].Value));
-
         }
 
         //Adds a task to the tasklist
@@ -344,14 +348,23 @@ namespace EducationProject.View.Teacher
             updateTask.Show();
         }
 
-        //Assigns a task to (a) student(s)
-        private void assignTaskToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        ////////  //"Assign Task"-option//  ///////////  
+
+        //Assigns (a) task(s)  to (a) Student(s)
+        private void AssignTaskToStudent(object sender, EventArgs e)
         {
             TeacherAssignTask assignTask = new TeacherAssignTask();
             assignTask.Show();
         }
 
-        ////////  // End -"Task"-option//  /////////// 
+        //Shows Transcript
+        private void ShowEditTranscript(object sender, EventArgs e)
+        {
+            TeacherTranscript transcript = new TeacherTranscript();
+            transcript.Show();
+        }
 
 
 
@@ -360,7 +373,7 @@ namespace EducationProject.View.Teacher
         //Creates all items on the panel
         private void groupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //cleade dataGridView
+            //clear dataGridView
             dgwTeacherGroups.DataSource = "";
 
             //prevent opening 2 or more forms
@@ -450,9 +463,6 @@ namespace EducationProject.View.Teacher
             StudentInfo.Show();
         }
 
-        ////////  //End - "Groups"-option//  ///////////  
-
-
 
         ////////  //"My Messages"-option//  ///////////  
 
@@ -484,8 +494,6 @@ namespace EducationProject.View.Teacher
             MessageToColleague.Show();
         }
 
-        ////////  //End- "My Messages"-option//  ///////////  
-
 
 
         ////////  //"Colleagues"-option//  ///////////  
@@ -493,6 +501,9 @@ namespace EducationProject.View.Teacher
         //Creates all items on the panel
         private void ColleaguesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //prevent opening 2 or more forms
+            dgwTeacherColleagues.Click -= ShowColleagueInfo;
+
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
             PanelTeacher.Width = 847;
@@ -520,6 +531,8 @@ namespace EducationProject.View.Teacher
         // Shows clicked colleague info
         private void ShowColleagueInfo(object sender, EventArgs e)
         {
+
+
             TeacherInfo ColleagueInfo = new TeacherInfo();
             ColleagueInfo.ShowClickedColleagueInfo(
               Convert.ToInt32(dgwTeacherColleagues.CurrentRow.Cells[0].Value),
@@ -532,9 +545,8 @@ namespace EducationProject.View.Teacher
               dgwTeacherColleagues.CurrentRow.Cells[7].Value.ToString());
 
             ColleagueInfo.Show();
-        }
 
-        ////////  //End-"Colleagues"-option//  ///////////  
+        }
 
 
 
@@ -648,10 +660,8 @@ namespace EducationProject.View.Teacher
         {
             TeacherAddToLibrary AddSource = new TeacherAddToLibrary();
             AddSource.Show();
+            (sender as Button).Enabled = false;
         }
-
-        ////////  //End -"Library"-option//  ///////////  
-
 
 
         ////////  //"Mentor Info"-option//  ///////////  
@@ -775,14 +785,11 @@ namespace EducationProject.View.Teacher
                 }
             }
         }
-
         //Shows a new Form to write to a mentor
         private void TeacherWriteMessageToMentor(object sender, EventArgs e)
         {
             TeacherMessageToMentor MessageToMentor = new TeacherMessageToMentor();
             MessageToMentor.Show();
         }
-
-        ////////  //End - "Mentor Info"-option//  ///////////  
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EducationProject.View.Teacher
 {
-    partial class Teacher
+    partial class TeacherForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,8 @@
             this.personalInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assignTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showAssignedTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assignTaskToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mentorInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myMessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,10 +82,26 @@
             // 
             // assignTaskToolStripMenuItem
             // 
+            this.assignTaskToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showAssignedTaskToolStripMenuItem,
+            this.assignTaskToolStripMenuItem1});
             this.assignTaskToolStripMenuItem.Name = "assignTaskToolStripMenuItem";
             this.assignTaskToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.assignTaskToolStripMenuItem.Text = "Assign Task";
-            this.assignTaskToolStripMenuItem.Click += new System.EventHandler(this.assignTaskToolStripMenuItem_Click);
+            // 
+            // showAssignedTaskToolStripMenuItem
+            // 
+            this.showAssignedTaskToolStripMenuItem.Name = "showAssignedTaskToolStripMenuItem";
+            this.showAssignedTaskToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.showAssignedTaskToolStripMenuItem.Text = "Assign a task";
+            this.showAssignedTaskToolStripMenuItem.Click += new System.EventHandler(this.AssignTaskToStudent);
+            // 
+            // assignTaskToolStripMenuItem1
+            // 
+            this.assignTaskToolStripMenuItem1.Name = "assignTaskToolStripMenuItem1";
+            this.assignTaskToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.assignTaskToolStripMenuItem1.Text = "Transcript";
+            this.assignTaskToolStripMenuItem1.Click += new System.EventHandler(this.ShowEditTranscript);
             // 
             // groupsToolStripMenuItem
             // 
@@ -172,10 +190,10 @@
             // 
             this.PanelTeacher.Location = new System.Drawing.Point(12, 27);
             this.PanelTeacher.Name = "PanelTeacher";
-            this.PanelTeacher.Size = new System.Drawing.Size(552, 264);
+            this.PanelTeacher.Size = new System.Drawing.Size(552, 270);
             this.PanelTeacher.TabIndex = 1;
             // 
-            // Teacher
+            // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,7 +201,7 @@
             this.Controls.Add(this.PanelTeacher);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Teacher";
+            this.Name = "TeacherForm";
             this.ShowInTaskbar = false;
             this.Text = "Teacher";
             this.menuStrip1.ResumeLayout(false);
@@ -211,5 +229,7 @@
         private System.Windows.Forms.ToolStripMenuItem toStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toMentorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toCollegueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showAssignedTaskToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assignTaskToolStripMenuItem1;
     }
 }

@@ -51,6 +51,7 @@
             this.btnTeacherEditConfirm.TabIndex = 40;
             this.btnTeacherEditConfirm.Text = "Confirm";
             this.btnTeacherEditConfirm.UseVisualStyleBackColor = true;
+            this.btnTeacherEditConfirm.Click += new System.EventHandler(this.btnTeacherEditConfirm_Click);
             // 
             // lblTeacherPhoneChange
             // 

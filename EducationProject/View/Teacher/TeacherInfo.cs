@@ -38,6 +38,7 @@ namespace EducationProject.View.Teacher
                 if (item.PackageId == _PackageId)
                 {
                     PackageName = item.PackageName;
+
                 }
             }
 

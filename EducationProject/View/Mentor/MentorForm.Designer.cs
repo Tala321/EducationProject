@@ -1,6 +1,6 @@
 ﻿namespace EducationProject.View.Mentor
 {
-    partial class Mentor
+    partial class MentorForm
     {
         /// <summary>
         /// Required designer variable.

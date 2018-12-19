@@ -42,7 +42,7 @@ namespace EducationProject.View.Teacher
         //Updates task
         private void btnTeacherUpdateTaskAdd_Click(object sender, EventArgs e)
         {
-            Teacher teacher = new Teacher();
+            TeacherForm teacher = new TeacherForm();
             foreach (var item in db.Tasks.ToList())
             {
                 if (item.TaskId == Taskid)

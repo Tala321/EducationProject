@@ -4,6 +4,7 @@
     <EntitySetMapping Name="AssignTasks">
       <EntityTypeMapping TypeName="EducationProjectModel.AssignTask">
         <MappingFragment StoreEntitySet="AssignTasks">
+          <ScalarProperty Name="TaskPoint" ColumnName="TaskPoint" />
           <ScalarProperty Name="StudentId" ColumnName="StudentId" />
           <ScalarProperty Name="TaskId" ColumnName="TaskId" />
           <ScalarProperty Name="AssignTaskId" ColumnName="AssignTaskId" />
@@ -49,6 +50,16 @@
           <ScalarProperty Name="LibraryItemSource" ColumnName="LibraryItemSource" />
           <ScalarProperty Name="LibraryItemName" ColumnName="LibraryItemName" />
           <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="EducationProjectModel.Login">
+        <MappingFragment StoreEntitySet="Logins">
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+          <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+          <ScalarProperty Name="LoginEmail" ColumnName="LoginEmail" />
+          <ScalarProperty Name="LoginId" ColumnName="LoginId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -134,13 +145,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Transcripts">
-      <EntityTypeMapping TypeName="EducationProjectModel.Transcript">
-        <MappingFragment StoreEntitySet="Transcripts">
-          <ScalarProperty Name="TaskPoint" ColumnName="TaskPoint" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
-          <ScalarProperty Name="TranscriptsId" ColumnName="TranscriptsId" />
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="EducationProjectModel.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

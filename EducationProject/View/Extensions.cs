@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using EducationProject.View.Teacher;
+using EducationProject.View.Student;
+using EducationProject.View.Mentor;
 
 
 namespace EducationProject
@@ -17,7 +20,7 @@ namespace EducationProject
         static string FileName;
         static string FolderName;
 
-       
+
         static OpenFileDialog fileDialog = new OpenFileDialog();
 
 
@@ -91,16 +94,16 @@ namespace EducationProject
         }
 
 
-         //"Task"- option//
+        //"Task"- option//
 
         //Shows task info
-        static public void ShowTaskInfo(int _TaskId )
+        static public void ShowTaskInfo(int _TaskId)
         {
             EducationProjectEntities db = new EducationProjectEntities();
 
             foreach (var item in db.Tasks.ToList())
             {
-                if(item.TaskId== _TaskId)
+                if (item.TaskId == _TaskId)
                 {
                     MessageBox.Show(
                   "TASK INFO" + Environment.NewLine +
@@ -130,7 +133,7 @@ namespace EducationProject
 
             foreach (var item in db.Tasks.ToList())
             {
-                if(item.TaskId== _TaskId)
+                if (item.TaskId == _TaskId)
                 {
                     db.Tasks.Remove(item);
                     db.SaveChanges();
@@ -163,7 +166,7 @@ namespace EducationProject
 
 
         //"Mentor info","Groups","Assign Task" - options//
-        
+
         //Fills a combo box with the groups names
         static public void FillCbxGroups(ComboBox _cbx)
         {

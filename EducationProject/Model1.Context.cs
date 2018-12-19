@@ -30,6 +30,7 @@ namespace EducationProject
         public virtual DbSet<GroupCategoryType> GroupCategoryTypes { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Library> Libraries { get; set; }
+        public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Mentor> Mentors { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
         public virtual DbSet<PdfSource> PdfSources { get; set; }
@@ -37,6 +38,6 @@ namespace EducationProject
         public virtual DbSet<TaskCategory> TaskCategories { get; set; }
         public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
-        public virtual DbSet<Transcript> Transcripts { get; set; }
+        public virtual DbSet<UserType> UserTypes { get; set; }
     }
 }

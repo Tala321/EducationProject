@@ -12,11 +12,9 @@ namespace EducationProject
     using System;
     using System.Collections.Generic;
     
-    public partial class AssignTask
+    public partial class UserType
     {
-        public int AssignTaskId { get; set; }
-        public int TaskId { get; set; }
-        public int StudentId { get; set; }
-        public Nullable<int> TaskPoint { get; set; }
+        public int UserTypeId { get; set; }
+        public string UserTypeName { get; set; }
     }
 }

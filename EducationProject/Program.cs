@@ -17,7 +17,7 @@ namespace EducationProject.View.Teacher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Teacher());
+            Application.Run(new WelcomeScreen());
         }
     }
 }

@@ -12,6 +12,7 @@
           <Property Name="AssignTaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TaskId" Type="int" Nullable="false" />
           <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="TaskPoint" Type="int" />
         </EntityType>
         <EntityType Name="GroupCategories">
           <Key>
@@ -50,6 +51,15 @@
           <Property Name="LibraryItemName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LibraryItemSource" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LibraryItemType" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logins">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LoginPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserTypeId" Type="int" />
         </EntityType>
         <EntityType Name="Mentors">
           <Key>
@@ -126,14 +136,12 @@
           <Property Name="TeacherBio" Type="nvarchar(max)" />
           <Property Name="TeacherPhoto" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Transcripts">
+        <EntityType Name="UserType">
           <Key>
-            <PropertyRef Name="TranscriptsId" />
+            <PropertyRef Name="UserTypeId" />
           </Key>
-          <Property Name="TranscriptsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TaskId" Type="int" Nullable="false" />
-          <Property Name="StudentId" Type="int" Nullable="false" />
-          <Property Name="TaskPoint" Type="int" />
+          <Property Name="UserTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="AssignTasks_StudentId_to_Task_StudentId">
           <End Role="Students" Type="Self.Students" Multiplicity="1" />
@@ -219,6 +227,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Logins_UserTypeId_to_UserTypeId">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="Logins" Type="Self.Logins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="Logins">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Mentors_programId_to_programId">
           <End Role="Packages" Type="Self.Packages" Multiplicity="1" />
           <End Role="Mentors" Type="Self.Mentors" Multiplicity="*" />
@@ -267,36 +287,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Transcripts_StudentId_to_Students_TaskId">
-          <End Role="Students" Type="Self.Students" Multiplicity="1" />
-          <End Role="Transcripts" Type="Self.Transcripts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Students">
-              <PropertyRef Name="StudentId" />
-            </Principal>
-            <Dependent Role="Transcripts">
-              <PropertyRef Name="StudentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Transcripts_TaskId_to_Task_TaskId">
-          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
-          <End Role="Transcripts" Type="Self.Transcripts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tasks">
-              <PropertyRef Name="TaskId" />
-            </Principal>
-            <Dependent Role="Transcripts">
-              <PropertyRef Name="TaskId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="EducationProjectModelStoreContainer">
           <EntitySet Name="AssignTasks" EntityType="Self.AssignTasks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupCategories" EntityType="Self.GroupCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupCategoryTypes" EntityType="Self.GroupCategoryTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mentors" EntityType="Self.Mentors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PdfSources" EntityType="Self.PdfSources" Schema="dbo" store:Type="Tables" />
@@ -304,7 +301,7 @@
           <EntitySet Name="TaskCategories" EntityType="Self.TaskCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Transcripts" EntityType="Self.Transcripts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="AssignTasks_StudentId_to_Task_StudentId" Association="Self.AssignTasks_StudentId_to_Task_StudentId">
             <End Role="Students" EntitySet="Students" />
             <End Role="AssignTasks" EntitySet="AssignTasks" />
@@ -333,6 +330,10 @@
             <End Role="Teachers" EntitySet="Teachers" />
             <End Role="Groups" EntitySet="Groups" />
           </AssociationSet>
+          <AssociationSet Name="Logins_UserTypeId_to_UserTypeId" Association="Self.Logins_UserTypeId_to_UserTypeId">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Logins" EntitySet="Logins" />
+          </AssociationSet>
           <AssociationSet Name="Mentors_programId_to_programId" Association="Self.Mentors_programId_to_programId">
             <End Role="Packages" EntitySet="Packages" />
             <End Role="Mentors" EntitySet="Mentors" />
@@ -349,14 +350,6 @@
             <End Role="Packages" EntitySet="Packages" />
             <End Role="Teachers" EntitySet="Teachers" />
           </AssociationSet>
-          <AssociationSet Name="Transcripts_StudentId_to_Students_TaskId" Association="Self.Transcripts_StudentId_to_Students_TaskId">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="Transcripts" EntitySet="Transcripts" />
-          </AssociationSet>
-          <AssociationSet Name="Transcripts_TaskId_to_Task_TaskId" Association="Self.Transcripts_TaskId_to_Task_TaskId">
-            <End Role="Tasks" EntitySet="Tasks" />
-            <End Role="Transcripts" EntitySet="Transcripts" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -368,6 +361,7 @@
           <EntitySet Name="GroupCategoryTypes" EntityType="EducationProjectModel.GroupCategoryType" />
           <EntitySet Name="Groups" EntityType="EducationProjectModel.Group" />
           <EntitySet Name="Libraries" EntityType="EducationProjectModel.Library" />
+          <EntitySet Name="Logins" EntityType="EducationProjectModel.Login" />
           <EntitySet Name="Mentors" EntityType="EducationProjectModel.Mentor" />
           <EntitySet Name="Packages" EntityType="EducationProjectModel.Package" />
           <EntitySet Name="PdfSources" EntityType="EducationProjectModel.PdfSource" />
@@ -375,7 +369,7 @@
           <EntitySet Name="TaskCategories" EntityType="EducationProjectModel.TaskCategory" />
           <EntitySet Name="Tasks" EntityType="EducationProjectModel.Task" />
           <EntitySet Name="Teachers" EntityType="EducationProjectModel.Teacher" />
-          <EntitySet Name="Transcripts" EntityType="EducationProjectModel.Transcript" />
+          <EntitySet Name="UserTypes" EntityType="EducationProjectModel.UserType" />
           <AssociationSet Name="AssignTasks_StudentId_to_Task_StudentId" Association="EducationProjectModel.AssignTasks_StudentId_to_Task_StudentId">
             <End Role="Student" EntitySet="Students" />
             <End Role="AssignTask" EntitySet="AssignTasks" />
@@ -408,6 +402,10 @@
             <End Role="Group" EntitySet="Groups" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
+          <AssociationSet Name="Logins_UserTypeId_to_UserTypeId" Association="EducationProjectModel.Logins_UserTypeId_to_UserTypeId">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="Login" EntitySet="Logins" />
+          </AssociationSet>
           <AssociationSet Name="Mentors_programId_to_programId" Association="EducationProjectModel.Mentors_programId_to_programId">
             <End Role="Package" EntitySet="Packages" />
             <End Role="Mentor" EntitySet="Mentors" />
@@ -416,17 +414,9 @@
             <End Role="Package" EntitySet="Packages" />
             <End Role="Teacher" EntitySet="Teachers" />
           </AssociationSet>
-          <AssociationSet Name="Transcripts_StudentId_to_Students_TaskId" Association="EducationProjectModel.Transcripts_StudentId_to_Students_TaskId">
-            <End Role="Student" EntitySet="Students" />
-            <End Role="Transcript" EntitySet="Transcripts" />
-          </AssociationSet>
           <AssociationSet Name="Tasks_TaskCategoryId_to_TaskCategoryId" Association="EducationProjectModel.Tasks_TaskCategoryId_to_TaskCategoryId">
             <End Role="TaskCategory" EntitySet="TaskCategories" />
             <End Role="Task" EntitySet="Tasks" />
-          </AssociationSet>
-          <AssociationSet Name="Transcripts_TaskId_to_Task_TaskId" Association="EducationProjectModel.Transcripts_TaskId_to_Task_TaskId">
-            <End Role="Task" EntitySet="Tasks" />
-            <End Role="Transcript" EntitySet="Transcripts" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AssignTask">
@@ -436,6 +426,7 @@
           <Property Name="AssignTaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TaskId" Type="Int32" Nullable="false" />
           <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="TaskPoint" Type="Int32" />
         </EntityType>
         <EntityType Name="GroupCategory">
           <Key>
@@ -474,6 +465,15 @@
           <Property Name="LibraryItemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LibraryItemSource" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LibraryItemType" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserTypeId" Type="Int32" />
         </EntityType>
         <EntityType Name="Mentor">
           <Key>
@@ -550,14 +550,12 @@
           <Property Name="TeacherBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TeacherPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Transcript">
+        <EntityType Name="UserType">
           <Key>
-            <PropertyRef Name="TranscriptsId" />
+            <PropertyRef Name="UserTypeId" />
           </Key>
-          <Property Name="TranscriptsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TaskId" Type="Int32" Nullable="false" />
-          <Property Name="StudentId" Type="Int32" Nullable="false" />
-          <Property Name="TaskPoint" Type="Int32" />
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="AssignTasks_StudentId_to_Task_StudentId">
           <End Type="EducationProjectModel.Student" Role="Student" Multiplicity="1" />
@@ -655,6 +653,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Logins_UserTypeId_to_UserTypeId">
+          <End Type="EducationProjectModel.UserType" Role="UserType" Multiplicity="0..1" />
+          <End Type="EducationProjectModel.Login" Role="Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="Login">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Mentors_programId_to_programId">
           <End Type="EducationProjectModel.Package" Role="Package" Multiplicity="1" />
           <End Type="EducationProjectModel.Mentor" Role="Mentor" Multiplicity="*" />
@@ -679,18 +689,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Transcripts_StudentId_to_Students_TaskId">
-          <End Type="EducationProjectModel.Student" Role="Student" Multiplicity="1" />
-          <End Type="EducationProjectModel.Transcript" Role="Transcript" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="StudentId" />
-            </Principal>
-            <Dependent Role="Transcript">
-              <PropertyRef Name="StudentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Tasks_TaskCategoryId_to_TaskCategoryId">
           <End Type="EducationProjectModel.TaskCategory" Role="TaskCategory" Multiplicity="1" />
           <End Type="EducationProjectModel.Task" Role="Task" Multiplicity="*" />
@@ -703,18 +701,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Transcripts_TaskId_to_Task_TaskId">
-          <End Type="EducationProjectModel.Task" Role="Task" Multiplicity="1" />
-          <End Type="EducationProjectModel.Transcript" Role="Transcript" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Task">
-              <PropertyRef Name="TaskId" />
-            </Principal>
-            <Dependent Role="Transcript">
-              <PropertyRef Name="TaskId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -724,6 +710,7 @@
           <EntitySetMapping Name="AssignTasks">
             <EntityTypeMapping TypeName="EducationProjectModel.AssignTask">
               <MappingFragment StoreEntitySet="AssignTasks">
+                <ScalarProperty Name="TaskPoint" ColumnName="TaskPoint" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="TaskId" ColumnName="TaskId" />
                 <ScalarProperty Name="AssignTaskId" ColumnName="AssignTaskId" />
@@ -769,6 +756,16 @@
                 <ScalarProperty Name="LibraryItemSource" ColumnName="LibraryItemSource" />
                 <ScalarProperty Name="LibraryItemName" ColumnName="LibraryItemName" />
                 <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="EducationProjectModel.Login">
+              <MappingFragment StoreEntitySet="Logins">
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+                <ScalarProperty Name="LoginEmail" ColumnName="LoginEmail" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -854,13 +851,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Transcripts">
-            <EntityTypeMapping TypeName="EducationProjectModel.Transcript">
-              <MappingFragment StoreEntitySet="Transcripts">
-                <ScalarProperty Name="TaskPoint" ColumnName="TaskPoint" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
-                <ScalarProperty Name="TranscriptsId" ColumnName="TranscriptsId" />
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="EducationProjectModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
