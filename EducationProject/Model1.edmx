@@ -74,6 +74,16 @@
           <Property Name="MentorBio" Type="nvarchar(max)" />
           <Property Name="MentorPhoto" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MessageFrom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MessageTo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MessageTitle" Type="nvarchar" MaxLength="30" />
+          <Property Name="MessageBody" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Packages">
           <Key>
             <PropertyRef Name="PackageId" />
@@ -295,6 +305,7 @@
           <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mentors" EntityType="Self.Mentors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PdfSources" EntityType="Self.PdfSources" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
@@ -418,6 +429,7 @@
             <End Role="TaskCategory" EntitySet="TaskCategories" />
             <End Role="Task" EntitySet="Tasks" />
           </AssociationSet>
+          <EntitySet Name="Messages" EntityType="EducationProjectModel.Message" />
         </EntityContainer>
         <EntityType Name="AssignTask">
           <Key>
@@ -701,6 +713,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MessageFrom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MessageTo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MessageTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MessageBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -856,6 +878,17 @@
               <MappingFragment StoreEntitySet="UserType">
                 <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
                 <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="EducationProjectModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="MessageBody" ColumnName="MessageBody" />
+                <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+                <ScalarProperty Name="MessageTo" ColumnName="MessageTo" />
+                <ScalarProperty Name="MessageFrom" ColumnName="MessageFrom" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

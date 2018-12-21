@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using EducationProject.View.Teacher;
 using EducationProject.View.Student;
 using EducationProject.View.Mentor;
+using EducationProject.View;
 
 
 namespace EducationProject
@@ -103,6 +104,8 @@ namespace EducationProject
 
             foreach (var item in db.Tasks.ToList())
             {
+                TeacherForm.dgwTeacherAllTasks.Enabled = true;
+
                 if (item.TaskId == _TaskId)
                 {
                     MessageBox.Show(
@@ -121,6 +124,8 @@ namespace EducationProject
                   "Details:" + "" + item.TaskDetails + Environment.NewLine +
                    Environment.NewLine +
                   "Category Id:" + "" + item.TaskCategoryId + Environment.NewLine
+
+
                   );
                 }
             }
@@ -131,14 +136,20 @@ namespace EducationProject
         {
             EducationProjectEntities db = new EducationProjectEntities();
 
-            foreach (var item in db.Tasks.ToList())
+            try
             {
-                if (item.TaskId == _TaskId)
+                foreach (var item in db.Tasks.ToList())
                 {
-                    db.Tasks.Remove(item);
-                    db.SaveChanges();
+                    if (item.TaskId == _TaskId)
+                    {
+                        db.Tasks.Remove(item);
+                        db.SaveChanges();
+                    }
                 }
-
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("You can't delete this task , because it has been assigned to a student");
             }
         }
 
@@ -178,6 +189,30 @@ namespace EducationProject
             }
         }
 
+        //"My messages" - option//
+
+        //Show clicked inbox/sent message
+        static public void ShowMessageInfo(DataGridView _dgw)
+        {
+            MessageBox.Show(
+       "MESSAGE INFO" + Environment.NewLine +
+        Environment.NewLine +
+      "Message Id: " + _dgw.CurrentRow.Cells[0].Value.ToString() +
+       Environment.NewLine +
+       Environment.NewLine +
+      "From: " + _dgw.CurrentRow.Cells[1].Value.ToString() +
+       Environment.NewLine +
+       Environment.NewLine +
+       "To: " + _dgw.CurrentRow.Cells[2].Value.ToString() +
+       Environment.NewLine +
+       Environment.NewLine +
+      "Title: " + _dgw.CurrentRow.Cells[3].Value.ToString() +
+       Environment.NewLine +
+       Environment.NewLine +
+       "Body: " + _dgw.CurrentRow.Cells[4].Value.ToString()
+   );
+      
+        }
         ////////  //End Teacher//  ///////////
     }
 }

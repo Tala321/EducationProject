@@ -201,6 +201,7 @@
             this.Controls.Add(this.dgwAddTasksList);
             this.Name = "TeacherAddTask";
             this.Text = "Add Task";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TeacherAddTask_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgwAddTasksList)).EndInit();
             this.gbTeacherAddTask.ResumeLayout(false);
             this.gbTeacherAddTask.PerformLayout();

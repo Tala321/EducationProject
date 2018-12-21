@@ -96,6 +96,7 @@
             this.Controls.Add(this.lblTeacherToMentor);
             this.Name = "TeacherMessageToMentor";
             this.Text = "New Message";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TeacherMessageToMentor_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

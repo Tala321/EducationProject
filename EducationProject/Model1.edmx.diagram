@@ -31,6 +31,7 @@
         <AssociationConnector Association="EducationProjectModel.Mentors_programId_to_programId" />
         <AssociationConnector Association="EducationProjectModel.Teachers_programId_to_programId" />
         <AssociationConnector Association="EducationProjectModel.Tasks_TaskCategoryId_to_TaskCategoryId" />
+        <EntityTypeShape EntityType="EducationProjectModel.Message" Width="1.5" PointX="10.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

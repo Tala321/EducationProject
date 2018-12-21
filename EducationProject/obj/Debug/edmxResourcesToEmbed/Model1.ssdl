@@ -69,6 +69,16 @@
     <Property Name="MentorBio" Type="nvarchar(max)" />
     <Property Name="MentorPhoto" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MessageFrom" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MessageTo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MessageTitle" Type="nvarchar" MaxLength="30" />
+    <Property Name="MessageBody" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <EntityType Name="Packages">
     <Key>
       <PropertyRef Name="PackageId" />
@@ -290,6 +300,7 @@
     <EntitySet Name="Library" EntityType="Self.Library" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Mentors" EntityType="Self.Mentors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PdfSources" EntityType="Self.PdfSources" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />

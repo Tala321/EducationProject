@@ -63,6 +63,7 @@
       <End Role="TaskCategory" EntitySet="TaskCategories" />
       <End Role="Task" EntitySet="Tasks" />
     </AssociationSet>
+    <EntitySet Name="Messages" EntityType="EducationProjectModel.Message" />
   </EntityContainer>
   <EntityType Name="AssignTask">
     <Key>
@@ -346,4 +347,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MessageFrom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MessageTo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MessageTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MessageBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

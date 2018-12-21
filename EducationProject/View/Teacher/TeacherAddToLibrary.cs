@@ -120,5 +120,11 @@ namespace EducationProject.View.Teacher
             cbxTeacherAddSourcePdf.Enabled = false;
             btnTeacherAddPdf.Enabled = false;
         }
+
+        //Enables add button after closing
+        private void TeacherAddToLibrary_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            TeacherForm.btnTeacherLibraryAdd.Enabled = true;
+        }
     }
 }

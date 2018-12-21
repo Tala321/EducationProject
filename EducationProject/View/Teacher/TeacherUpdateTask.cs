@@ -56,10 +56,16 @@ namespace EducationProject.View.Teacher
                     dgwUpdateTasksList.DataSource = db.Tasks.ToList();
 
                     db.SaveChanges();
-
+                    TeacherForm.btnTeacherUpdateTask.Enabled = true;
                     break;
                 }
             }
+        }
+
+        //Enables add button after closing
+        private void TeacherUpdateTask_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            TeacherForm.btnTeacherUpdateTask.Enabled = true;
         }
     }
 }

@@ -74,6 +74,7 @@
             this.Controls.Add(this.lblTeacherPhoneChange);
             this.Name = "TeacherEditInfo";
             this.Text = "Edit Personal Info";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TeacherEditInfo_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

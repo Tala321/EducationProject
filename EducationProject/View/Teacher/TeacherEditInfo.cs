@@ -15,6 +15,8 @@ namespace EducationProject.View.Teacher
         //Database
         EducationProjectEntities db = new EducationProjectEntities();
 
+        TeacherForm teacher = new TeacherForm();
+
         public TeacherEditInfo()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace EducationProject.View.Teacher
             {
                 if (tbxTeacherPhoneChange.Text.All(Char.IsDigit))
                 {
-                    TeacherForm teacher = new TeacherForm();
+                    
                     item.TeacherPhone = tbxTeacherPhoneChange.Text;
                     db.SaveChanges();
                     tbxTeacherPhoneChange.Text = "";
@@ -39,6 +41,11 @@ namespace EducationProject.View.Teacher
                     break;
                 }
             }
+        }
+
+        private void TeacherEditInfo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            TeacherForm.btnTeacherInfoEdit.Enabled = true;
         }
     }
 }

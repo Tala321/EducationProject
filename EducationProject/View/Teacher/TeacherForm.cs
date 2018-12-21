@@ -25,7 +25,7 @@ namespace EducationProject.View.Teacher
         DataGridView dgwTeacherLibraryList = new DataGridView();
         DataGridView dgwTeacherGroups = new DataGridView();
         public DataGridView dgwTeacherColleagues = new DataGridView();
-        public DataGridView dgwTeacherAllTasks = new DataGridView();
+        public static DataGridView dgwTeacherAllTasks = new DataGridView();
 
 
         // holds source id
@@ -44,6 +44,12 @@ namespace EducationProject.View.Teacher
         public Label lblCurrentTeacherBio = new Label();
         public PictureBox pbxTeacherImage = new PictureBox();
         public RichTextBox bioBx = new RichTextBox();
+        public static Button btnTeacherInfoEdit = new Button();
+        public static Button btnTeacherAddTask = new Button();
+        public static Button btnTeacherDeleteTask = new Button();
+        public static Button btnTeacherUpdateTask = new Button();
+        public static Button btnTeacherWriteMessageMentor = new Button();
+        public static Button btnTeacherLibraryAdd = new Button();
 
 
         //Declare comboBox 
@@ -81,6 +87,9 @@ namespace EducationProject.View.Teacher
         //Creates all items on the panel
         private void personalInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //prevent opening more than one form
+            btnTeacherInfoEdit.Click -= new EventHandler(this.EditTeacherPersonalInfo);
+            //
 
             PanelTeacher.Controls.Clear();
             Height = 380;
@@ -192,7 +201,7 @@ namespace EducationProject.View.Teacher
             pbxTeacherImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
 
-            Button btnTeacherInfoEdit = new Button();
+
             btnTeacherInfoEdit.Left = 429;
             btnTeacherInfoEdit.Top = 230;
             btnTeacherInfoEdit.Text = "Edit";
@@ -257,6 +266,7 @@ namespace EducationProject.View.Teacher
         {
             TeacherEditInfo EditStudentInfo = new TeacherEditInfo();
             EditStudentInfo.Show();
+            btnTeacherInfoEdit.Enabled = false;
         }
 
 
@@ -265,7 +275,11 @@ namespace EducationProject.View.Teacher
         //Creates all items on the panel
         private void taskToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //Prevetns openning more than1 form
+            btnTeacherAddTask.Click -= new EventHandler(this.AddTask);
+            btnTeacherUpdateTask.Click -= new EventHandler(this.UpdateTask);
+            dgwTeacherAllTasks.DoubleClick -= ShowTaskInfo;
+            btnTeacherDeleteTask.Click -= DeleteTask;
 
             PanelTeacher.Controls.Clear();
             Height = 321;
@@ -279,27 +293,26 @@ namespace EducationProject.View.Teacher
             dgwTeacherAllTasks.Width = 842;
             dgwTeacherAllTasks.Height = 137;
 
+            //
             dgwTeacherAllTasks.DataSource = db.Tasks.ToList();
             dgwTeacherAllTasks.Font = new Font("Microsoft Sans Serif", Convert.ToInt32(8.25));
             dgwTeacherAllTasks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwTeacherAllTasks.ReadOnly = true;
 
-
-            Button btnTeacherAddTask = new Button();
+            //
             btnTeacherAddTask.Left = 270;
             btnTeacherAddTask.Top = 190;
             btnTeacherAddTask.Height = 25;
             btnTeacherAddTask.Width = 80;
             btnTeacherAddTask.Text = "Add Task";
-
-            Button btnTeacherDeleteTask = new Button();
+            
+           //
             btnTeacherDeleteTask.Left = 360;
             btnTeacherDeleteTask.Top = 190;
             btnTeacherDeleteTask.Height = 25;
             btnTeacherDeleteTask.Width = 98;
             btnTeacherDeleteTask.Text = "Delete Task";
-
-            Button btnTeacherUpdateTask = new Button();
+            //
             btnTeacherUpdateTask.Left = 468;
             btnTeacherUpdateTask.Top = 190;
             btnTeacherUpdateTask.Height = 25;
@@ -332,6 +345,7 @@ namespace EducationProject.View.Teacher
         private void ShowTaskInfo(object sender, EventArgs e)
         {
             Extensions.ShowTaskInfo(Convert.ToInt32(dgwTeacherAllTasks.CurrentRow.Cells[0].Value));
+            dgwTeacherAllTasks.Enabled = false;
         }
 
         //Adds a task to the tasklist
@@ -339,6 +353,7 @@ namespace EducationProject.View.Teacher
         {
             TeacherAddTask AddTask = new TeacherAddTask();
             AddTask.Show();
+            btnTeacherAddTask.Enabled = false;
         }
 
         //Updates a task from the tasklist
@@ -346,8 +361,8 @@ namespace EducationProject.View.Teacher
         {
             TeacherUpdateTask updateTask = new TeacherUpdateTask();
             updateTask.Show();
+            btnTeacherUpdateTask.Enabled = false;
         }
-
 
 
         ////////  //"Assign Task"-option//  ///////////  
@@ -365,7 +380,6 @@ namespace EducationProject.View.Teacher
             TeacherTranscript transcript = new TeacherTranscript();
             transcript.Show();
         }
-
 
 
         ////////  //"Groups"-option//  ///////////  
@@ -516,7 +530,7 @@ namespace EducationProject.View.Teacher
             dgwTeacherColleagues.Width = 842;
             dgwTeacherColleagues.Font = new Font("Microsoft Sans Serif", Convert.ToInt32(8.25));
             dgwTeacherColleagues.Height = 257;
-            dgwTeacherColleagues.DataSource = db.Teachers.ToList();
+            dgwTeacherColleagues.DataSource = db.Teachers.ToList().Where(r => r.TeacherEmail != WelcomeScreen.UserEmail).ToList();
             dgwTeacherColleagues.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwTeacherColleagues.ReadOnly = true;
 
@@ -576,7 +590,7 @@ namespace EducationProject.View.Teacher
             dgwTeacherLibraryList.ReadOnly = true;
 
 
-            Button btnTeacherLibraryAdd = new Button();
+           
             btnTeacherLibraryAdd.Left = 4;
             btnTeacherLibraryAdd.Top = 178;
             btnTeacherLibraryAdd.Text = "Add";
@@ -660,7 +674,7 @@ namespace EducationProject.View.Teacher
         {
             TeacherAddToLibrary AddSource = new TeacherAddToLibrary();
             AddSource.Show();
-            (sender as Button).Enabled = false;
+            btnTeacherLibraryAdd.Enabled = false;
         }
 
 
@@ -669,6 +683,9 @@ namespace EducationProject.View.Teacher
         //Creates all items on the panel
         private void mentorInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            btnTeacherWriteMessageMentor.Click -= new EventHandler(this.TeacherWriteMessageToMentor);
+
             //clear comboBox 
             cbxTeacherGroupMentor.Items.Clear();
 
@@ -706,7 +723,7 @@ namespace EducationProject.View.Teacher
             lblTeacherMentorEmail.Text = "Email:";
 
 
-            Button btnTeacherWriteMessageMentor = new Button();
+          
             btnTeacherWriteMessageMentor.Left = 300;
             btnTeacherWriteMessageMentor.Top = 84;
             btnTeacherWriteMessageMentor.Height = 25;
@@ -790,6 +807,7 @@ namespace EducationProject.View.Teacher
         {
             TeacherMessageToMentor MessageToMentor = new TeacherMessageToMentor();
             MessageToMentor.Show();
+            btnTeacherWriteMessageMentor.Enabled = false;
         }
     }
 }

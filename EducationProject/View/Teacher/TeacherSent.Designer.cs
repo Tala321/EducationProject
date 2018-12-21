@@ -29,37 +29,39 @@
         private void InitializeComponent()
         {
             this.lblTeacherSentMessages = new System.Windows.Forms.Label();
-            this.rchbxTeacherSentMessages = new System.Windows.Forms.RichTextBox();
+            this.dgwTeacherSentMessages = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTeacherSentMessages)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTeacherSentMessages
             // 
             this.lblTeacherSentMessages.AutoSize = true;
             this.lblTeacherSentMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeacherSentMessages.Location = new System.Drawing.Point(9, 46);
+            this.lblTeacherSentMessages.Location = new System.Drawing.Point(9, 42);
             this.lblTeacherSentMessages.Name = "lblTeacherSentMessages";
             this.lblTeacherSentMessages.Size = new System.Drawing.Size(109, 17);
             this.lblTeacherSentMessages.TabIndex = 3;
             this.lblTeacherSentMessages.Text = "Sent Messages:";
             // 
-            // rchbxTeacherSentMessages
+            // dgwTeacherSentMessages
             // 
-            this.rchbxTeacherSentMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rchbxTeacherSentMessages.Location = new System.Drawing.Point(12, 66);
-            this.rchbxTeacherSentMessages.Name = "rchbxTeacherSentMessages";
-            this.rchbxTeacherSentMessages.Size = new System.Drawing.Size(489, 270);
-            this.rchbxTeacherSentMessages.TabIndex = 2;
-            this.rchbxTeacherSentMessages.Text = "";
+            this.dgwTeacherSentMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwTeacherSentMessages.Location = new System.Drawing.Point(12, 66);
+            this.dgwTeacherSentMessages.Name = "dgwTeacherSentMessages";
+            this.dgwTeacherSentMessages.Size = new System.Drawing.Size(489, 270);
+            this.dgwTeacherSentMessages.TabIndex = 4;
+            this.dgwTeacherSentMessages.DoubleClick += new System.EventHandler(this.dgwTeacherSentMessages_DoubleClick);
             // 
             // TeacherSent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 348);
+            this.Controls.Add(this.dgwTeacherSentMessages);
             this.Controls.Add(this.lblTeacherSentMessages);
-            this.Controls.Add(this.rchbxTeacherSentMessages);
             this.Name = "TeacherSent";
             this.Text = "Sent";
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTeacherSentMessages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,6 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblTeacherSentMessages;
-        private System.Windows.Forms.RichTextBox rchbxTeacherSentMessages;
+        private System.Windows.Forms.DataGridView dgwTeacherSentMessages;
     }
 }

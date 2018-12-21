@@ -201,6 +201,7 @@
             this.Controls.Add(this.dgwUpdateTasksList);
             this.Name = "TeacherUpdateTask";
             this.Text = "Update Task";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TeacherUpdateTask_FormClosed);
             this.gbTeacherUpdateTask.ResumeLayout(false);
             this.gbTeacherUpdateTask.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwUpdateTasksList)).EndInit();

@@ -16,5 +16,11 @@ namespace EducationProject.View.Teacher
         {
             InitializeComponent();
         }
+
+        //Enables  write to  mentor btn
+        private void TeacherMessageToMentor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            TeacherForm.btnTeacherWriteMessageMentor.Enabled = true;
+        }
     }
 }

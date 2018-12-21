@@ -33,10 +33,16 @@ namespace EducationProject.View.Teacher
                 TaskDetails = tbxTeacherAddTaskDetails.Text,
                 TaskCategoryId = Convert.ToInt32(cbxTeacherAddTaskCategory.Text)
             };
-
+           TeacherForm.btnTeacherAddTask.Enabled = true;
             db.Tasks.Add(task);
             db.SaveChanges();
             dgwAddTasksList.DataSource = db.Tasks.ToList();
+        }
+
+        //Enables add button after closing
+        private void TeacherAddTask_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            TeacherForm.btnTeacherAddTask.Enabled = true;
         }
     }
 }

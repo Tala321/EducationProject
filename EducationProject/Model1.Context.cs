@@ -39,5 +39,6 @@ namespace EducationProject
         public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
     }
 }

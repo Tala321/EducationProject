@@ -252,6 +252,7 @@
             this.Controls.Add(this.gbTeacherAddSource);
             this.Name = "TeacherAddToLibrary";
             this.Text = "Add Source";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TeacherAddToLibrary_FormClosed);
             this.Load += new System.EventHandler(this.TeacherAddToLibrary_Load);
             this.gbTeacherAddSource.ResumeLayout(false);
             this.gbTeacherAddSource.PerformLayout();
