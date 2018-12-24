@@ -33,6 +33,7 @@
     <EntitySetMapping Name="Groups">
       <EntityTypeMapping TypeName="EducationProjectModel.Group">
         <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="GroupEmail" ColumnName="GroupEmail" />
           <ScalarProperty Name="GroupName" ColumnName="GroupName" />
           <ScalarProperty Name="GroupStartDate" ColumnName="GroupStartDate" />
           <ScalarProperty Name="GroupCategoryId" ColumnName="GroupCategoryId" />

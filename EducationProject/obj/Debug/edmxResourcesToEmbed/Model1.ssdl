@@ -37,6 +37,7 @@
     <Property Name="GroupCategoryId" Type="int" Nullable="false" />
     <Property Name="GroupStartDate" Type="date" />
     <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupEmail" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Library">
     <Key>

@@ -102,6 +102,7 @@
     <Property Name="GroupCategoryId" Type="Int32" Nullable="false" />
     <Property Name="GroupStartDate" Type="DateTime" Precision="0" />
     <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Library">
     <Key>

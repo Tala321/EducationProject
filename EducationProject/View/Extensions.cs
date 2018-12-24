@@ -176,7 +176,7 @@ namespace EducationProject
         }
 
 
-        //"Mentor info","Groups","Assign Task" - options//
+        //"Mentor info","Groups","Assign Task" ,"My Messages" - options//
 
         //Fills a combo box with the groups names
         static public void FillCbxGroups(ComboBox _cbx)
@@ -211,7 +211,60 @@ namespace EducationProject
        Environment.NewLine +
        "Body: " + _dgw.CurrentRow.Cells[4].Value.ToString()
    );
-      
+        }
+
+
+        //Fills a combo box with the Colleagues email
+        static public void FillWithColleaguesEmails(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Teachers.Where(x => x.TeacherEmail != WelcomeScreen.UserEmail).ToList())
+            {
+                _cbx.Items.Add(item.TeacherEmail);
+            }
+        }
+
+
+        //Sends message to the chose person
+        public static void SendMessage(string _to, string _title, string _body)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            Message message = new Message()
+            {
+                MessageFrom = WelcomeScreen.UserEmail,
+                MessageTo = _to,
+                MessageTitle = _title,
+                MessageBody = _body
+
+            };
+
+            db.Messages.Add(message);
+            db.SaveChanges();
+        }
+
+
+        //Clears fields after sending a message ,only in Colleague and Group options
+        public static void ClearFields(TextBox _title, TextBox _body ,ComboBox _cbx)
+        {
+            _title.Text = "";
+            _body.Text= "";
+            _cbx.Text="";
+        }
+
+        //Cheks if all fields filled in
+        public static bool CheckFields(TextBox _title, TextBox _body, ComboBox _cbx)
+        {
+           if( _title.Text == "" || _body.Text == "" || _cbx.Text=="")
+            {
+
+                return false;
+            }
+           else
+            {
+                return true;
+            }
         }
         ////////  //End Teacher//  ///////////
     }

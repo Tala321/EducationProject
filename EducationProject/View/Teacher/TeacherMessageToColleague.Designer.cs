@@ -33,13 +33,16 @@
             this.tbxTeacherMessageBoxCollegue = new System.Windows.Forms.TextBox();
             this.btnTeacherSendToCoolegue = new System.Windows.Forms.Button();
             this.lblTeacherToCollegue = new System.Windows.Forms.Label();
+            this.tbxTeacherToMentorTitle = new System.Windows.Forms.TextBox();
+            this.lblTeacherToMentorTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbxTeacherMessageToCollegue
             // 
+            this.cbxTeacherMessageToCollegue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTeacherMessageToCollegue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTeacherMessageToCollegue.FormattingEnabled = true;
-            this.cbxTeacherMessageToCollegue.Location = new System.Drawing.Point(91, 65);
+            this.cbxTeacherMessageToCollegue.Location = new System.Drawing.Point(91, 43);
             this.cbxTeacherMessageToCollegue.Name = "cbxTeacherMessageToCollegue";
             this.cbxTeacherMessageToCollegue.Size = new System.Drawing.Size(121, 24);
             this.cbxTeacherMessageToCollegue.TabIndex = 25;
@@ -73,28 +76,49 @@
             this.btnTeacherSendToCoolegue.TabIndex = 24;
             this.btnTeacherSendToCoolegue.Text = "Send";
             this.btnTeacherSendToCoolegue.UseVisualStyleBackColor = true;
+            this.btnTeacherSendToCoolegue.Click += new System.EventHandler(this.btnTeacherSendToCoolegue_Click);
             // 
             // lblTeacherToCollegue
             // 
             this.lblTeacherToCollegue.AutoSize = true;
             this.lblTeacherToCollegue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeacherToCollegue.Location = new System.Drawing.Point(20, 66);
+            this.lblTeacherToCollegue.Location = new System.Drawing.Point(20, 44);
             this.lblTeacherToCollegue.Name = "lblTeacherToCollegue";
             this.lblTeacherToCollegue.Size = new System.Drawing.Size(29, 17);
             this.lblTeacherToCollegue.TabIndex = 23;
             this.lblTeacherToCollegue.Text = "To:";
             // 
-            // TeacherMessageToCollegue
+            // tbxTeacherToMentorTitle
+            // 
+            this.tbxTeacherToMentorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTeacherToMentorTitle.Location = new System.Drawing.Point(91, 76);
+            this.tbxTeacherToMentorTitle.Name = "tbxTeacherToMentorTitle";
+            this.tbxTeacherToMentorTitle.Size = new System.Drawing.Size(100, 23);
+            this.tbxTeacherToMentorTitle.TabIndex = 30;
+            // 
+            // lblTeacherToMentorTitle
+            // 
+            this.lblTeacherToMentorTitle.AutoSize = true;
+            this.lblTeacherToMentorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeacherToMentorTitle.Location = new System.Drawing.Point(20, 77);
+            this.lblTeacherToMentorTitle.Name = "lblTeacherToMentorTitle";
+            this.lblTeacherToMentorTitle.Size = new System.Drawing.Size(39, 17);
+            this.lblTeacherToMentorTitle.TabIndex = 29;
+            this.lblTeacherToMentorTitle.Text = "Title:";
+            // 
+            // TeacherMessageToColleague
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 348);
+            this.Controls.Add(this.tbxTeacherToMentorTitle);
+            this.Controls.Add(this.lblTeacherToMentorTitle);
             this.Controls.Add(this.cbxTeacherMessageToCollegue);
             this.Controls.Add(this.lblTeacherMessageToCollegue);
             this.Controls.Add(this.tbxTeacherMessageBoxCollegue);
             this.Controls.Add(this.btnTeacherSendToCoolegue);
             this.Controls.Add(this.lblTeacherToCollegue);
-            this.Name = "TeacherMessageToCollegue";
+            this.Name = "TeacherMessageToColleague";
             this.Text = "New Message";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,5 +132,7 @@
         private System.Windows.Forms.TextBox tbxTeacherMessageBoxCollegue;
         private System.Windows.Forms.Button btnTeacherSendToCoolegue;
         private System.Windows.Forms.Label lblTeacherToCollegue;
+        private System.Windows.Forms.TextBox tbxTeacherToMentorTitle;
+        private System.Windows.Forms.Label lblTeacherToMentorTitle;
     }
 }

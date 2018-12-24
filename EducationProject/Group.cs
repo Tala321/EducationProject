@@ -21,5 +21,6 @@ namespace EducationProject
         public int GroupCategoryId { get; set; }
         public Nullable<System.DateTime> GroupStartDate { get; set; }
         public string GroupName { get; set; }
+        public string GroupEmail { get; set; }
     }
 }

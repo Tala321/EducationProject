@@ -129,9 +129,9 @@
             this.lblTeacherUpdateTaskDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeacherUpdateTaskDuration.Location = new System.Drawing.Point(27, 109);
             this.lblTeacherUpdateTaskDuration.Name = "lblTeacherUpdateTaskDuration";
-            this.lblTeacherUpdateTaskDuration.Size = new System.Drawing.Size(74, 17);
+            this.lblTeacherUpdateTaskDuration.Size = new System.Drawing.Size(66, 17);
             this.lblTeacherUpdateTaskDuration.TabIndex = 6;
-            this.lblTeacherUpdateTaskDuration.Text = "Duaration:";
+            this.lblTeacherUpdateTaskDuration.Text = "Duration:";
             // 
             // tbxTeacherUpdateTaskStartDate
             // 

@@ -60,7 +60,7 @@ namespace EducationProject.View.Teacher
         //declare labels 
         Label lblTeacherCurrentMentorName = new Label();
         Label lblTeacherCurrentMentorSurName = new Label();
-        Label lblTeacherCurrentMentorEmail = new Label();
+        public static Label lblTeacherCurrentMentorEmail = new Label();
 
 
         //Colors

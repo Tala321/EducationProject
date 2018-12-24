@@ -15,6 +15,21 @@ namespace EducationProject.View.Teacher
         public TeacherMessageToColleague()
         {
             InitializeComponent();
+            Extensions.FillWithColleaguesEmails(cbxTeacherMessageToCollegue);
+        }
+
+        //Sends message to the Colleague
+        private void btnTeacherSendToCoolegue_Click(object sender, EventArgs e)
+        {
+            if (Extensions.CheckFields(tbxTeacherMessageBoxCollegue, tbxTeacherToMentorTitle, cbxTeacherMessageToCollegue))
+            {
+                Extensions.SendMessage(cbxTeacherMessageToCollegue.Text, tbxTeacherToMentorTitle.Text, tbxTeacherMessageBoxCollegue.Text);
+                Extensions.ClearFields(tbxTeacherMessageBoxCollegue, tbxTeacherToMentorTitle, cbxTeacherMessageToCollegue);
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all fields");
+            }           
         }
     }
 }
