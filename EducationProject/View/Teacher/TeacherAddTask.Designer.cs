@@ -90,6 +90,7 @@
             // 
             // cbxTeacherAddTaskCategory
             // 
+            this.cbxTeacherAddTaskCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTeacherAddTaskCategory.FormattingEnabled = true;
             this.cbxTeacherAddTaskCategory.Location = new System.Drawing.Point(417, 53);
             this.cbxTeacherAddTaskCategory.Name = "cbxTeacherAddTaskCategory";

@@ -81,3 +81,4 @@ C:\Users\nurme\Desktop\programming\c#\C# FinalProject\EducationProject\Education
 C:\Users\nurme\Desktop\programming\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Student.StudentForm.resources
 C:\Users\nurme\Desktop\programming\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Teacher.TeacherForm.resources
 C:\Users\nurme\Desktop\programming\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.View.Mentor.MentorForm.resources
+C:\Users\nurme\Desktop\programming\c#\C# FinalProject\EducationProject\EducationProject\EducationProject\obj\Debug\EducationProject.csprojAssemblyReference.cache

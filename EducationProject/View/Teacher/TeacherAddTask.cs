@@ -24,25 +24,64 @@ namespace EducationProject.View.Teacher
         //Adds a task to the database
         private void btnTeacherAddTaskAdd_Click(object sender, EventArgs e)
         {
-            Task task = new Task()
+            if (CheckFields())
             {
-                TaskName = tbxTeacherAddTaskName.Text,
-                TaskUrl = tbxTeacherAddTaskUrl.Text,
-                TaskStartDate = tbxTeacherAddTaskStartDate.Text,
-                TaskDuration = Convert.ToInt32(tbxTeacherAddTaskDuration.Text),
-                TaskDetails = tbxTeacherAddTaskDetails.Text,
-                TaskCategoryId = Convert.ToInt32(cbxTeacherAddTaskCategory.Text)
-            };
-           TeacherForm.btnTeacherAddTask.Enabled = true;
-            db.Tasks.Add(task);
-            db.SaveChanges();
-            dgwAddTasksList.DataSource = db.Tasks.ToList();
+                if (tbxTeacherAddTaskDuration.Text.All(char.IsDigit))
+                {
+                    Task task = new Task()
+                    {
+                        TaskName = tbxTeacherAddTaskName.Text,
+                        TaskUrl = tbxTeacherAddTaskUrl.Text,
+                        TaskStartDate = tbxTeacherAddTaskStartDate.Text,
+                        TaskDuration = Convert.ToInt32(tbxTeacherAddTaskDuration.Text),
+                        TaskDetails = tbxTeacherAddTaskDetails.Text,
+                        TaskCategoryId = Convert.ToInt32(cbxTeacherAddTaskCategory.Text)
+                    };
+                    TeacherForm.btnTeacherAddTask.Enabled = true;
+                    db.Tasks.Add(task);
+                    db.SaveChanges();
+                    CleanFields();
+                    dgwAddTasksList.DataSource = db.Tasks.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid datatype: Duration");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all fields");
+            }
         }
 
         //Enables add button after closing
         private void TeacherAddTask_FormClosed(object sender, FormClosedEventArgs e)
         {
             TeacherForm.btnTeacherAddTask.Enabled = true;
+        }
+
+        //Cleans All fields after adding  a task
+        private void CleanFields()
+        {
+            tbxTeacherAddTaskDetails.Text = "";
+            tbxTeacherAddTaskDuration.Text = "";
+            tbxTeacherAddTaskName.Text = "";
+            tbxTeacherAddTaskStartDate.Text = "";
+            tbxTeacherAddTaskUrl.Text = "";
+            cbxTeacherAddTaskCategory.Text = null;
+        }
+
+        //Checks if all fields filled in
+        private bool CheckFields()
+        {
+            if (tbxTeacherAddTaskName.Text == "" || tbxTeacherAddTaskUrl.Text == "" || tbxTeacherAddTaskStartDate.Text == "" || tbxTeacherAddTaskDuration.Text == "" || tbxTeacherAddTaskDetails.Text == "" || cbxTeacherAddTaskCategory.Text == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

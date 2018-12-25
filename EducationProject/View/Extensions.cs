@@ -189,6 +189,17 @@ namespace EducationProject
             }
         }
 
+        //Fills a combo box with the Mentors emails
+        static public void FillCbxMentor(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Mentors.ToList())
+            {
+                _cbx.Items.Add(item.MentorEmail);
+            }
+        }
+
         //"My messages" - option//
 
         //Show clicked inbox/sent message

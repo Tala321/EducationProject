@@ -14,14 +14,39 @@ namespace EducationProject.View.Teacher
     {
         EducationProjectEntities db = new EducationProjectEntities();
 
+        //Auto selected Mentor email
+        Label lblTeacherMessageToMentorEmail = new Label();
+       
         public TeacherMessageToMentor()
         {
             InitializeComponent();
-            //show selected mentor email
-            lblTeacherMessageToMentor.Text = TeacherForm.lblTeacherCurrentMentorEmail.Text;
+            AutoSelectEmail();
         }
 
-        //Enables  write to  mentor btn
+        //Selects mentor email according to from which option you write a message(Mentor info ,My Messages)
+        private void AutoSelectEmail()
+        {
+            if (TeacherForm.cbxTeacherGroupMentor.Text == "")
+            {
+                this.Controls.Remove(lblTeacherMessageToMentorEmail);
+                cbxTeacherMessageToMentor.Show();
+                Extensions.FillCbxMentor(cbxTeacherMessageToMentor);
+            }
+            else
+            {
+
+                lblTeacherMessageToMentorEmail.Top = 44;
+                lblTeacherMessageToMentorEmail.Left = 88;
+                lblTeacherMessageToMentorEmail.AutoSize = true;
+                lblTeacherMessageToMentorEmail.Font = new Font(this.Font.FontFamily, 10);
+                lblTeacherMessageToMentorEmail.Text = TeacherForm.lblTeacherCurrentMentorEmail.Text;
+                cbxTeacherMessageToMentor.Hide();
+                this.Controls.Add(lblTeacherMessageToMentorEmail);
+            }
+          
+        }
+
+        //Enables  write to  mentor after closing the form
         private void TeacherMessageToMentor_FormClosed(object sender, FormClosedEventArgs e)
         {
             TeacherForm.btnTeacherWriteMessageMentor.Enabled = true;
@@ -30,10 +55,19 @@ namespace EducationProject.View.Teacher
         //Sends message to the mentor
         private void btnTeacherSendToMentor_Click(object sender, EventArgs e)
         {
-            if (CheckFields(tbxTeacherToMentorTitle, tbxTeacherMessageBoxMentor, lblTeacherMessageToMentor))
+            if (CheckFields(tbxTeacherToMentorTitle, tbxTeacherMessageBoxMentor, cbxTeacherMessageToMentor))
             {
-                
-                Extensions.SendMessage(TeacherForm.lblTeacherCurrentMentorEmail.Text, tbxTeacherToMentorTitle.Text, tbxTeacherMessageBoxMentor.Text);
+
+                if (cbxTeacherMessageToMentor.Visible == true)
+                {
+                    Extensions.SendMessage(cbxTeacherMessageToMentor.Text, tbxTeacherToMentorTitle.Text, tbxTeacherMessageBoxMentor.Text);
+                }
+                else
+                {
+                    Extensions.SendMessage(TeacherForm.lblTeacherCurrentMentorEmail.Text, tbxTeacherToMentorTitle.Text, tbxTeacherMessageBoxMentor.Text);
+
+                }
+
                 ClearFields();
             }
             else
@@ -50,15 +84,30 @@ namespace EducationProject.View.Teacher
         }
 
         //Cheks if all fields filled in
-        public static bool CheckFields(TextBox _title, TextBox _body, Label _lbl)
+        public bool CheckFields(TextBox _title, TextBox _body, ComboBox _cbx)
         {
-            if (_title.Text == "" || _body.Text == "" || _lbl.Text == "Email")
+          
+            if (TeacherForm.cbxTeacherGroupMentor.Text == "")
             {
-                return false;
+                if (_title.Text == "" || _body.Text == "" || _cbx.Text == "")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
-            else
+            else 
             {
-                return true;
+                if (_title.Text == "" || _body.Text == "")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
     }

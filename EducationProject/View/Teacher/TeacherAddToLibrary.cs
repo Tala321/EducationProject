@@ -50,36 +50,43 @@ namespace EducationProject.View.Teacher
         //Adds info to the database
         private void btnTeacherAddSource_Click(object sender, EventArgs e)
         {
-            if (db.Libraries.All(t => t.LibraryItemSource != cbxTeacherAddSourcePdf.Text))
+            if (CheckFields())
             {
-                //Checks which kind of the resource we chosed
-                if (chbxTeacherLibraryAddPdf.Checked)
+                if (cbxTeacherAddSourcePdf.Enabled == true && db.Libraries.All(t => t.LibraryItemSource != cbxTeacherAddSourcePdf.Text) || cbxTeacherAddSourcePdf.Enabled == false && db.Libraries.All(t => t.LibraryItemSource != tbxTeacherAddSourceUrl.Text))
                 {
-                    sourceName = cbxTeacherAddSourcePdf.Text;
-                    BitType = true;
+                    //Checks which kind of the resource we chosed
+                    if (chbxTeacherLibraryAddPdf.Checked)
+                    {
+                        sourceName = cbxTeacherAddSourcePdf.Text;
+                        BitType = true;
+                    }
+                    else
+                    {
+                        sourceName = tbxTeacherAddSourceUrl.Text;
+                        BitType = false;
+                    }
+
+                    //Sets and adds to the dataBase
+                    Library source = new Library()
+                    {
+                        LibraryItemName = tbxTeacherAddSourceName.Text,
+                        LibraryItemSource = sourceName,
+                        LibraryItemType = BitType
+                    };
+
+                    db.Libraries.Add(source);
+                    db.SaveChanges();
+                    dgwAddLibrarySourceList.DataSource = db.Libraries.ToList();
+                    SetDefaultFields();
                 }
                 else
                 {
-                    sourceName = tbxTeacherAddSourceUrl.Text;
-                    BitType = false;
+                    MessageBox.Show("This name is exist in the database");
                 }
-
-                //Sets and adds to the dataBase
-                Library source = new Library()
-                {
-                    LibraryItemName = tbxTeacherAddSourceName.Text,
-                    LibraryItemSource = sourceName,
-                    LibraryItemType = BitType
-                };
-
-                db.Libraries.Add(source);
-                db.SaveChanges();
-                dgwAddLibrarySourceList.DataSource = db.Libraries.ToList();
-                SetDefaultFields();
             }
             else
             {
-                MessageBox.Show("This name exist in the database");
+                MessageBox.Show("Please fill in all fields");
             }
         }
 
@@ -125,6 +132,33 @@ namespace EducationProject.View.Teacher
         private void TeacherAddToLibrary_FormClosed(object sender, FormClosedEventArgs e)
         {
             TeacherForm.btnTeacherLibraryAdd.Enabled = true;
+        }
+
+        //Checks if all fields filled in
+        private bool CheckFields()
+        {
+            if (cbxTeacherAddSourcePdf.Enabled == false)
+            {
+                if (tbxTeacherAddSourceName.Text == "" || tbxTeacherAddSourceUrl.Text == "")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (tbxTeacherAddSourceName.Text == "" || cbxTeacherAddSourcePdf.Text == "")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
     }
 }

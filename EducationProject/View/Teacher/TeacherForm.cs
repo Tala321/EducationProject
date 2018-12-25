@@ -54,7 +54,7 @@ namespace EducationProject.View.Teacher
 
         //Declare comboBox 
         ComboBox cbxTeacherSelectGroups = new ComboBox();
-        ComboBox cbxTeacherGroupMentor = new ComboBox();
+        public static ComboBox cbxTeacherGroupMentor = new ComboBox();
 
 
         //declare labels 
@@ -305,8 +305,8 @@ namespace EducationProject.View.Teacher
             btnTeacherAddTask.Height = 25;
             btnTeacherAddTask.Width = 80;
             btnTeacherAddTask.Text = "Add Task";
-            
-           //
+
+            //
             btnTeacherDeleteTask.Left = 360;
             btnTeacherDeleteTask.Top = 190;
             btnTeacherDeleteTask.Height = 25;
@@ -483,6 +483,7 @@ namespace EducationProject.View.Teacher
         //Shows a new Form to write to a group
         private void toStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             TeacherMessageToGroup MessageToGroup = new TeacherMessageToGroup();
             MessageToGroup.Show();
         }
@@ -590,7 +591,7 @@ namespace EducationProject.View.Teacher
             dgwTeacherLibraryList.ReadOnly = true;
 
 
-           
+
             btnTeacherLibraryAdd.Left = 4;
             btnTeacherLibraryAdd.Top = 178;
             btnTeacherLibraryAdd.Text = "Add";
@@ -723,7 +724,7 @@ namespace EducationProject.View.Teacher
             lblTeacherMentorEmail.Text = "Email:";
 
 
-          
+
             btnTeacherWriteMessageMentor.Left = 300;
             btnTeacherWriteMessageMentor.Top = 84;
             btnTeacherWriteMessageMentor.Height = 25;
@@ -802,12 +803,15 @@ namespace EducationProject.View.Teacher
                 }
             }
         }
+
         //Shows a new Form to write to a mentor
         private void TeacherWriteMessageToMentor(object sender, EventArgs e)
         {
+  
             TeacherMessageToMentor MessageToMentor = new TeacherMessageToMentor();
             MessageToMentor.Show();
             btnTeacherWriteMessageMentor.Enabled = false;
         }
+
     }
 }

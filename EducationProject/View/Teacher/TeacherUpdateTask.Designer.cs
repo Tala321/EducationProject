@@ -82,6 +82,7 @@
             // 
             // cbxTeacherUpdateTaskCategory
             // 
+            this.cbxTeacherUpdateTaskCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTeacherUpdateTaskCategory.FormattingEnabled = true;
             this.cbxTeacherUpdateTaskCategory.Location = new System.Drawing.Point(417, 53);
             this.cbxTeacherUpdateTaskCategory.Name = "cbxTeacherUpdateTaskCategory";

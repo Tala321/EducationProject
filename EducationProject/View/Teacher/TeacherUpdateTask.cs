@@ -43,22 +43,40 @@ namespace EducationProject.View.Teacher
         private void btnTeacherUpdateTaskAdd_Click(object sender, EventArgs e)
         {
             TeacherForm teacher = new TeacherForm();
-            foreach (var item in db.Tasks.ToList())
+            if (CheckFields())
             {
-                if (item.TaskId == Taskid)
+                if (tbxTeacherUpdateTaskDuration.Text.All(char.IsDigit))
                 {
-                    item.TaskName = tbxTeacherUpdateTaskName.Text;
-                    item.TaskUrl = tbxTeacherUpdateTaskUrl.Text;
-                    item.TaskStartDate = tbxTeacherUpdateTaskStartDate.Text;
-                    item.TaskDuration = Convert.ToInt32(tbxTeacherUpdateTaskDuration.Text);
-                    item.TaskDetails = tbxTeacherUpdateTaskDetails.Text;
-                    item.TaskCategoryId = Convert.ToInt32(cbxTeacherUpdateTaskCategory.Text);
-                    dgwUpdateTasksList.DataSource = db.Tasks.ToList();
+                    foreach (var item in db.Tasks.ToList())
+                    {
 
-                    db.SaveChanges();
-                    TeacherForm.btnTeacherUpdateTask.Enabled = true;
-                    break;
+
+                        if (item.TaskId == Taskid)
+                        {
+                            item.TaskName = tbxTeacherUpdateTaskName.Text;
+                            item.TaskUrl = tbxTeacherUpdateTaskUrl.Text;
+                            item.TaskStartDate = tbxTeacherUpdateTaskStartDate.Text;
+                            item.TaskDuration = Convert.ToInt32(tbxTeacherUpdateTaskDuration.Text);
+                            item.TaskDetails = tbxTeacherUpdateTaskDetails.Text;
+                            item.TaskCategoryId = Convert.ToInt32(cbxTeacherUpdateTaskCategory.Text);
+                            dgwUpdateTasksList.DataSource = db.Tasks.ToList();
+
+                            db.SaveChanges();
+                            TeacherForm.btnTeacherUpdateTask.Enabled = true;
+                            CleanFields();
+                            break;
+                        }
+                    }
+
                 }
+                else
+                {
+                    MessageBox.Show("Please enter a valid datatype: Duration");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a task to update");
             }
         }
 
@@ -66,6 +84,30 @@ namespace EducationProject.View.Teacher
         private void TeacherUpdateTask_FormClosed(object sender, FormClosedEventArgs e)
         {
             TeacherForm.btnTeacherUpdateTask.Enabled = true;
+        }
+
+        //Cleans All fields after adding  a task
+        private void CleanFields()
+        {
+            tbxTeacherUpdateTaskDetails.Text = "";
+            tbxTeacherUpdateTaskDuration.Text = "";
+            tbxTeacherUpdateTaskName.Text = "";
+            tbxTeacherUpdateTaskStartDate.Text = "";
+            tbxTeacherUpdateTaskUrl.Text = "";
+            cbxTeacherUpdateTaskCategory.Text = null;
+        }
+
+        //Checks if all fields filled in
+        private bool CheckFields()
+        {
+            if (tbxTeacherUpdateTaskName.Text == "" || tbxTeacherUpdateTaskUrl.Text == "" || tbxTeacherUpdateTaskStartDate.Text == "" || tbxTeacherUpdateTaskDuration.Text == "" || tbxTeacherUpdateTaskDetails.Text == "" || cbxTeacherUpdateTaskCategory.Text == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
