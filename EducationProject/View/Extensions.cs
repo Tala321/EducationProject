@@ -80,8 +80,17 @@ namespace EducationProject
                 rootPath = Directory.GetCurrentDirectory().ToString();
                 FolderName = folder.SelectedPath.ToString();
                 PdfSource = Path.Combine(rootPath, "PdfSource");
-                File.Copy(Path.Combine(PdfSource, _SourceFileName), Path.Combine(FolderName, _SourceFileName));
-                MessageBox.Show("The file downloaded successfully");
+                if(File.Exists(Path.Combine(FolderName, _SourceFileName)))
+                {
+                    MessageBox.Show("This file is already exist  in this folder");
+                }
+                else
+                {
+                    File.Copy(Path.Combine(PdfSource, _SourceFileName), Path.Combine(FolderName, _SourceFileName));
+                    MessageBox.Show("The file downloaded successfully");
+                    
+                }
+               
             }
         }
 
