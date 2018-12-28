@@ -173,6 +173,12 @@
     <Compile Include="View\Mentor\MentorSent.Designer.cs">
       <DependentUpon>MentorSent.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Student\GroupmateInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Student\GroupmateInfo.Designer.cs">
+      <DependentUpon>GroupmateInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Student\StudentInbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,11 +209,11 @@
     <Compile Include="View\Student\StudentSent.Designer.cs">
       <DependentUpon>StudentSent.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Student\Student.cs">
+    <Compile Include="View\Student\StudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Student\Student.Designer.cs">
-      <DependentUpon>Student.cs</DependentUpon>
+    <Compile Include="View\Student\StudentForm.Designer.cs">
+      <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -328,6 +334,9 @@
     <EmbeddedResource Include="View\Mentor\MentorSent.resx">
       <DependentUpon>MentorSent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Student\GroupmateInfo.resx">
+      <DependentUpon>GroupmateInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Student\StudentInbox.resx">
       <DependentUpon>StudentInbox.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,8 +352,8 @@
     <EmbeddedResource Include="View\Student\StudentSent.resx">
       <DependentUpon>StudentSent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Student\Student.resx">
-      <DependentUpon>Student.cs</DependentUpon>
+    <EmbeddedResource Include="View\Student\StudentForm.resx">
+      <DependentUpon>StudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

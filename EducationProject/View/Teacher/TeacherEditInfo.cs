@@ -27,22 +27,31 @@ namespace EducationProject.View.Teacher
         {
             foreach (var item in db.Teachers.ToList().Where(t => t.TeacherEmail == WelcomeScreen.UserEmail))
             {
-                if (tbxTeacherPhoneChange.Text.All(Char.IsDigit))
+                if (tbxTeacherPhoneChange.Text.Length < 10)
                 {
-                    
-                    item.TeacherPhone = tbxTeacherPhoneChange.Text;
-                    db.SaveChanges();
-                    tbxTeacherPhoneChange.Text = "";
-                    break;
+                    if (tbxTeacherPhoneChange.Text.All(Char.IsDigit))
+                    {
+
+                        item.TeacherPhone = tbxTeacherPhoneChange.Text;
+                        db.SaveChanges();
+                        tbxTeacherPhoneChange.Text = "";
+                        MessageBox.Show("The changes will be applied after reopening the app");
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid number");
+                        break;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a valid number");
-                    break;
+                    MessageBox.Show("The limit of number leght has been reached");
                 }
             }
         }
 
+        //Enables btn after closing
         private void TeacherEditInfo_FormClosed(object sender, FormClosedEventArgs e)
         {
             TeacherForm.btnTeacherInfoEdit.Enabled = true;

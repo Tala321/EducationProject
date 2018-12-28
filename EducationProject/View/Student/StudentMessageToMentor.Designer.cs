@@ -33,6 +33,8 @@
             this.btnSendToMentor = new System.Windows.Forms.Button();
             this.lblMentorEmail = new System.Windows.Forms.Label();
             this.lblToMentor = new System.Windows.Forms.Label();
+            this.tbxStudentToMentorTitle = new System.Windows.Forms.TextBox();
+            this.lblStudentToMentorTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblMessageToMentor
@@ -64,12 +66,13 @@
             this.btnSendToMentor.TabIndex = 9;
             this.btnSendToMentor.Text = "Send";
             this.btnSendToMentor.UseVisualStyleBackColor = true;
+            this.btnSendToMentor.Click += new System.EventHandler(this.btnSendToMentor_Click);
             // 
             // lblMentorEmail
             // 
             this.lblMentorEmail.AutoSize = true;
             this.lblMentorEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMentorEmail.Location = new System.Drawing.Point(90, 66);
+            this.lblMentorEmail.Location = new System.Drawing.Point(90, 44);
             this.lblMentorEmail.Name = "lblMentorEmail";
             this.lblMentorEmail.Size = new System.Drawing.Size(42, 17);
             this.lblMentorEmail.TabIndex = 8;
@@ -79,17 +82,37 @@
             // 
             this.lblToMentor.AutoSize = true;
             this.lblToMentor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblToMentor.Location = new System.Drawing.Point(20, 66);
+            this.lblToMentor.Location = new System.Drawing.Point(20, 44);
             this.lblToMentor.Name = "lblToMentor";
             this.lblToMentor.Size = new System.Drawing.Size(29, 17);
             this.lblToMentor.TabIndex = 7;
             this.lblToMentor.Text = "To:";
+            // 
+            // tbxStudentToMentorTitle
+            // 
+            this.tbxStudentToMentorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxStudentToMentorTitle.Location = new System.Drawing.Point(91, 76);
+            this.tbxStudentToMentorTitle.Name = "tbxStudentToMentorTitle";
+            this.tbxStudentToMentorTitle.Size = new System.Drawing.Size(100, 23);
+            this.tbxStudentToMentorTitle.TabIndex = 30;
+            // 
+            // lblStudentToMentorTitle
+            // 
+            this.lblStudentToMentorTitle.AutoSize = true;
+            this.lblStudentToMentorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentToMentorTitle.Location = new System.Drawing.Point(20, 77);
+            this.lblStudentToMentorTitle.Name = "lblStudentToMentorTitle";
+            this.lblStudentToMentorTitle.Size = new System.Drawing.Size(39, 17);
+            this.lblStudentToMentorTitle.TabIndex = 29;
+            this.lblStudentToMentorTitle.Text = "Title:";
             // 
             // MessageToMentor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 348);
+            this.Controls.Add(this.tbxStudentToMentorTitle);
+            this.Controls.Add(this.lblStudentToMentorTitle);
             this.Controls.Add(this.lblMessageToMentor);
             this.Controls.Add(this.tbxMessageBoxMentor);
             this.Controls.Add(this.btnSendToMentor);
@@ -97,6 +120,7 @@
             this.Controls.Add(this.lblToMentor);
             this.Name = "MessageToMentor";
             this.Text = "New Message";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MessageToMentor_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +133,7 @@
         private System.Windows.Forms.Button btnSendToMentor;
         private System.Windows.Forms.Label lblMentorEmail;
         private System.Windows.Forms.Label lblToMentor;
+        private System.Windows.Forms.TextBox tbxStudentToMentorTitle;
+        private System.Windows.Forms.Label lblStudentToMentorTitle;
     }
 }

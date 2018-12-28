@@ -55,22 +55,26 @@ namespace EducationProject.View
 
             if (db.Logins.ToList().Any(t => t.LoginEmail == tbxLoginEmail.Text && t.LoginPassword == tbxLoginPassword.Text && t.UserTypeId == UserType))
             {
+                UserEmail = tbxLoginEmail.Text;
+
                 if (UserType == 1)
                 {
                     TeacherForm teacher = new TeacherForm();             
-                    teacher.Show();
-                    UserEmail = tbxLoginEmail.Text;
+                    teacher.Show();                 
                     teacher.FillTeacherInfo(tbxLoginEmail.Text);
                 }
                 else if (UserType == 2)
                 {
                     StudentForm student = new StudentForm();
                     student.Show();
+                    student.FillStudentInfo(tbxLoginEmail.Text);
+
                 }
                 else if (UserType == 3)
                 {
                     MentorForm mentor = new MentorForm();                    
                     mentor.Show();
+                  
                 }
             }
             else

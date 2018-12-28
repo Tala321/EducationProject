@@ -12,7 +12,6 @@ namespace EducationProject.View.Teacher
 {
     public partial class TeacherMessageToMentor : Form
     {
-        EducationProjectEntities db = new EducationProjectEntities();
 
         //Auto selected Mentor email
         Label lblTeacherMessageToMentorEmail = new Label();
@@ -34,7 +33,6 @@ namespace EducationProject.View.Teacher
             }
             else
             {
-
                 lblTeacherMessageToMentorEmail.Top = 44;
                 lblTeacherMessageToMentorEmail.Left = 88;
                 lblTeacherMessageToMentorEmail.AutoSize = true;
@@ -42,11 +40,10 @@ namespace EducationProject.View.Teacher
                 lblTeacherMessageToMentorEmail.Text = TeacherForm.lblTeacherCurrentMentorEmail.Text;
                 cbxTeacherMessageToMentor.Hide();
                 this.Controls.Add(lblTeacherMessageToMentorEmail);
-            }
-          
+            }   
         }
 
-        //Enables  write to  mentor after closing the form
+        //Enables button  write to  mentor after closing the form
         private void TeacherMessageToMentor_FormClosed(object sender, FormClosedEventArgs e)
         {
             TeacherForm.btnTeacherWriteMessageMentor.Enabled = true;

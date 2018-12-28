@@ -12,9 +12,19 @@ namespace EducationProject.View.Student
 {
     public partial class StudentInbox : Form
     {
+        EducationProjectEntities db = new EducationProjectEntities();
+
         public StudentInbox()
         {
             InitializeComponent();
+            //Shows inbox messages
+            dgwStudentInboxMessages.DataSource = db.Messages.Where(e => e.MessageTo == WelcomeScreen.UserEmail).ToList();
+        }
+
+        //Show clicked inbox/sent message
+        private void dgwStudentInboxMessages_DoubleClick(object sender, EventArgs e)
+        {
+            Extensions.ShowMessageInfo(dgwStudentInboxMessages);
         }
     }
 }

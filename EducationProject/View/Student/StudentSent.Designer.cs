@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.lblStudentSentMessages = new System.Windows.Forms.Label();
-            this.rchbxStudentSentMessages = new System.Windows.Forms.RichTextBox();
+            this.dgwStudentSentMessages = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwStudentSentMessages)).BeginInit();
             this.SuspendLayout();
             // 
             // lblStudentSentMessages
@@ -42,24 +43,26 @@
             this.lblStudentSentMessages.TabIndex = 5;
             this.lblStudentSentMessages.Text = "Sent Messages:";
             // 
-            // rchbxStudentSentMessages
+            // dgwStudentSentMessages
             // 
-            this.rchbxStudentSentMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rchbxStudentSentMessages.Location = new System.Drawing.Point(12, 66);
-            this.rchbxStudentSentMessages.Name = "rchbxStudentSentMessages";
-            this.rchbxStudentSentMessages.Size = new System.Drawing.Size(489, 270);
-            this.rchbxStudentSentMessages.TabIndex = 4;
-            this.rchbxStudentSentMessages.Text = "";
+            this.dgwStudentSentMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwStudentSentMessages.Location = new System.Drawing.Point(12, 66);
+            this.dgwStudentSentMessages.Name = "dgwStudentSentMessages";
+            this.dgwStudentSentMessages.ReadOnly = true;
+            this.dgwStudentSentMessages.Size = new System.Drawing.Size(489, 270);
+            this.dgwStudentSentMessages.TabIndex = 7;
+            this.dgwStudentSentMessages.DoubleClick += new System.EventHandler(this.dgwStudentSentMessages_DoubleClick);
             // 
             // StudentSent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 348);
+            this.Controls.Add(this.dgwStudentSentMessages);
             this.Controls.Add(this.lblStudentSentMessages);
-            this.Controls.Add(this.rchbxStudentSentMessages);
             this.Name = "StudentSent";
             this.Text = "Sent";
+            ((System.ComponentModel.ISupportInitialize)(this.dgwStudentSentMessages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,6 +71,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblStudentSentMessages;
-        private System.Windows.Forms.RichTextBox rchbxStudentSentMessages;
+        private System.Windows.Forms.DataGridView dgwStudentSentMessages;
     }
 }

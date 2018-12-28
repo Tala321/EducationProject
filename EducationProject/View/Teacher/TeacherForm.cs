@@ -34,7 +34,7 @@ namespace EducationProject.View.Teacher
         int mentorId;
         int TaskId;
 
-        // Declare dynamic label here , to use when Teacher enters
+        // Declare dynamic items here , to use when Teacher enters
         public Label lblCurrentTeacherId = new Label();
         public Label lblCurrentTeacherProgram = new Label();
         public Label lblCurrentTeacherName = new Label();
@@ -101,7 +101,8 @@ namespace EducationProject.View.Teacher
 
             Label lblTeacherId = new Label();
             lblTeacherId.Left = 14;
-            lblTeacherId.Top = 44; lblTeacherId.ForeColor = ForeColorStatic;
+            lblTeacherId.Top = 44;
+            lblTeacherId.ForeColor = ForeColorStatic;
             lblTeacherId.Text = "Id:";
 
             Label lblTeacherProgramName = new Label();
@@ -161,6 +162,13 @@ namespace EducationProject.View.Teacher
             bioBx.BackColor = Color.FromName("Control");
             bioBx.ReadOnly = true;
 
+            //
+            btnTeacherInfoEdit.Left = 429;
+            btnTeacherInfoEdit.Top = 230;
+            btnTeacherInfoEdit.Text = "Edit";
+            btnTeacherInfoEdit.Height = 25;
+            btnTeacherInfoEdit.Width = 80;
+
 
 
             //set dynamic items          
@@ -190,23 +198,12 @@ namespace EducationProject.View.Teacher
             lblCurrentTeacherPhone.Top = 159;
             lblCurrentTeacherPhone.ForeColor = ForeColor;
             //
-            lblCurrentTeacherBio.Left = 140;
-            lblCurrentTeacherBio.Top = 182;
-            lblCurrentTeacherBio.ForeColor = ForeColor;
-            //
             pbxTeacherImage.Left = 358;
             pbxTeacherImage.Top = 47;
             pbxTeacherImage.Width = 149;
             pbxTeacherImage.Height = 172;
             pbxTeacherImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
-
-
-            btnTeacherInfoEdit.Left = 429;
-            btnTeacherInfoEdit.Top = 230;
-            btnTeacherInfoEdit.Text = "Edit";
-            btnTeacherInfoEdit.Height = 25;
-            btnTeacherInfoEdit.Width = 80;
 
             //add click eventHandler to the btn-"Edit"
             btnTeacherInfoEdit.Click += new EventHandler(this.EditTeacherPersonalInfo);
@@ -234,7 +231,6 @@ namespace EducationProject.View.Teacher
             PanelTeacher.Controls.Add(lblCurrentTeacherSurname);
             PanelTeacher.Controls.Add(lblCurrentTeacherEmail);
             PanelTeacher.Controls.Add(lblCurrentTeacherPhone);
-            PanelTeacher.Controls.Add(lblCurrentTeacherBio);
             PanelTeacher.Controls.Add(pbxTeacherImage);
             PanelTeacher.Controls.Add(btnTeacherInfoEdit);
 
@@ -344,8 +340,8 @@ namespace EducationProject.View.Teacher
         //Shows clicked task info
         private void ShowTaskInfo(object sender, EventArgs e)
         {
-            Extensions.ShowTaskInfo(Convert.ToInt32(dgwTeacherAllTasks.CurrentRow.Cells[0].Value));
             dgwTeacherAllTasks.Enabled = false;
+            Extensions.ShowTaskInfo(Convert.ToInt32(dgwTeacherAllTasks.CurrentRow.Cells[0].Value));     
         }
 
         //Adds a task to the tasklist
@@ -546,8 +542,6 @@ namespace EducationProject.View.Teacher
         // Shows clicked colleague info
         private void ShowColleagueInfo(object sender, EventArgs e)
         {
-
-
             TeacherInfo ColleagueInfo = new TeacherInfo();
             ColleagueInfo.ShowClickedColleagueInfo(
               Convert.ToInt32(dgwTeacherColleagues.CurrentRow.Cells[0].Value),
@@ -812,6 +806,5 @@ namespace EducationProject.View.Teacher
             MessageToMentor.Show();
             btnTeacherWriteMessageMentor.Enabled = false;
         }
-
     }
 }

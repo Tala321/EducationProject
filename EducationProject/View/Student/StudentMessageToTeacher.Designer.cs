@@ -33,6 +33,8 @@
             this.lblToTeacher = new System.Windows.Forms.Label();
             this.lblTeacherEmail = new System.Windows.Forms.Label();
             this.btnSendToTeacher = new System.Windows.Forms.Button();
+            this.tbxStudentToTeacherTitle = new System.Windows.Forms.TextBox();
+            this.lblStudentToTeacherTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbxMessageBoxTeacher
@@ -59,7 +61,7 @@
             // 
             this.lblToTeacher.AutoSize = true;
             this.lblToTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblToTeacher.Location = new System.Drawing.Point(20, 66);
+            this.lblToTeacher.Location = new System.Drawing.Point(20, 44);
             this.lblToTeacher.Name = "lblToTeacher";
             this.lblToTeacher.Size = new System.Drawing.Size(29, 17);
             this.lblToTeacher.TabIndex = 2;
@@ -69,7 +71,7 @@
             // 
             this.lblTeacherEmail.AutoSize = true;
             this.lblTeacherEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeacherEmail.Location = new System.Drawing.Point(90, 66);
+            this.lblTeacherEmail.Location = new System.Drawing.Point(90, 44);
             this.lblTeacherEmail.Name = "lblTeacherEmail";
             this.lblTeacherEmail.Size = new System.Drawing.Size(42, 17);
             this.lblTeacherEmail.TabIndex = 3;
@@ -84,12 +86,33 @@
             this.btnSendToTeacher.TabIndex = 4;
             this.btnSendToTeacher.Text = "Send";
             this.btnSendToTeacher.UseVisualStyleBackColor = true;
+            this.btnSendToTeacher.Click += new System.EventHandler(this.btnSendToTeacher_Click);
+            // 
+            // tbxStudentToTeacherTitle
+            // 
+            this.tbxStudentToTeacherTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxStudentToTeacherTitle.Location = new System.Drawing.Point(91, 76);
+            this.tbxStudentToTeacherTitle.Name = "tbxStudentToTeacherTitle";
+            this.tbxStudentToTeacherTitle.Size = new System.Drawing.Size(100, 23);
+            this.tbxStudentToTeacherTitle.TabIndex = 32;
+            // 
+            // lblStudentToTeacherTitle
+            // 
+            this.lblStudentToTeacherTitle.AutoSize = true;
+            this.lblStudentToTeacherTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentToTeacherTitle.Location = new System.Drawing.Point(20, 77);
+            this.lblStudentToTeacherTitle.Name = "lblStudentToTeacherTitle";
+            this.lblStudentToTeacherTitle.Size = new System.Drawing.Size(39, 17);
+            this.lblStudentToTeacherTitle.TabIndex = 31;
+            this.lblStudentToTeacherTitle.Text = "Title:";
             // 
             // MessageToTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 348);
+            this.Controls.Add(this.tbxStudentToTeacherTitle);
+            this.Controls.Add(this.lblStudentToTeacherTitle);
             this.Controls.Add(this.lblMessageToTeacher);
             this.Controls.Add(this.tbxMessageBoxTeacher);
             this.Controls.Add(this.btnSendToTeacher);
@@ -97,6 +120,7 @@
             this.Controls.Add(this.lblToTeacher);
             this.Name = "MessageToTeacher";
             this.Text = "New Message";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MessageToTeacher_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +133,7 @@
         private System.Windows.Forms.Label lblToTeacher;
         private System.Windows.Forms.Label lblTeacherEmail;
         private System.Windows.Forms.Button btnSendToTeacher;
+        private System.Windows.Forms.TextBox tbxStudentToTeacherTitle;
+        private System.Windows.Forms.Label lblStudentToTeacherTitle;
     }
 }

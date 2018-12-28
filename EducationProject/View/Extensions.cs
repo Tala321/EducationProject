@@ -27,48 +27,7 @@ namespace EducationProject
 
         ////////  //Teacher extensions//  ///////////
 
-        //"Library"- option//
-        //Chooses and copy a pdf file  to the our PdfSource folder
-        static public void AddPdfFile()
-        {
 
-            EducationProjectEntities db = new EducationProjectEntities();
-            if (fileDialog.ShowDialog() == DialogResult.OK)
-            {
-                //set paths
-                rootPath = Directory.GetCurrentDirectory().ToString();
-                PdfSource = Path.Combine(rootPath, "PdfSource");
-                ChosedFile = fileDialog.FileName;
-                FileName = Path.GetFileName(ChosedFile);
-
-                if (Path.GetExtension(FileName) == ".pdf")
-                {
-
-                    //Check if  this name is already exist in the database
-                    if (db.PdfSources.All(e => e.PdfSourceName != FileName))
-                    {
-                        PdfSource pdf = new PdfSource()
-                        {
-                            PdfSourceName = FileName.ToString()
-                        };
-
-                        //Copy the file to the PdfSource folder
-                        File.Copy(ChosedFile, Path.Combine(PdfSource, FileName));
-
-                        db.PdfSources.Add(pdf);
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        MessageBox.Show("This name is exist in the database, please change the name or choose another one");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Selected file must be in a pdf format");
-                }
-            }
-        }
 
         //Chooses a folder  where to download a pdf
         static public void DownloadPdf(string _SourceFileName)
@@ -80,7 +39,7 @@ namespace EducationProject
                 rootPath = Directory.GetCurrentDirectory().ToString();
                 FolderName = folder.SelectedPath.ToString();
                 PdfSource = Path.Combine(rootPath, "PdfSource");
-                if(File.Exists(Path.Combine(FolderName, _SourceFileName)))
+                if (File.Exists(Path.Combine(FolderName, _SourceFileName)))
                 {
                     MessageBox.Show("This file is already exist  in this folder");
                 }
@@ -88,9 +47,7 @@ namespace EducationProject
                 {
                     File.Copy(Path.Combine(PdfSource, _SourceFileName), Path.Combine(FolderName, _SourceFileName));
                     MessageBox.Show("The file downloaded successfully");
-                    
                 }
-               
             }
         }
 
@@ -104,41 +61,7 @@ namespace EducationProject
         }
 
 
-        //"Task"- option//
-
-        //Shows task info
-        static public void ShowTaskInfo(int _TaskId)
-        {
-            EducationProjectEntities db = new EducationProjectEntities();
-
-            foreach (var item in db.Tasks.ToList())
-            {
-                TeacherForm.dgwTeacherAllTasks.Enabled = true;
-
-                if (item.TaskId == _TaskId)
-                {
-                    MessageBox.Show(
-                  "TASK INFO" + Environment.NewLine +
-                  Environment.NewLine +
-                  "Id:" + "" + item.TaskId + Environment.NewLine +
-                   Environment.NewLine +
-                  "Name:" + "" + item.TaskName + Environment.NewLine +
-                   Environment.NewLine +
-                  "Url:" + "" + item.TaskUrl + Environment.NewLine +
-                   Environment.NewLine +
-                  "Start Date:" + "" + item.TaskStartDate + Environment.NewLine +
-                   Environment.NewLine +
-                  "Task Duration:" + "" + item.TaskDuration + Environment.NewLine +
-                   Environment.NewLine +
-                  "Details:" + "" + item.TaskDetails + Environment.NewLine +
-                   Environment.NewLine +
-                  "Category Id:" + "" + item.TaskCategoryId + Environment.NewLine
-
-
-                  );
-                }
-            }
-        }
+        
 
         //Deletes Task from the database
         static public void DeleteTask(int _TaskId)
@@ -211,6 +134,62 @@ namespace EducationProject
 
         //"My messages" - option//
 
+        //Fills a combo box with the Colleagues email
+        static public void FillWithColleaguesEmails(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Teachers.Where(x => x.TeacherEmail != WelcomeScreen.UserEmail).ToList())
+            {
+                _cbx.Items.Add(item.TeacherEmail);
+            }
+        }
+
+        ////////  //End Teacher//  ///////////
+
+
+        ////////  //For all Forms extensions//  ///////////
+
+        //Sends message to the chose person
+        public static void SendMessage(string _to, string _title, string _body)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            Message message = new Message()
+            {
+                MessageFrom = WelcomeScreen.UserEmail,
+                MessageTo = _to,
+                MessageTitle = _title,
+                MessageBody = _body
+
+            };
+
+            db.Messages.Add(message);
+            db.SaveChanges();
+        }
+
+        //Cheks if all fields filled in
+        public static bool CheckFields(TextBox _title, TextBox _body, ComboBox _cbx)
+        {
+            if (_title.Text == "" || _body.Text == "" || _cbx.Text == "")
+            {
+
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        //Clears fields after sending a message ,only in Colleague and Group options
+        public static void ClearFields(TextBox _title, TextBox _body, ComboBox _cbx)
+        {
+            _title.Text = "";
+            _body.Text = "";
+            _cbx.Text = "";
+        }
+
         //Show clicked inbox/sent message
         static public void ShowMessageInfo(DataGridView _dgw)
         {
@@ -233,59 +212,105 @@ namespace EducationProject
    );
         }
 
+        //"Library"- option//
 
-        //Fills a combo box with the Colleagues email
-        static public void FillWithColleaguesEmails(ComboBox _cbx)
+        //Chooses and copy a pdf file  to the our PdfSource folder
+        static public void AddPdfFile()
+        {
+
+            EducationProjectEntities db = new EducationProjectEntities();
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //set paths
+                rootPath = Directory.GetCurrentDirectory().ToString();
+                PdfSource = Path.Combine(rootPath, "PdfSource");
+                ChosedFile = fileDialog.FileName;
+                FileName = Path.GetFileName(ChosedFile);
+
+                if (Path.GetExtension(FileName) == ".pdf")
+                {
+
+                    //Check if  this name is already exist in the database
+                    if (db.PdfSources.All(e => e.PdfSourceName != FileName))
+                    {
+                        PdfSource pdf = new PdfSource()
+                        {
+                            PdfSourceName = FileName.ToString()
+                        };
+
+                        //Copy the file to the PdfSource folder
+                        File.Copy(ChosedFile, Path.Combine(PdfSource, FileName));
+
+                        db.PdfSources.Add(pdf);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("This name is exist in the database, please change the name or choose another one");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selected file must be in a pdf format");
+                }
+            }
+        }
+
+        //"Task"- option//
+
+        //Shows task info
+        static public void ShowTaskInfo(int _TaskId)
         {
             EducationProjectEntities db = new EducationProjectEntities();
 
-            foreach (var item in db.Teachers.Where(x => x.TeacherEmail != WelcomeScreen.UserEmail).ToList())
-            {
-                _cbx.Items.Add(item.TeacherEmail);
+            foreach (var item in db.Tasks.ToList())
+            {         
+                if (item.TaskId == _TaskId)
+                {
+                    MessageBox.Show(
+                  "TASK INFO" + Environment.NewLine +
+                  Environment.NewLine +
+                  "Id:" + "" + item.TaskId + Environment.NewLine +
+                   Environment.NewLine +
+                  "Name:" + "" + item.TaskName + Environment.NewLine +
+                   Environment.NewLine +
+                  "Url:" + "" + item.TaskUrl + Environment.NewLine +
+                   Environment.NewLine +
+                  "Start Date:" + "" + item.TaskStartDate + Environment.NewLine +
+                   Environment.NewLine +
+                  "Task Duration:" + "" + item.TaskDuration + Environment.NewLine +
+                   Environment.NewLine +
+                  "Details:" + "" + item.TaskDetails + Environment.NewLine +
+                   Environment.NewLine +
+                  "Category Id:" + "" + item.TaskCategoryId + Environment.NewLine       
+                  );
+
+                  
+                }
+                StudentForm.dgwStudentAllTasks.Enabled = true;
+                TeacherForm.dgwTeacherAllTasks.Enabled = true;
             }
         }
 
+        ////////  //End "For all Forms extensions"//  ///////////
 
-        //Sends message to the chose person
-        public static void SendMessage(string _to, string _title, string _body)
+
+
+
+        ////////  //Studen extensions//  ///////////
+
+        //Fills a combo box with the Groupmates email
+        static public void FillWithGroupmatesEmails(ComboBox _cbx)
         {
             EducationProjectEntities db = new EducationProjectEntities();
 
-            Message message = new Message()
+            foreach (var item in db.Students.Where(x => x.GroupId == StudentForm.GroupId && x.StudentEmail != WelcomeScreen.UserEmail).ToList())
             {
-                MessageFrom = WelcomeScreen.UserEmail,
-                MessageTo = _to,
-                MessageTitle = _title,
-                MessageBody = _body
-
-            };
-
-            db.Messages.Add(message);
-            db.SaveChanges();
-        }
-
-
-        //Clears fields after sending a message ,only in Colleague and Group options
-        public static void ClearFields(TextBox _title, TextBox _body ,ComboBox _cbx)
-        {
-            _title.Text = "";
-            _body.Text= "";
-            _cbx.Text="";
-        }
-
-        //Cheks if all fields filled in
-        public static bool CheckFields(TextBox _title, TextBox _body, ComboBox _cbx)
-        {
-           if( _title.Text == "" || _body.Text == "" || _cbx.Text=="")
-            {
-
-                return false;
-            }
-           else
-            {
-                return true;
+                _cbx.Items.Add(item.StudentEmail);
             }
         }
-        ////////  //End Teacher//  ///////////
+
+        ////////  //End Student//  ///////////
+
     }
 }

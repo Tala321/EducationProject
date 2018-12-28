@@ -42,6 +42,7 @@
             this.btnStudentEditConfirm.TabIndex = 37;
             this.btnStudentEditConfirm.Text = "Confirm";
             this.btnStudentEditConfirm.UseVisualStyleBackColor = true;
+            this.btnStudentEditConfirm.Click += new System.EventHandler(this.btnStudentEditConfirm_Click);
             // 
             // lblStudentPhoneChange
             // 
@@ -73,6 +74,7 @@
             this.Controls.Add(this.lblStudentPhoneChange);
             this.Name = "StudentEditInfo";
             this.Text = "Edit Personal Info";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentEditInfo_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
