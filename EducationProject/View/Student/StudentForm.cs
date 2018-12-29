@@ -35,25 +35,24 @@ namespace EducationProject.View.Student
         Label lblStudentCurrentTeacherName = new Label();
         Label lblStudentCurrentTeacherSurname = new Label();
 
+        //Declares items that we  use not only in this class
+        public static Button btnStudentInfoEdit = new Button();
         public static Button btnStudentWriteMessageMentor = new Button();
         public static Button btnStudentWriteMessageToTeacher = new Button();
         public static Label lblStudentCurrentTeacherEmail = new Label();
         public static Label lblStudentCurrentMentorEmail = new Label();
-
         public static DataGridView dgwStudentAllGroupmates = new DataGridView();
-        DataGridView dgwStudentLibrary = new DataGridView();
         public static DataGridView dgwStudentAllTasks = new DataGridView();
 
-
-
+        // Declares items that we use in this class but  more than in one method
+        DataGridView dgwStudentLibrary = new DataGridView();
         RichTextBox bioBx = new RichTextBox();
-        public static Button btnStudentInfoEdit = new Button();
         PictureBox pbxStudentImage = new PictureBox();
 
-        //
+        //Holds info
+        public static int GroupId;
         int mentorId;
         int teacherId;
-        public static int GroupId;
         int SourceId;
         int StudentId;
 
@@ -76,7 +75,10 @@ namespace EducationProject.View.Student
             PanelStudent.Font = new Font(PanelStudent.Font.FontFamily, 10);
         }
 
-        //strip menu
+
+        ////////  //"Personal Info"-option//  /////////// 
+
+        //Creates all items on the panel
         private void personalInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //prevent opening more than one form
@@ -87,7 +89,7 @@ namespace EducationProject.View.Student
             Height = 400;
             PanelStudent.Width = panelNormalWidth;
             PanelStudent.Height = 330;
-            
+
 
             //set Static items
 
@@ -214,7 +216,7 @@ namespace EducationProject.View.Student
             //add click eventHandler to the btn-"Edit"
             btnStudentInfoEdit.Click += new EventHandler(this.EditStudentPersonalInfo);
 
-            //adding  items
+            //adding static items
 
             PanelStudent.Controls.Add(lblStudentId);
             PanelStudent.Controls.Add(lblStudentGroup);
@@ -285,20 +287,23 @@ namespace EducationProject.View.Student
             btnStudentInfoEdit.Enabled = false;
         }
 
-        //ShowsTasks
+
+        ////////  //"Task"-option//  ///////////  
+
+        //Creates all items on the panel
         private void showTasksToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelStudent.Controls.Clear();
             Height = StandartHeight;
             Width = formNormalWidth;
 
-            //set items in Student's "Show tasks" option
+            //set items 
 
             dgwStudentAllTasks.Top = 3;
             dgwStudentAllTasks.Left = 3;
             dgwStudentAllTasks.Width = 543;
             dgwStudentAllTasks.Height = 137;
-            dgwStudentAllTasks.DataSource = db.AssignTasks.Where(x=> x.StudentId== StudentId).ToList();
+            dgwStudentAllTasks.DataSource = db.AssignTasks.Where(x => x.StudentId == StudentId).ToList();
             dgwStudentAllTasks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwStudentAllTasks.ReadOnly = true;
 
@@ -321,10 +326,14 @@ namespace EducationProject.View.Student
         private void ShowTaskInfo(object sender, EventArgs e)
         {
             dgwStudentAllTasks.Enabled = false;
-            Extensions.ShowTaskInfo(Convert.ToInt32(dgwStudentAllTasks.CurrentRow.Cells[1].Value));   
+            Extensions.ShowTaskInfo(Convert.ToInt32(dgwStudentAllTasks.CurrentRow.Cells[1].Value));
         }
 
-        //Teacher info
+
+
+        ////////  //"Teacher Info"-option//  ///////////  
+
+        //Creates all items on the panel
         private void teacherInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //prevents opening more than one form
@@ -425,8 +434,8 @@ namespace EducationProject.View.Student
         }
 
 
-        ////////  //"Mentor Info"-option//  ///////////  
 
+        ////////  //"Mentor Info"-option//  ///////////  
 
         // Creates all items on the panel
         private void mentorInfoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -532,7 +541,11 @@ namespace EducationProject.View.Student
             messageToGroupmate.Show();
         }
 
-        // shows all Groupmates
+
+        ////////  //"Groupmates"-option//  ///////////  
+
+
+        // Creates all items on the panel
         private void groupmatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //prevent opening 2 or more forms
@@ -544,13 +557,13 @@ namespace EducationProject.View.Student
             Width = 889;
             Height = StandartHeight;
 
-
+            //set items
             dgwStudentAllGroupmates.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwStudentAllGroupmates.Top = 3;
             dgwStudentAllGroupmates.Left = 4;
             dgwStudentAllGroupmates.Width = 842;
             dgwStudentAllGroupmates.Height = 257;
-            dgwStudentAllGroupmates.DataSource = db.Students.Where(x => x.GroupId == GroupId && x.StudentEmail!= WelcomeScreen.UserEmail).ToList();
+            dgwStudentAllGroupmates.DataSource = db.Students.Where(x => x.GroupId == GroupId && x.StudentEmail != WelcomeScreen.UserEmail).ToList();
 
             //Events
             dgwStudentAllGroupmates.Click += ShowGroupmateInfo;
@@ -586,13 +599,19 @@ namespace EducationProject.View.Student
             GroupmateInfo.Show();
         }
 
-        // Shows Student's Library
+
+
+        ////////  //"Library"-option//  ///////////  
+
+
+        // Creates all items on the panel
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelStudent.Controls.Clear();
             Height = StandartHeight;
             Width = formNormalWidth;
 
+            //set items
             dgwStudentLibrary.Top = 3;
             dgwStudentLibrary.Left = 3;
             dgwStudentLibrary.Width = 542;
