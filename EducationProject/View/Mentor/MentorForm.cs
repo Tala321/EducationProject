@@ -309,16 +309,16 @@ namespace EducationProject.View.Mentor
             dgwMentorGroup.Click -= ShowStudentInfo;
             //
 
-            PanelMentor.Width = 847;
+            PanelMentor.Width = 855;
             PanelMentor.Height = StandartHeight;
-            Width = 889;
+            Width = 895;
             Height = StandartHeight;
 
             //set static items
 
             dgwMentorGroup.Top = 3;
             dgwMentorGroup.Left = 3;
-            dgwMentorGroup.Width = 847;
+            dgwMentorGroup.Width = 855;
             dgwMentorGroup.Height = 257;
             dgwMentorGroup.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwMentorGroup.ReadOnly = true;
@@ -409,24 +409,26 @@ namespace EducationProject.View.Mentor
             PanelMentor.Controls.Clear();
             //
 
-            Height = 380;
-            Width = formNormalWidth;
-            PanelMentor.Width = panelNormalWidth;
-            PanelMentor.Height = 300;
+            PanelMentor.Width = 855;
+            PanelMentor.Height = StandartHeight;
+            Width = 895;
+            Height = StandartHeight;
 
             //set static items
             dgwMentorTeachersList.Top = 30;
-            dgwMentorTeachersList.Left = 3;
-            dgwMentorTeachersList.Width = 240;
-            dgwMentorTeachersList.Height = 230;
+            dgwMentorTeachersList.Left = 0;
+            dgwMentorTeachersList.Width = 855;
+            dgwMentorTeachersList.Height = 97;
+            dgwMentorTeachersList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwMentorTeachersList.ReadOnly = true;
 
 
-            dgwMentorsList.Top = 30;
-            dgwMentorsList.Left = 305;
-            dgwMentorsList.Width = 240;
-            dgwMentorsList.Height = 230;
+            dgwMentorsList.Top = 170;
+            dgwMentorsList.Left = 0;
+            dgwMentorsList.Width = 855;
+            dgwMentorsList.Height = 97;
             dgwMentorsList.ReadOnly = true;
+            dgwMentorsList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
             Label lblMentorTeachersList = new Label();
@@ -437,8 +439,8 @@ namespace EducationProject.View.Mentor
 
 
             Label lblMentorsList = new Label();
-            lblMentorsList.Left = 302;
-            lblMentorsList.Top = 10;
+            lblMentorsList.Left = 3;
+            lblMentorsList.Top = 154;
             lblMentorsList.ForeColor = ForeColor;
             lblMentorsList.Text = "Mentors List:";
 
@@ -451,14 +453,11 @@ namespace EducationProject.View.Mentor
             dgwMentorTeachersList.Click += ShowTeacherInfo;
             dgwMentorsList.Click += ShowMentorInfo;
 
-
-
             //add static items
             PanelMentor.Controls.Add(dgwMentorTeachersList);
             PanelMentor.Controls.Add(dgwMentorsList);
             PanelMentor.Controls.Add(lblMentorsList);
             PanelMentor.Controls.Add(lblMentorTeachersList);
-
         }
 
         // Shows clicked Teacher info
@@ -507,15 +506,20 @@ namespace EducationProject.View.Mentor
         //Creates all items on the panel
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //
+            PanelMentor.Controls.Clear();
+            Height = StandartHeight;
+            Width = formNormalWidth;
+            PanelMentor.Width = 847;
+            PanelMentor.Height = StandartHeight;
+
             //prevets of adding the same function again to theese buttons
             btnMentorLibraryAdd.Click -= AddResource;
             btnMentorLibraryDelete.Click -= DeleteSource;
             dgwMentorLibrary.Click -= GetSourceId;
             btnMentorLibraryDownload.Click -= DownloadPdf;
 
-            //
-            PanelMentor.Controls.Clear();
-            Height = StandartHeight;
+          
 
             //set static items
 

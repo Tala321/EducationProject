@@ -92,14 +92,14 @@
             // showAssignedTaskToolStripMenuItem
             // 
             this.showAssignedTaskToolStripMenuItem.Name = "showAssignedTaskToolStripMenuItem";
-            this.showAssignedTaskToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showAssignedTaskToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.showAssignedTaskToolStripMenuItem.Text = "Assign a task";
             this.showAssignedTaskToolStripMenuItem.Click += new System.EventHandler(this.AssignTaskToStudent);
             // 
             // assignTaskToolStripMenuItem1
             // 
             this.assignTaskToolStripMenuItem1.Name = "assignTaskToolStripMenuItem1";
-            this.assignTaskToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.assignTaskToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.assignTaskToolStripMenuItem1.Text = "Transcript";
             this.assignTaskToolStripMenuItem1.Click += new System.EventHandler(this.ShowEditTranscript);
             // 

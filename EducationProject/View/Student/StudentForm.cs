@@ -288,11 +288,14 @@ namespace EducationProject.View.Student
         }
 
 
-        ////////  //"Task"-option//  ///////////  
+        ////////  //"Show Task"-option//  ///////////  
 
         //Creates all items on the panel
         private void showTasksToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Prevents opening more than 1 form
+            dgwStudentAllTasks.DoubleClick -= ShowTaskInfo;
+            //
             PanelStudent.Controls.Clear();
             Height = StandartHeight;
             Width = formNormalWidth;

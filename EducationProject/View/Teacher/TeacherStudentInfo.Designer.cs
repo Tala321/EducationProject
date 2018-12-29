@@ -282,6 +282,7 @@
             this.Controls.Add(this.lblTeacherStudentId);
             this.Name = "TeacherStudentInfo";
             this.Text = "Student Info";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TeacherStudentInfo_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pbxCurrentStudentPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

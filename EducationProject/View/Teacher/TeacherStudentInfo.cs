@@ -53,5 +53,11 @@ namespace EducationProject.View.Teacher
             rchbxCurrentStudentBio.Text = _Bio;
             pbxCurrentStudentPhoto.Image = Image.FromFile(FullPath);
         }
+
+        //Enables button after closing
+        private void TeacherStudentInfo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            TeacherForm.dgwTeacherGroups.Enabled = true;
+        }
     }
 }

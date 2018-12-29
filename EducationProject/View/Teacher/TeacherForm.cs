@@ -23,7 +23,7 @@ namespace EducationProject.View.Teacher
 
         //declare dataGridView
         DataGridView dgwTeacherLibraryList = new DataGridView();
-        DataGridView dgwTeacherGroups = new DataGridView();
+        public static DataGridView dgwTeacherGroups = new DataGridView();
         public static DataGridView dgwTeacherColleagues = new DataGridView();
         public static DataGridView dgwTeacherAllTasks = new DataGridView();
 
@@ -386,6 +386,11 @@ namespace EducationProject.View.Teacher
         //Creates all items on the panel
         private void groupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //prevents adding the same effect
+            cbxTeacherSelectGroups.SelectedIndexChanged -= ShowStudetnsFromGroup;
+            ///
+            dgwTeacherGroups.Click -= ShowStudentInfo;
+
             //clear dataGridView
             dgwTeacherGroups.DataSource = "";
 
@@ -456,6 +461,7 @@ namespace EducationProject.View.Teacher
         //Shows clicked student info (first get  data from database)
         private void ShowStudentInfo(object sender, EventArgs e)
         {
+            dgwTeacherGroups.Enabled = false;
             var Birthdate = Convert.ToDateTime(dgwTeacherGroups.CurrentRow.Cells[4].Value);
             var RegDate = Convert.ToDateTime(dgwTeacherGroups.CurrentRow.Cells[7].Value);
 
