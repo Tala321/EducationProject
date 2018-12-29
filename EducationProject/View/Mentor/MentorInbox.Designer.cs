@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.lblMentorInboxMessages = new System.Windows.Forms.Label();
-            this.rchbxMentorInboxMessages = new System.Windows.Forms.RichTextBox();
+            this.dgwMentorInboxMessages = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwMentorInboxMessages)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMentorInboxMessages
@@ -38,28 +39,30 @@
             this.lblMentorInboxMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMentorInboxMessages.Location = new System.Drawing.Point(9, 46);
             this.lblMentorInboxMessages.Name = "lblMentorInboxMessages";
-            this.lblMentorInboxMessages.Size = new System.Drawing.Size(109, 17);
+            this.lblMentorInboxMessages.Size = new System.Drawing.Size(113, 17);
             this.lblMentorInboxMessages.TabIndex = 7;
-            this.lblMentorInboxMessages.Text = "Sent Messages:";
+            this.lblMentorInboxMessages.Text = "Inbox Messages:";
             // 
-            // rchbxMentorInboxMessages
+            // dgwMentorInboxMessages
             // 
-            this.rchbxMentorInboxMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rchbxMentorInboxMessages.Location = new System.Drawing.Point(12, 66);
-            this.rchbxMentorInboxMessages.Name = "rchbxMentorInboxMessages";
-            this.rchbxMentorInboxMessages.Size = new System.Drawing.Size(489, 270);
-            this.rchbxMentorInboxMessages.TabIndex = 6;
-            this.rchbxMentorInboxMessages.Text = "";
+            this.dgwMentorInboxMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwMentorInboxMessages.Location = new System.Drawing.Point(12, 66);
+            this.dgwMentorInboxMessages.Name = "dgwMentorInboxMessages";
+            this.dgwMentorInboxMessages.ReadOnly = true;
+            this.dgwMentorInboxMessages.Size = new System.Drawing.Size(489, 270);
+            this.dgwMentorInboxMessages.TabIndex = 8;
+            this.dgwMentorInboxMessages.Click += new System.EventHandler(this.dgwMentorInboxMessages_Click);
             // 
             // MentorInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 348);
+            this.Controls.Add(this.dgwMentorInboxMessages);
             this.Controls.Add(this.lblMentorInboxMessages);
-            this.Controls.Add(this.rchbxMentorInboxMessages);
             this.Name = "MentorInbox";
             this.Text = "Inbox";
+            ((System.ComponentModel.ISupportInitialize)(this.dgwMentorInboxMessages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,6 +71,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblMentorInboxMessages;
-        private System.Windows.Forms.RichTextBox rchbxMentorInboxMessages;
+        private System.Windows.Forms.DataGridView dgwMentorInboxMessages;
     }
 }

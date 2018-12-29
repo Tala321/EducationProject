@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using EducationProject.View.Mentor;
 
 namespace EducationProject.View.Teacher
 {
@@ -52,6 +53,13 @@ namespace EducationProject.View.Teacher
             rchbxCurrentColleagueBio.Text = _Bio;
 
             pbxCurrentColleaguePhoto.Image = Image.FromFile(FullPath);
+        }
+
+        //Enables button after closing the form
+        private void TeacherInfo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MentorForm.dgwMentorTeachersList.Enabled = true;
+            TeacherForm.dgwTeacherColleagues.Enabled = true;
         }
     }
 }

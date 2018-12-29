@@ -13,6 +13,7 @@
           <Property Name="TaskId" Type="int" Nullable="false" />
           <Property Name="StudentId" Type="int" Nullable="false" />
           <Property Name="TaskPoint" Type="int" />
+          <Property Name="GroupId" Type="int" />
         </EntityType>
         <EntityType Name="GroupCategories">
           <Key>
@@ -440,6 +441,7 @@
           <Property Name="TaskId" Type="Int32" Nullable="false" />
           <Property Name="StudentId" Type="Int32" Nullable="false" />
           <Property Name="TaskPoint" Type="Int32" />
+          <Property Name="GroupId" Type="Int32" />
         </EntityType>
         <EntityType Name="GroupCategory">
           <Key>
@@ -734,6 +736,7 @@
           <EntitySetMapping Name="AssignTasks">
             <EntityTypeMapping TypeName="EducationProjectModel.AssignTask">
               <MappingFragment StoreEntitySet="AssignTasks">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
                 <ScalarProperty Name="TaskPoint" ColumnName="TaskPoint" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="TaskId" ColumnName="TaskId" />

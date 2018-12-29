@@ -21,7 +21,7 @@ namespace EducationProject.View.Student
             dgwStudentInboxMessages.DataSource = db.Messages.Where(e => e.MessageTo == WelcomeScreen.UserEmail).ToList();
         }
 
-        //Show clicked inbox/sent message
+        //Show clicked inbox message
         private void dgwStudentInboxMessages_DoubleClick(object sender, EventArgs e)
         {
             Extensions.ShowMessageInfo(dgwStudentInboxMessages);

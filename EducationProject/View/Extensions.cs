@@ -61,7 +61,7 @@ namespace EducationProject
         }
 
 
-        
+
 
         //Deletes Task from the database
         static public void DeleteTask(int _TaskId)
@@ -264,7 +264,7 @@ namespace EducationProject
             EducationProjectEntities db = new EducationProjectEntities();
 
             foreach (var item in db.Tasks.ToList())
-            {         
+            {
                 if (item.TaskId == _TaskId)
                 {
                     MessageBox.Show(
@@ -282,16 +282,19 @@ namespace EducationProject
                    Environment.NewLine +
                   "Details:" + "" + item.TaskDetails + Environment.NewLine +
                    Environment.NewLine +
-                  "Category Id:" + "" + item.TaskCategoryId + Environment.NewLine       
+                  "Category Id:" + "" + item.TaskCategoryId + Environment.NewLine
                   );
 
-                  
+
                 }
                 StudentForm.dgwStudentAllTasks.Enabled = true;
                 TeacherForm.dgwTeacherAllTasks.Enabled = true;
+                MentorForm.dgwMentorTasks.Enabled = true;
             }
         }
 
+
+       
         ////////  //End "For all Forms extensions"//  ///////////
 
 
@@ -303,7 +306,6 @@ namespace EducationProject
         static public void FillWithGroupmatesEmails(ComboBox _cbx)
         {
             EducationProjectEntities db = new EducationProjectEntities();
-
             foreach (var item in db.Students.Where(x => x.GroupId == StudentForm.GroupId && x.StudentEmail != WelcomeScreen.UserEmail).ToList())
             {
                 _cbx.Items.Add(item.StudentEmail);
@@ -312,5 +314,47 @@ namespace EducationProject
 
         ////////  //End Student//  ///////////
 
+
+        ////////  //Mentor extensions//  ///////////
+
+        //Fills a combo box with the Students email
+        static public void FillWithStudentsEmails(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Groups.Where(x => x.GroupId == MentorForm.GroupId).ToList())
+            {
+                _cbx.Items.Add(item.GroupEmail);
+            }    
+        }
+
+
+        //Fills a combo box with the Mentors email
+        static public void FillWithMentorsEmails(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+
+            foreach (var item in db.Mentors.ToList())
+            {
+                _cbx.Items.Add(item.MentorEmail);
+            }
+        }
+
+        //Fills a combo box with the Colleagues email
+        static public void FillWithTeachersEmails(ComboBox _cbx)
+        {
+            EducationProjectEntities db = new EducationProjectEntities();
+            foreach (var item1 in db.Teachers.ToList())
+            {
+                foreach (var item in db.Groups.Where(x => x.GroupId == MentorForm.GroupId).ToList())
+                {
+                    if (item1.TeacherId== item.TeacherId)
+                    {
+                        _cbx.Items.Add(item1.TeacherEmail);
+                    }                   
+                }
+            }
+        }
+        ////////  //End Mentor//  ///////////
     }
 }

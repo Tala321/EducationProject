@@ -15,6 +15,21 @@ namespace EducationProject.View.Mentor
         public MentorMessageToGroup()
         {
             InitializeComponent();
+            Extensions.FillWithStudentsEmails(cbxMentorMessageToGroup);
+        }
+
+        //Sends message to the Group
+        private void btnMentorSendToGroup_Click(object sender, EventArgs e)
+        {
+            if (Extensions.CheckFields(tbxMentorMessageBoxGroup, tbxMentorToGroupTitle, cbxMentorMessageToGroup))
+            {
+                Extensions.SendMessage(cbxMentorMessageToGroup.Text, tbxMentorToGroupTitle.Text, tbxMentorMessageBoxGroup.Text);
+                Extensions.ClearFields(tbxMentorMessageBoxGroup, tbxMentorToGroupTitle, cbxMentorMessageToGroup);
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all fields");
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace EducationProject.View.Student
         ////////  //We will use it in more than one methods//  /////////// 
 
 
-        // Declare dynamic items here , to use when Teacher enters
+        // Declare dynamic items here , to use when Student enters
         Label lblCurrentStudentId = new Label();
         Label lblCurrentStudentGroup = new Label();
         Label lblCurrentStudentName = new Label();

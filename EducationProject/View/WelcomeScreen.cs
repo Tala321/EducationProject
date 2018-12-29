@@ -74,7 +74,7 @@ namespace EducationProject.View
                 {
                     MentorForm mentor = new MentorForm();                    
                     mentor.Show();
-                  
+                    mentor.FillMentorInfo(tbxLoginEmail.Text);
                 }
             }
             else

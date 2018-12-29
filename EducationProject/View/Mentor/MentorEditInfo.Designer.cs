@@ -51,6 +51,7 @@
             this.btnMentorEditConfirm.TabIndex = 43;
             this.btnMentorEditConfirm.Text = "Confirm";
             this.btnMentorEditConfirm.UseVisualStyleBackColor = true;
+            this.btnMentorEditConfirm.Click += new System.EventHandler(this.btnMentorEditConfirm_Click);
             // 
             // lblMentorPhoneChange
             // 
@@ -73,6 +74,7 @@
             this.Controls.Add(this.lblMentorPhoneChange);
             this.Name = "MentorEditInfo";
             this.Text = "Edit Personal Info";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MentorEditInfo_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

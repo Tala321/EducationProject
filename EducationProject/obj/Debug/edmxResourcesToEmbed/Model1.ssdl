@@ -8,6 +8,7 @@
     <Property Name="TaskId" Type="int" Nullable="false" />
     <Property Name="StudentId" Type="int" Nullable="false" />
     <Property Name="TaskPoint" Type="int" />
+    <Property Name="GroupId" Type="int" />
   </EntityType>
   <EntityType Name="GroupCategories">
     <Key>

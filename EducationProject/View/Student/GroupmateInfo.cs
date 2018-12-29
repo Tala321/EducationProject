@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using EducationProject.View.Mentor;
 
 namespace EducationProject.View.Student
 {
     public partial class GroupmateInfo : Form
     {
+
+        //WE USE THIS FORM ALSO IN MENTORFORM,"GROUP"-OPTION
+
         EducationProjectEntities db = new EducationProjectEntities();
 
         //Declares to hold Group name
@@ -23,8 +27,10 @@ namespace EducationProject.View.Student
             InitializeComponent();
         }
 
-        //Shows clicked Groupmate info
-        public void ShowClickedGroupmateInfo(int _Id, int _GroupId, string _name, string _Surname, string _birtdate, string _Email, string _Phone, string _Reg, string _Photo , string _Bio)
+
+
+        //Shows clicked Groupmate info 
+        public void ShowClickedGroupmateInfo(int _Id, int _GroupId, string _name, string _Surname, string _birtdate, string _Email, string _Phone, string _Reg, string _Photo, string _Bio)
         {
             //Gets all paths
             string rootPath = Directory.GetCurrentDirectory();
@@ -59,6 +65,7 @@ namespace EducationProject.View.Student
         private void GroupmateInfo_FormClosed(object sender, FormClosedEventArgs e)
         {
             StudentForm.dgwStudentAllGroupmates.Enabled = true;
+            MentorForm.dgwMentorGroup.Enabled = true;
         }
     }
 }

@@ -28,21 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbxMentorMessageToColleague = new System.Windows.Forms.ComboBox();
             this.lblMentorMessageToColleague = new System.Windows.Forms.Label();
             this.tbxMentorMessageBoxColleague = new System.Windows.Forms.TextBox();
             this.btnMentorSendToColleague = new System.Windows.Forms.Button();
-            this.lblMentorToColleague = new System.Windows.Forms.Label();
+            this.tbxMentorToMentorTitle = new System.Windows.Forms.TextBox();
+            this.lblMentorToMentorTitle = new System.Windows.Forms.Label();
+            this.cbxMentorMessageToMentor = new System.Windows.Forms.ComboBox();
+            this.lblToMentor = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // cbxMentorMessageToColleague
-            // 
-            this.cbxMentorMessageToColleague.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxMentorMessageToColleague.FormattingEnabled = true;
-            this.cbxMentorMessageToColleague.Location = new System.Drawing.Point(91, 65);
-            this.cbxMentorMessageToColleague.Name = "cbxMentorMessageToColleague";
-            this.cbxMentorMessageToColleague.Size = new System.Drawing.Size(121, 24);
-            this.cbxMentorMessageToColleague.TabIndex = 35;
             // 
             // lblMentorMessageToColleague
             // 
@@ -73,28 +66,59 @@
             this.btnMentorSendToColleague.TabIndex = 34;
             this.btnMentorSendToColleague.Text = "Send";
             this.btnMentorSendToColleague.UseVisualStyleBackColor = true;
+            this.btnMentorSendToColleague.Click += new System.EventHandler(this.btnMentorSendToColleague_Click);
             // 
-            // lblMentorToColleague
+            // tbxMentorToMentorTitle
             // 
-            this.lblMentorToColleague.AutoSize = true;
-            this.lblMentorToColleague.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMentorToColleague.Location = new System.Drawing.Point(20, 66);
-            this.lblMentorToColleague.Name = "lblMentorToColleague";
-            this.lblMentorToColleague.Size = new System.Drawing.Size(29, 17);
-            this.lblMentorToColleague.TabIndex = 33;
-            this.lblMentorToColleague.Text = "To:";
+            this.tbxMentorToMentorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxMentorToMentorTitle.Location = new System.Drawing.Point(91, 73);
+            this.tbxMentorToMentorTitle.Name = "tbxMentorToMentorTitle";
+            this.tbxMentorToMentorTitle.Size = new System.Drawing.Size(100, 23);
+            this.tbxMentorToMentorTitle.TabIndex = 42;
             // 
-            // MentorMessageToColleague
+            // lblMentorToMentorTitle
+            // 
+            this.lblMentorToMentorTitle.AutoSize = true;
+            this.lblMentorToMentorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMentorToMentorTitle.Location = new System.Drawing.Point(20, 74);
+            this.lblMentorToMentorTitle.Name = "lblMentorToMentorTitle";
+            this.lblMentorToMentorTitle.Size = new System.Drawing.Size(39, 17);
+            this.lblMentorToMentorTitle.TabIndex = 41;
+            this.lblMentorToMentorTitle.Text = "Title:";
+            // 
+            // cbxMentorMessageToMentor
+            // 
+            this.cbxMentorMessageToMentor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMentorMessageToMentor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxMentorMessageToMentor.FormattingEnabled = true;
+            this.cbxMentorMessageToMentor.Location = new System.Drawing.Point(91, 40);
+            this.cbxMentorMessageToMentor.Name = "cbxMentorMessageToMentor";
+            this.cbxMentorMessageToMentor.Size = new System.Drawing.Size(121, 24);
+            this.cbxMentorMessageToMentor.TabIndex = 40;
+            // 
+            // lblToMentor
+            // 
+            this.lblToMentor.AutoSize = true;
+            this.lblToMentor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblToMentor.Location = new System.Drawing.Point(20, 41);
+            this.lblToMentor.Name = "lblToMentor";
+            this.lblToMentor.Size = new System.Drawing.Size(29, 17);
+            this.lblToMentor.TabIndex = 39;
+            this.lblToMentor.Text = "To:";
+            // 
+            // MentorMessageToMentor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 348);
-            this.Controls.Add(this.cbxMentorMessageToColleague);
+            this.Controls.Add(this.tbxMentorToMentorTitle);
+            this.Controls.Add(this.lblMentorToMentorTitle);
+            this.Controls.Add(this.cbxMentorMessageToMentor);
+            this.Controls.Add(this.lblToMentor);
             this.Controls.Add(this.lblMentorMessageToColleague);
             this.Controls.Add(this.tbxMentorMessageBoxColleague);
             this.Controls.Add(this.btnMentorSendToColleague);
-            this.Controls.Add(this.lblMentorToColleague);
-            this.Name = "MentorMessageToColleague";
+            this.Name = "MentorMessageToMentor";
             this.Text = "New Message";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -102,11 +126,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cbxMentorMessageToColleague;
         private System.Windows.Forms.Label lblMentorMessageToColleague;
         private System.Windows.Forms.TextBox tbxMentorMessageBoxColleague;
         private System.Windows.Forms.Button btnMentorSendToColleague;
-        private System.Windows.Forms.Label lblMentorToColleague;
+        private System.Windows.Forms.TextBox tbxMentorToMentorTitle;
+        private System.Windows.Forms.Label lblMentorToMentorTitle;
+        private System.Windows.Forms.ComboBox cbxMentorMessageToMentor;
+        private System.Windows.Forms.Label lblToMentor;
     }
 }

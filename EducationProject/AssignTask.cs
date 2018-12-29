@@ -18,5 +18,6 @@ namespace EducationProject
         public int TaskId { get; set; }
         public int StudentId { get; set; }
         public Nullable<int> TaskPoint { get; set; }
+        public Nullable<int> GroupId { get; set; }
     }
 }

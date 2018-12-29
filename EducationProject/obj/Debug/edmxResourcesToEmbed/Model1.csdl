@@ -73,6 +73,7 @@
     <Property Name="TaskId" Type="Int32" Nullable="false" />
     <Property Name="StudentId" Type="Int32" Nullable="false" />
     <Property Name="TaskPoint" Type="Int32" />
+    <Property Name="GroupId" Type="Int32" />
   </EntityType>
   <EntityType Name="GroupCategory">
     <Key>

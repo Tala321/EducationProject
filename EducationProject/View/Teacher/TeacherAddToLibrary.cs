@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EducationProject.View.Mentor;
 
 
 
@@ -132,6 +133,7 @@ namespace EducationProject.View.Teacher
         private void TeacherAddToLibrary_FormClosed(object sender, FormClosedEventArgs e)
         {
             TeacherForm.btnTeacherLibraryAdd.Enabled = true;
+            MentorForm.btnMentorLibraryAdd.Enabled = true;
         }
 
         //Checks if all fields filled in

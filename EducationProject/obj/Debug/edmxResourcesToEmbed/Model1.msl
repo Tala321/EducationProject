@@ -4,6 +4,7 @@
     <EntitySetMapping Name="AssignTasks">
       <EntityTypeMapping TypeName="EducationProjectModel.AssignTask">
         <MappingFragment StoreEntitySet="AssignTasks">
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
           <ScalarProperty Name="TaskPoint" ColumnName="TaskPoint" />
           <ScalarProperty Name="StudentId" ColumnName="StudentId" />
           <ScalarProperty Name="TaskId" ColumnName="TaskId" />

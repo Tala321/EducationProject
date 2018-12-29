@@ -24,7 +24,7 @@ namespace EducationProject.View.Teacher
         //declare dataGridView
         DataGridView dgwTeacherLibraryList = new DataGridView();
         DataGridView dgwTeacherGroups = new DataGridView();
-        public DataGridView dgwTeacherColleagues = new DataGridView();
+        public static DataGridView dgwTeacherColleagues = new DataGridView();
         public static DataGridView dgwTeacherAllTasks = new DataGridView();
 
 
@@ -50,6 +50,9 @@ namespace EducationProject.View.Teacher
         public static Button btnTeacherUpdateTask = new Button();
         public static Button btnTeacherWriteMessageMentor = new Button();
         public static Button btnTeacherLibraryAdd = new Button();
+        Button btnTeacherLibraryDelete = new Button();
+        Button btnTeacherLibraryDownload = new Button();
+
 
 
         //Declare comboBox 
@@ -539,32 +542,38 @@ namespace EducationProject.View.Teacher
 
         }
 
-        // Shows clicked colleague info
-        private void ShowColleagueInfo(object sender, EventArgs e)
+        // Shows clicked Colleague info
+        private  void ShowColleagueInfo(object sender, EventArgs e)
         {
+            dgwTeacherColleagues.Enabled = false;
+
             TeacherInfo ColleagueInfo = new TeacherInfo();
             ColleagueInfo.ShowClickedColleagueInfo(
               Convert.ToInt32(dgwTeacherColleagues.CurrentRow.Cells[0].Value),
               Convert.ToInt32(dgwTeacherColleagues.CurrentRow.Cells[1].Value),
-              dgwTeacherColleagues.CurrentRow.Cells[2].Value.ToString(),
-              dgwTeacherColleagues.CurrentRow.Cells[3].Value.ToString(),
-              dgwTeacherColleagues.CurrentRow.Cells[4].Value.ToString(),
-              dgwTeacherColleagues.CurrentRow.Cells[5].Value.ToString(),
-              dgwTeacherColleagues.CurrentRow.Cells[6].Value.ToString(),
-              dgwTeacherColleagues.CurrentRow.Cells[7].Value.ToString());
+                    dgwTeacherColleagues.CurrentRow.Cells[2].Value.ToString(),
+                    dgwTeacherColleagues.CurrentRow.Cells[3].Value.ToString(),
+                    dgwTeacherColleagues.CurrentRow.Cells[4].Value.ToString(),
+                    dgwTeacherColleagues.CurrentRow.Cells[5].Value.ToString(),
+                    dgwTeacherColleagues.CurrentRow.Cells[6].Value.ToString(),
+                    dgwTeacherColleagues.CurrentRow.Cells[7].Value.ToString());
 
             ColleagueInfo.Show();
 
         }
-
-
 
         ////////  //"Library"-option//  ///////////  
 
         //Creates all items on the panel
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //prevets of adding the same function again to theese buttons
+            btnTeacherLibraryAdd.Click -= AddResource;
+            btnTeacherLibraryDelete.Click -= DeleteSource;
+            dgwTeacherLibraryList.Click -= GetSourceId;
+            btnTeacherLibraryDownload.Click -= DownloadPdf;
 
+            //
             PanelTeacher.Controls.Clear();
             Height = StandartHeight;
             PanelTeacher.Width = panelNormalWidth;
@@ -592,14 +601,12 @@ namespace EducationProject.View.Teacher
             btnTeacherLibraryAdd.Height = 25;
             btnTeacherLibraryAdd.Width = 80;
 
-            Button btnTeacherLibraryDelete = new Button();
             btnTeacherLibraryDelete.Left = 99;
             btnTeacherLibraryDelete.Top = 178;
             btnTeacherLibraryDelete.Text = "Delete";
             btnTeacherLibraryDelete.Height = 25;
             btnTeacherLibraryDelete.Width = 80;
 
-            Button btnTeacherLibraryDownload = new Button();
             btnTeacherLibraryDownload.Left = 469;
             btnTeacherLibraryDownload.Top = 178;
             btnTeacherLibraryDownload.Text = "Download";
