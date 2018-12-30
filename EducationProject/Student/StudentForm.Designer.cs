@@ -180,6 +180,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "StudentForm";
             this.Text = "Student";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();

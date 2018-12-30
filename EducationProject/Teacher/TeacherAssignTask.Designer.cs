@@ -62,6 +62,7 @@
             // 
             // cbxTeacherAssignGroup
             // 
+            this.cbxTeacherAssignGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTeacherAssignGroup.FormattingEnabled = true;
             this.cbxTeacherAssignGroup.Location = new System.Drawing.Point(172, 36);
             this.cbxTeacherAssignGroup.Margin = new System.Windows.Forms.Padding(4);
@@ -72,6 +73,7 @@
             // 
             // cbxTeacherAssignTask
             // 
+            this.cbxTeacherAssignTask.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTeacherAssignTask.FormattingEnabled = true;
             this.cbxTeacherAssignTask.Location = new System.Drawing.Point(109, 64);
             this.cbxTeacherAssignTask.Margin = new System.Windows.Forms.Padding(4);

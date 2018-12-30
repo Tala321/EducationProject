@@ -14,8 +14,9 @@ namespace EducationProject.View.Teacher
     {
         EducationProjectEntities db = new EducationProjectEntities();
 
-        //Declares variables to hold TaskId
+        //Declares variables to hold TaskIdand and datetime
         int Taskid;
+        DateTime date;
 
         public TeacherUpdateTask()
         {
@@ -47,27 +48,35 @@ namespace EducationProject.View.Teacher
             {
                 if (tbxTeacherUpdateTaskDuration.Text.All(char.IsDigit))
                 {
-                    foreach (var item in db.Tasks.ToList())
+                    if (DateTime.TryParse(tbxTeacherUpdateTaskStartDate.Text, out date))
                     {
-
-
-                        if (item.TaskId == Taskid)
+                        foreach (var item in db.Tasks.ToList())
                         {
-                            item.TaskName = tbxTeacherUpdateTaskName.Text;
-                            item.TaskUrl = tbxTeacherUpdateTaskUrl.Text;
-                            item.TaskStartDate = tbxTeacherUpdateTaskStartDate.Text;
-                            item.TaskDuration = Convert.ToInt32(tbxTeacherUpdateTaskDuration.Text);
-                            item.TaskDetails = tbxTeacherUpdateTaskDetails.Text;
-                            item.TaskCategoryId = Convert.ToInt32(cbxTeacherUpdateTaskCategory.Text);
-                            dgwUpdateTasksList.DataSource = db.Tasks.ToList();
 
-                            db.SaveChanges();
-                            TeacherForm.btnTeacherUpdateTask.Enabled = true;
-                            CleanFields();
-                            break;
+
+                            if (item.TaskId == Taskid)
+                            {
+                                item.TaskName = tbxTeacherUpdateTaskName.Text;
+                                item.TaskUrl = tbxTeacherUpdateTaskUrl.Text;
+                                item.TaskStartDate = tbxTeacherUpdateTaskStartDate.Text;
+                                item.TaskDuration = Convert.ToInt32(tbxTeacherUpdateTaskDuration.Text);
+                                item.TaskDetails = tbxTeacherUpdateTaskDetails.Text;
+                                item.TaskCategoryId = Convert.ToInt32(cbxTeacherUpdateTaskCategory.Text);
+                                dgwUpdateTasksList.DataSource = db.Tasks.ToList();
+
+                                db.SaveChanges();
+                                TeacherForm.btnTeacherUpdateTask.Enabled = true;
+                                CleanFields();
+                                MessageBox.Show("Successfully saved to the database");
+                                MessageBox.Show("The changes on the main screen will be applied after reopening the app ");
+                                break;
+                            }
                         }
                     }
-
+                    else
+                    {
+                        MessageBox.Show("Please, Enter valid date: Start Date");
+                    }
                 }
                 else
                 {

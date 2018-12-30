@@ -52,14 +52,22 @@ namespace EducationProject.View.Teacher
             {
                 if (tbxTeacherTaskPoint.Text.All(char.IsDigit))
                 {
-                    if (item.AssignTaskId == assignTaskId)
+                    if (Convert.ToInt32(tbxTeacherTaskPoint.Text)<101)
                     {
-                        item.TaskPoint = Convert.ToInt32(tbxTeacherTaskPoint.Text);
-                        db.SaveChanges();
-                        dgwTeacherTranscript.DataSource = db.AssignTasks.ToList();
-                        tbxTeacherTaskPoint.Text = "";
-                        break;
+                        if (item.AssignTaskId == assignTaskId)
+                        {
+                            item.TaskPoint = Convert.ToInt32(tbxTeacherTaskPoint.Text);
+                            db.SaveChanges();
+                            dgwTeacherTranscript.DataSource = db.AssignTasks.ToList();
+                            tbxTeacherTaskPoint.Text = "";
+                            break;
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Entered value should be between 0 and 100");
+                        break;
+                    }                 
                 }
                 else
                 {

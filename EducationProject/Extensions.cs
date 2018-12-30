@@ -20,6 +20,7 @@ namespace EducationProject
         static string ChosedFile;
         static string FileName;
         static string FolderName;
+        static int TeacherId;
 
 
         static OpenFileDialog fileDialog = new OpenFileDialog();
@@ -115,7 +116,14 @@ namespace EducationProject
         {
             EducationProjectEntities db = new EducationProjectEntities();
 
-            foreach (var item in db.Groups.ToList())
+            foreach (var item1 in db.Teachers.ToList())
+            {
+                if(item1.TeacherEmail== WelcomeScreen.UserEmail)
+                {
+                    TeacherId = item1.TeacherId;
+                }
+            }
+            foreach (var item in db.Groups.Where(x=> x.TeacherId== TeacherId).ToList())
             {
                 _cbx.Items.Add(item.GroupName);
             }
@@ -334,7 +342,7 @@ namespace EducationProject
         {
             EducationProjectEntities db = new EducationProjectEntities();
 
-            foreach (var item in db.Mentors.ToList())
+            foreach (var item in db.Mentors.Where(x=>x.MentorEmail != WelcomeScreen.UserEmail).ToList())
             {
                 _cbx.Items.Add(item.MentorEmail);
             }

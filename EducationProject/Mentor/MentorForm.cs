@@ -446,7 +446,7 @@ namespace EducationProject.View.Mentor
 
 
             //Shows Mentors
-            dgwMentorsList.DataSource = db.Mentors.ToList();
+            dgwMentorsList.DataSource = db.Mentors.Where(x=>x.MentorEmail != WelcomeScreen.UserEmail).ToList();
             dgwMentorTeachersList.DataSource = db.Teachers.ToList();
 
             //Events
@@ -618,6 +618,12 @@ namespace EducationProject.View.Mentor
             TeacherAddToLibrary AddSource = new TeacherAddToLibrary();
             AddSource.Show();
             
+        }
+
+        //Enables Sign in button
+        private void MentorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WelcomeScreen.btnSignIn.Enabled = true;
         }
     }
 }

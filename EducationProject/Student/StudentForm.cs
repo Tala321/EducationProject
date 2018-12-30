@@ -679,5 +679,11 @@ namespace EducationProject.View.Student
             StudentInbox StudentInbox = new StudentInbox();
             StudentInbox.Show();
         }
+
+        //Enables Sign in button
+        private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WelcomeScreen.btnSignIn.Enabled = true;
+        }
     }
 }

@@ -79,6 +79,9 @@ namespace EducationProject.View.Teacher
                     db.SaveChanges();
                     dgwAddLibrarySourceList.DataSource = db.Libraries.ToList();
                     SetDefaultFields();
+                    MessageBox.Show("Successfully saved to the database");
+                    MessageBox.Show("Please, refresh the main screen to see the changes");
+
                 }
                 else
                 {

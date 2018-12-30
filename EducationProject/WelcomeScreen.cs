@@ -15,6 +15,9 @@ namespace EducationProject.View
 {
     public partial class WelcomeScreen : Form
     {
+
+        public static Button btnSignIn = new Button();
+
         //Database
         EducationProjectEntities db = new EducationProjectEntities();
 
@@ -25,7 +28,20 @@ namespace EducationProject.View
         public WelcomeScreen()
         {
             InitializeComponent();
+            CreateSignInBtn();
             FillCbxWithUserType();
+        }
+
+        private void CreateSignInBtn()
+        {
+            btnSignIn.Width = 80;
+            btnSignIn.Height = 25;
+            btnSignIn.Left = 350;
+            btnSignIn.Font = new Font("Microsoft Sans Serif", Convert.ToInt32(10));
+            btnSignIn.Top = 147;
+            btnSignIn.Text = "Sign in";
+            btnSignIn.Click += CheckUserInfo;
+            this.Controls.Add(btnSignIn);
         }
 
         //Fill combobox with usertype names
@@ -55,7 +71,11 @@ namespace EducationProject.View
 
             if (db.Logins.ToList().Any(t => t.LoginEmail == tbxLoginEmail.Text && t.LoginPassword == tbxLoginPassword.Text && t.UserTypeId == UserType))
             {
+                //holds user email
                 UserEmail = tbxLoginEmail.Text;
+
+                //Disables th ebutton
+                btnSignIn.Enabled = false;
 
                 if (UserType == 1)
                 {

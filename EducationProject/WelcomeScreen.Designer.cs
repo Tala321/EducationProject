@@ -32,7 +32,6 @@
             this.tbxLoginPassword = new System.Windows.Forms.TextBox();
             this.lblLoginEmail = new System.Windows.Forms.Label();
             this.lblLoginPassword = new System.Windows.Forms.Label();
-            this.btnLoginSignIn = new System.Windows.Forms.Button();
             this.lblLoginUserType = new System.Windows.Forms.Label();
             this.cbxLoginUserType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -73,17 +72,6 @@
             this.lblLoginPassword.TabIndex = 4;
             this.lblLoginPassword.Text = "Password:";
             // 
-            // btnLoginSignIn
-            // 
-            this.btnLoginSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginSignIn.Location = new System.Drawing.Point(363, 149);
-            this.btnLoginSignIn.Name = "btnLoginSignIn";
-            this.btnLoginSignIn.Size = new System.Drawing.Size(80, 25);
-            this.btnLoginSignIn.TabIndex = 5;
-            this.btnLoginSignIn.Text = "Sign in";
-            this.btnLoginSignIn.UseVisualStyleBackColor = true;
-            this.btnLoginSignIn.Click += new System.EventHandler(this.CheckUserInfo);
-            // 
             // lblLoginUserType
             // 
             this.lblLoginUserType.AutoSize = true;
@@ -111,7 +99,6 @@
             this.ClientSize = new System.Drawing.Size(577, 249);
             this.Controls.Add(this.lblLoginUserType);
             this.Controls.Add(this.cbxLoginUserType);
-            this.Controls.Add(this.btnLoginSignIn);
             this.Controls.Add(this.lblLoginPassword);
             this.Controls.Add(this.lblLoginEmail);
             this.Controls.Add(this.tbxLoginPassword);
@@ -129,7 +116,6 @@
         private System.Windows.Forms.TextBox tbxLoginPassword;
         private System.Windows.Forms.Label lblLoginEmail;
         private System.Windows.Forms.Label lblLoginPassword;
-        private System.Windows.Forms.Button btnLoginSignIn;
         private System.Windows.Forms.Label lblLoginUserType;
         private System.Windows.Forms.ComboBox cbxLoginUserType;
     }

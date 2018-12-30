@@ -70,7 +70,7 @@ namespace EducationProject.View.Teacher
         {
             if (string.IsNullOrEmpty(cbxTeacherAssignGroup.Text) || string.IsNullOrEmpty(cbxTeacherAssignTask.Text) || string.IsNullOrEmpty(chbxTeacherAssignStudetnList.Text))
             {
-                MessageBox.Show("Please Select all fields");
+                MessageBox.Show("Please fill in all fields");
             }
             else
             {
@@ -81,7 +81,6 @@ namespace EducationProject.View.Teacher
                         if (item2.StudentName == item1.ToString())
                         {
                             StudentId = item2.StudentId;
-
                             foreach (var item3 in db.Tasks.ToList())
                             {
                                 if (item3.TaskName == cbxTeacherAssignTask.Text)
@@ -95,7 +94,8 @@ namespace EducationProject.View.Teacher
                                         AssignTask assign = new AssignTask()
                                         {
                                             StudentId = StudentId,
-                                            TaskId = item3.TaskId
+                                            TaskId = item3.TaskId,
+                                            GroupId = GroupId,
                                         };
                                         db.AssignTasks.Add(assign);
                                         db.SaveChanges();

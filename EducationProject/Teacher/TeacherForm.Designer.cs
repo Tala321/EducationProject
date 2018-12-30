@@ -204,6 +204,7 @@
             this.Name = "TeacherForm";
             this.ShowInTaskbar = false;
             this.Text = "Teacher";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TeacherForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

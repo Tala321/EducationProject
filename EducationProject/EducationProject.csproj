@@ -130,238 +130,238 @@
     <Compile Include="UserType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="View\Extensions.cs" />
-    <Compile Include="View\Mentor\MentorInbox.cs">
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Mentor\MentorInbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mentor\MentorInbox.Designer.cs">
+    <Compile Include="Mentor\MentorInbox.Designer.cs">
       <DependentUpon>MentorInbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mentor\MentorForm.cs">
+    <Compile Include="Mentor\MentorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mentor\MentorForm.Designer.cs">
+    <Compile Include="Mentor\MentorForm.Designer.cs">
       <DependentUpon>MentorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mentor\MentorEditInfo.cs">
+    <Compile Include="Mentor\MentorEditInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mentor\MentorEditInfo.Designer.cs">
+    <Compile Include="Mentor\MentorEditInfo.Designer.cs">
       <DependentUpon>MentorEditInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mentor\MentorInfo.cs">
+    <Compile Include="Mentor\MentorInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mentor\MentorInfo.Designer.cs">
+    <Compile Include="Mentor\MentorInfo.Designer.cs">
       <DependentUpon>MentorInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mentor\MentorMessageToMentor.cs">
+    <Compile Include="Mentor\MentorMessageToMentor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mentor\MentorMessageToMentor.Designer.cs">
+    <Compile Include="Mentor\MentorMessageToMentor.Designer.cs">
       <DependentUpon>MentorMessageToMentor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mentor\MentorMessageToGroup.cs">
+    <Compile Include="Mentor\MentorMessageToGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mentor\MentorMessageToGroup.Designer.cs">
+    <Compile Include="Mentor\MentorMessageToGroup.Designer.cs">
       <DependentUpon>MentorMessageToGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mentor\MentorMessageToTeacher.cs">
+    <Compile Include="Mentor\MentorMessageToTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mentor\MentorMessageToTeacher.Designer.cs">
+    <Compile Include="Mentor\MentorMessageToTeacher.Designer.cs">
       <DependentUpon>MentorMessageToTeacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Mentor\MentorSent.cs">
+    <Compile Include="Mentor\MentorSent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Mentor\MentorSent.Designer.cs">
+    <Compile Include="Mentor\MentorSent.Designer.cs">
       <DependentUpon>MentorSent.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Student\GroupmateInfo.cs">
+    <Compile Include="Student\GroupmateInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Student\GroupmateInfo.Designer.cs">
+    <Compile Include="Student\GroupmateInfo.Designer.cs">
       <DependentUpon>GroupmateInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Student\StudentInbox.cs">
+    <Compile Include="Student\StudentInbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Student\StudentInbox.Designer.cs">
+    <Compile Include="Student\StudentInbox.Designer.cs">
       <DependentUpon>StudentInbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Student\StudentMessageToMentor.cs">
+    <Compile Include="Student\StudentMessageToMentor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Student\StudentMessageToMentor.Designer.cs">
+    <Compile Include="Student\StudentMessageToMentor.Designer.cs">
       <DependentUpon>StudentMessageToMentor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Student\StudentMessageToTeacher.cs">
+    <Compile Include="Student\StudentMessageToTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Student\StudentMessageToTeacher.Designer.cs">
+    <Compile Include="Student\StudentMessageToTeacher.Designer.cs">
       <DependentUpon>StudentMessageToTeacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Student\StudentEditInfo.cs">
+    <Compile Include="Student\StudentEditInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Student\StudentEditInfo.Designer.cs">
+    <Compile Include="Student\StudentEditInfo.Designer.cs">
       <DependentUpon>StudentEditInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Student\StudentSent.cs">
+    <Compile Include="Student\StudentSent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Student\StudentSent.Designer.cs">
+    <Compile Include="Student\StudentSent.Designer.cs">
       <DependentUpon>StudentSent.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Student\StudentForm.cs">
+    <Compile Include="Student\StudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Student\StudentForm.Designer.cs">
+    <Compile Include="Student\StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Student\StudentMessageToGroupmate.cs">
+    <Compile Include="Student\StudentMessageToGroupmate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Student\StudentMessageToGroupmate.Designer.cs">
+    <Compile Include="Student\StudentMessageToGroupmate.Designer.cs">
       <DependentUpon>StudentMessageToGroupmate.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherAddToLibrary.cs">
+    <Compile Include="Teacher\TeacherAddToLibrary.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherAddToLibrary.Designer.cs">
+    <Compile Include="Teacher\TeacherAddToLibrary.Designer.cs">
       <DependentUpon>TeacherAddToLibrary.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherTranscript.cs">
+    <Compile Include="Teacher\TeacherTranscript.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherTranscript.Designer.cs">
+    <Compile Include="Teacher\TeacherTranscript.Designer.cs">
       <DependentUpon>TeacherTranscript.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherAssignTask.cs">
+    <Compile Include="Teacher\TeacherAssignTask.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherAssignTask.Designer.cs">
+    <Compile Include="Teacher\TeacherAssignTask.Designer.cs">
       <DependentUpon>TeacherAssignTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherInbox.cs">
+    <Compile Include="Teacher\TeacherInbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherInbox.Designer.cs">
+    <Compile Include="Teacher\TeacherInbox.Designer.cs">
       <DependentUpon>TeacherInbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherInfo.cs">
+    <Compile Include="Teacher\TeacherInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherInfo.Designer.cs">
+    <Compile Include="Teacher\TeacherInfo.Designer.cs">
       <DependentUpon>TeacherInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherMessageToColleague.cs">
+    <Compile Include="Teacher\TeacherMessageToColleague.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherMessageToColleague.Designer.cs">
+    <Compile Include="Teacher\TeacherMessageToColleague.Designer.cs">
       <DependentUpon>TeacherMessageToColleague.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherMessageToMentor.cs">
+    <Compile Include="Teacher\TeacherMessageToMentor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherMessageToMentor.Designer.cs">
+    <Compile Include="Teacher\TeacherMessageToMentor.Designer.cs">
       <DependentUpon>TeacherMessageToMentor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherMessageToGroup.cs">
+    <Compile Include="Teacher\TeacherMessageToGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherMessageToGroup.Designer.cs">
+    <Compile Include="Teacher\TeacherMessageToGroup.Designer.cs">
       <DependentUpon>TeacherMessageToGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherSent.cs">
+    <Compile Include="Teacher\TeacherSent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherSent.Designer.cs">
+    <Compile Include="Teacher\TeacherSent.Designer.cs">
       <DependentUpon>TeacherSent.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherStudentInfo.cs">
+    <Compile Include="Teacher\TeacherStudentInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherStudentInfo.Designer.cs">
+    <Compile Include="Teacher\TeacherStudentInfo.Designer.cs">
       <DependentUpon>TeacherStudentInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherUpdateTask.cs">
+    <Compile Include="Teacher\TeacherUpdateTask.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherUpdateTask.Designer.cs">
+    <Compile Include="Teacher\TeacherUpdateTask.Designer.cs">
       <DependentUpon>TeacherUpdateTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherForm.cs">
+    <Compile Include="Teacher\TeacherForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherForm.Designer.cs">
+    <Compile Include="Teacher\TeacherForm.Designer.cs">
       <DependentUpon>TeacherForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherAddTask.cs">
+    <Compile Include="Teacher\TeacherAddTask.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherAddTask.Designer.cs">
+    <Compile Include="Teacher\TeacherAddTask.Designer.cs">
       <DependentUpon>TeacherAddTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher\TeacherEditInfo.cs">
+    <Compile Include="Teacher\TeacherEditInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Teacher\TeacherEditInfo.Designer.cs">
+    <Compile Include="Teacher\TeacherEditInfo.Designer.cs">
       <DependentUpon>TeacherEditInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\WelcomeScreen.cs">
+    <Compile Include="WelcomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\WelcomeScreen.Designer.cs">
+    <Compile Include="WelcomeScreen.Designer.cs">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Mentor\MentorInbox.resx">
+    <EmbeddedResource Include="Mentor\MentorInbox.resx">
       <DependentUpon>MentorInbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mentor\MentorForm.resx">
+    <EmbeddedResource Include="Mentor\MentorForm.resx">
       <DependentUpon>MentorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mentor\MentorEditInfo.resx">
+    <EmbeddedResource Include="Mentor\MentorEditInfo.resx">
       <DependentUpon>MentorEditInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mentor\MentorInfo.resx">
+    <EmbeddedResource Include="Mentor\MentorInfo.resx">
       <DependentUpon>MentorInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mentor\MentorMessageToMentor.resx">
+    <EmbeddedResource Include="Mentor\MentorMessageToMentor.resx">
       <DependentUpon>MentorMessageToMentor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mentor\MentorMessageToGroup.resx">
+    <EmbeddedResource Include="Mentor\MentorMessageToGroup.resx">
       <DependentUpon>MentorMessageToGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mentor\MentorMessageToTeacher.resx">
+    <EmbeddedResource Include="Mentor\MentorMessageToTeacher.resx">
       <DependentUpon>MentorMessageToTeacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Mentor\MentorSent.resx">
+    <EmbeddedResource Include="Mentor\MentorSent.resx">
       <DependentUpon>MentorSent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Student\GroupmateInfo.resx">
+    <EmbeddedResource Include="Student\GroupmateInfo.resx">
       <DependentUpon>GroupmateInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Student\StudentInbox.resx">
+    <EmbeddedResource Include="Student\StudentInbox.resx">
       <DependentUpon>StudentInbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Student\StudentMessageToMentor.resx">
+    <EmbeddedResource Include="Student\StudentMessageToMentor.resx">
       <DependentUpon>StudentMessageToMentor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Student\StudentEditInfo.resx">
+    <EmbeddedResource Include="Student\StudentEditInfo.resx">
       <DependentUpon>StudentEditInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Student\StudentMessageToTeacher.resx">
+    <EmbeddedResource Include="Student\StudentMessageToTeacher.resx">
       <DependentUpon>StudentMessageToTeacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Student\StudentSent.resx">
+    <EmbeddedResource Include="Student\StudentSent.resx">
       <DependentUpon>StudentSent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Student\StudentForm.resx">
+    <EmbeddedResource Include="Student\StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -373,52 +373,52 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Student\StudentMessageToGroupmate.resx">
+    <EmbeddedResource Include="Student\StudentMessageToGroupmate.resx">
       <DependentUpon>StudentMessageToGroupmate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherAddToLibrary.resx">
+    <EmbeddedResource Include="Teacher\TeacherAddToLibrary.resx">
       <DependentUpon>TeacherAddToLibrary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherTranscript.resx">
+    <EmbeddedResource Include="Teacher\TeacherTranscript.resx">
       <DependentUpon>TeacherTranscript.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherAssignTask.resx">
+    <EmbeddedResource Include="Teacher\TeacherAssignTask.resx">
       <DependentUpon>TeacherAssignTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherInbox.resx">
+    <EmbeddedResource Include="Teacher\TeacherInbox.resx">
       <DependentUpon>TeacherInbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherInfo.resx">
+    <EmbeddedResource Include="Teacher\TeacherInfo.resx">
       <DependentUpon>TeacherInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherMessageToColleague.resx">
+    <EmbeddedResource Include="Teacher\TeacherMessageToColleague.resx">
       <DependentUpon>TeacherMessageToColleague.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherMessageToGroup.resx">
+    <EmbeddedResource Include="Teacher\TeacherMessageToGroup.resx">
       <DependentUpon>TeacherMessageToGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherMessageToMentor.resx">
+    <EmbeddedResource Include="Teacher\TeacherMessageToMentor.resx">
       <DependentUpon>TeacherMessageToMentor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherSent.resx">
+    <EmbeddedResource Include="Teacher\TeacherSent.resx">
       <DependentUpon>TeacherSent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherStudentInfo.resx">
+    <EmbeddedResource Include="Teacher\TeacherStudentInfo.resx">
       <DependentUpon>TeacherStudentInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherUpdateTask.resx">
+    <EmbeddedResource Include="Teacher\TeacherUpdateTask.resx">
       <DependentUpon>TeacherUpdateTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherForm.resx">
+    <EmbeddedResource Include="Teacher\TeacherForm.resx">
       <DependentUpon>TeacherForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherAddTask.resx">
+    <EmbeddedResource Include="Teacher\TeacherAddTask.resx">
       <DependentUpon>TeacherAddTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher\TeacherEditInfo.resx">
+    <EmbeddedResource Include="Teacher\TeacherEditInfo.resx">
       <DependentUpon>TeacherEditInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\WelcomeScreen.resx">
+    <EmbeddedResource Include="WelcomeScreen.resx">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">

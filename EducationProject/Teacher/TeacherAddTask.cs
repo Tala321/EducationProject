@@ -14,6 +14,9 @@ namespace EducationProject.View.Teacher
     {
         EducationProjectEntities db = new EducationProjectEntities();
 
+        //Holds info
+        DateTime date;
+
         public TeacherAddTask()
         {
             InitializeComponent();
@@ -28,20 +31,30 @@ namespace EducationProject.View.Teacher
             {
                 if (tbxTeacherAddTaskDuration.Text.All(char.IsDigit))
                 {
-                    Task task = new Task()
+                    if (DateTime.TryParse(tbxTeacherAddTaskStartDate.Text, out date))
                     {
-                        TaskName = tbxTeacherAddTaskName.Text,
-                        TaskUrl = tbxTeacherAddTaskUrl.Text,
-                        TaskStartDate = tbxTeacherAddTaskStartDate.Text,
-                        TaskDuration = Convert.ToInt32(tbxTeacherAddTaskDuration.Text),
-                        TaskDetails = tbxTeacherAddTaskDetails.Text,
-                        TaskCategoryId = Convert.ToInt32(cbxTeacherAddTaskCategory.Text)
-                    };
-                    TeacherForm.btnTeacherAddTask.Enabled = true;
-                    db.Tasks.Add(task);
-                    db.SaveChanges();
-                    CleanFields();
-                    dgwAddTasksList.DataSource = db.Tasks.ToList();
+                        Task task = new Task()
+                        {
+                            TaskName = tbxTeacherAddTaskName.Text,
+                            TaskUrl = tbxTeacherAddTaskUrl.Text,
+                            TaskStartDate= tbxTeacherAddTaskStartDate.Text,
+                            TaskDuration = Convert.ToInt32(tbxTeacherAddTaskDuration.Text),
+                            TaskDetails = tbxTeacherAddTaskDetails.Text,
+                            TaskCategoryId = Convert.ToInt32(cbxTeacherAddTaskCategory.Text)
+                        };
+                        TeacherForm.btnTeacherAddTask.Enabled = true;
+                        db.Tasks.Add(task);
+                        db.SaveChanges();
+                        CleanFields();
+                        dgwAddTasksList.DataSource = db.Tasks.ToList();
+                        MessageBox.Show("Successfully saved to the database");
+                        MessageBox.Show("Please, refresh the main screen to see the changes");
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Please, Enter valid date: Start Date");
+                    }
                 }
                 else
                 {

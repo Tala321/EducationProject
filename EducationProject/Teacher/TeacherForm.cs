@@ -414,6 +414,7 @@ namespace EducationProject.View.Teacher
             dgwTeacherGroups.Font = new Font("Microsoft Sans Serif", Convert.ToInt32(8.25));
             dgwTeacherGroups.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwTeacherGroups.ReadOnly = true;
+            dgwTeacherGroups.Enabled = false;
 
             Label lblTeacherSelectGroups = new Label();
             lblTeacherSelectGroups.Left = 0;
@@ -453,6 +454,7 @@ namespace EducationProject.View.Teacher
                 {
                     GroupId = item.GroupId;
                     dgwTeacherGroups.DataSource = db.Students.Where(d => d.GroupId == GroupId).ToList();
+                    dgwTeacherGroups.Enabled = true;
                     break;
                 }
             }
@@ -818,6 +820,12 @@ namespace EducationProject.View.Teacher
             TeacherMessageToMentor MessageToMentor = new TeacherMessageToMentor();
             MessageToMentor.Show();
             btnTeacherWriteMessageMentor.Enabled = false;
+        }
+
+        //Enables Sign in button
+        private void TeacherForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WelcomeScreen.btnSignIn.Enabled = true;
         }
     }
 }

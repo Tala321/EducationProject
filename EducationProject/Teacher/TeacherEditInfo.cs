@@ -8,32 +8,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EducationProject.View.Student
+namespace EducationProject.View.Teacher
 {
-    public partial class StudentEditInfo : Form
+    public partial class TeacherEditInfo : Form
     {
         //Database
         EducationProjectEntities db = new EducationProjectEntities();
 
-        StudentForm student = new StudentForm();
+        TeacherForm teacher = new TeacherForm();
 
-        public StudentEditInfo()
+        public TeacherEditInfo()
         {
             InitializeComponent();
         }
 
         //Edits Teacher Phone
-        private void btnStudentEditConfirm_Click(object sender, EventArgs e)
+        private void btnTeacherEditConfirm_Click(object sender, EventArgs e)
         {
-            foreach (var item in db.Students.ToList().Where(t => t.StudentEmail == WelcomeScreen.UserEmail))
+            foreach (var item in db.Teachers.ToList().Where(t => t.TeacherEmail == WelcomeScreen.UserEmail))
             {
-                if (tbxStudentPhoneChange.Text.Length < 10)
+                if (tbxTeacherPhoneChange.Text.Length < 10)
                 {
-                    if (tbxStudentPhoneChange.Text.All(Char.IsDigit))
+                    if (tbxTeacherPhoneChange.Text.All(Char.IsDigit))
                     {
-                        item.StudentPhone = tbxStudentPhoneChange.Text;
+
+                        item.TeacherPhone = tbxTeacherPhoneChange.Text;
                         db.SaveChanges();
-                        tbxStudentPhoneChange.Text = "";
+                        tbxTeacherPhoneChange.Text = "";
+                        MessageBox.Show("Successfully saved to the database");
                         MessageBox.Show("The changes will be applied after reopening the app");
                         break;
                     }
@@ -51,9 +53,9 @@ namespace EducationProject.View.Student
         }
 
         //Enables btn after closing
-        private void StudentEditInfo_FormClosed(object sender, FormClosedEventArgs e)
+        private void TeacherEditInfo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            StudentForm.btnStudentInfoEdit.Enabled = true;
+            TeacherForm.btnTeacherInfoEdit.Enabled = true;
         }
     }
 }
