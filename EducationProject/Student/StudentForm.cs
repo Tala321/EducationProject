@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -319,10 +320,47 @@ namespace EducationProject.View.Student
 
             //Events 
             dgwStudentAllTasks.DoubleClick += ShowTaskInfo;
+            btnStudentTaskExport.Click += ExportTranscript;
 
             //add items
             PanelStudent.Controls.Add(dgwStudentAllTasks);
             PanelStudent.Controls.Add(btnStudentTaskExport);
+        }
+
+        //Exports transcript
+        private void ExportTranscript(object sender, EventArgs e)
+        {
+            ExportExcel(dgwStudentAllTasks, "Transcript");
+        }
+
+        //Save Transcript as an excelfile file
+        private void ExportExcel(DataGridView _dgw, string _fileName)
+        {
+            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+            app.Application.Workbooks.Add(Type.Missing);
+            app.Columns.ColumnWidth = 20;
+
+            for (int i = 1; i < _dgw.Columns.Count + 1; i++)
+            {
+                app.Cells[1,i] = _dgw.Columns[i - 1].HeaderText;
+            }
+
+            for (int x = 0; x < _dgw.Rows.Count; x++)
+            {
+                for (int j = 0; j < _dgw.Columns.Count; j++)
+                {
+                    if (_dgw.Rows[x].Cells[j].Value != null)
+                    {
+                        app.Cells[x + 2, j + 1] = _dgw.Rows[x].Cells[j].Value.ToString();
+                    }
+                }
+            }
+
+            string root = Directory.GetCurrentDirectory();
+            string Mainfoler = Directory.GetParent(Directory.GetParent(Directory.GetParent(root).FullName).FullName).FullName;
+            MessageBox.Show("The excel file successfully exported at " + Mainfoler + @"\exportedFiles\" + _fileName);
+            app.ActiveWorkbook.SaveCopyAs(Mainfoler + @"\exportedFiles\" + _fileName + ".xlsx");
+            app.ActiveWorkbook.Saved = true;
         }
 
         //Shows clicked task info
